@@ -1,12 +1,29 @@
 module.exports = {
   siteMetadata: {
     title: `Blake Adams`,
-    description: `Blake Adams is a software developer and technical consultant.`,
-    author: `Blake Adams`,
-    canonicalUrl: 'https://www.blakeadams.io'
+    description: `Blake Adams is a writer, software developer, technical consultant, and financial independence enthusiast living in Oxford, MS.`,
+    author: {
+      name: `Blake Adams`,
+      image: ``,
+      short_bio: `Hey, I'm <span>Blake Adams</span> and this is my personal web space where I share my work, my thoughts, my feels, and anything else that you might find useful on your visit here. I'm a software developer and computer scientist by training but I have interests that fall all over the map as you'll probably dis`
+    },
+    canonicalUrl: 'https://www.blakeadams.io',
+    social: [
+      {
+        name: "Facebook",
+        icon: "icon",
+        link: "http://"
+      },
+      {
+        name: "Twitter",
+        icon: "icon",
+        link: "http://"
+      }
+    ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
