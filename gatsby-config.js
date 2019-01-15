@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: "https://www.blakeadams.io",
     title: `Blake Adams`,
     description: `Blake Adams is a writer, software developer, technical consultant, and financial independence enthusiast living in Oxford, MS.`,
     author: {
       name: `Blake Adams`,
-      short_bio: `Hey, I'm <strong>Blake Adams</strong> and this is my personal web space where I share my work, my thoughts, my feels, and anything else that you might find useful on your visit here. I'm a software developer and computer scientist by training but I have interests that fall all over the map as you'll probably discover.`
+      short_bio: `Hey, I'm <strong>Blake Adams</strong> and this is my personal web space where I share my work, my thoughts, my feels, and anything else that you might find useful on your visit here. I'm a software developer and computer scientist by training but I have interests that fall all over the map as you'll probably discover. I'm available for contract software development work and technical consulting.`
     },
     canonical_url: 'https://www.blakeadams.io',
     social: [
@@ -40,6 +41,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -54,8 +56,51 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       }
     },
+    {
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				path: `${__dirname}/content/articles`,
+				name: 'articles',
+			},
+    },
+    {
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				path: `${__dirname}/content/projects`,
+				name: 'projects',
+			},
+    },
+    {
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				path: `${__dirname}/content/booknotes`,
+				name: 'booknotes',
+			},
+		},
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+				plugins: [
+					{
+						resolve: 'gatsby-remark-images',
+						options: {
+							maxWidth: 1080,
+							linkImagesToOriginal: true,
+						},
+					},
+					{
+						resolve: 'gatsby-remark-responsive-iframe',
+						options: {
+							wrapperStyle: 'margin-bottom: 1.0725rem',
+						},
+					},
+          'gatsby-remark-prismjs',
+          'gatsby-remark-smartypants'
+        ]
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
