@@ -68,36 +68,6 @@ const Intro = HighOrderIntro(({data, ...props}) => (
     </Wrapper>
 ));
 
-/*const IntroImage = () => (
-  <StaticQuery
-    query={introContentQuery}
-    render={data =>
-        <ImageWrapper>
-            <Img fluid={data.introImage.childImageSharp.fluid} />
-        </ImageWrapper>
-    }
-  />
-)
-
-const Intro = () => (
-    <StaticQuery
-    query={introContentQuery}
-    render={data =>
-    <Wrapper>
-        <BioWrapper>
-            <IntroImage/>
-            <Bio dangerouslySetInnerHTML={{__html: data.site.siteMetadata.author.short_bio }}/>
-        </BioWrapper>
-        <Social>
-            { data.site.siteMetadata.social.map((node) => (
-                <a href={ node.url } key={ node.name }>{ returnIcon(node.name) }</a>
-            ))}
-        </Social>
-    </Wrapper>
-    }
-    />
-)*/
-
 export { Intro }
 
 const introContentQuery = graphql`

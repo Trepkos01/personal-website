@@ -97,7 +97,8 @@ module.exports = {
 						},
 					},
           'gatsby-remark-prismjs',
-          'gatsby-remark-smartypants'
+          'gatsby-remark-smartypants',
+          'gatsby-remark-copy-linked-files'
         ]
       }
     },

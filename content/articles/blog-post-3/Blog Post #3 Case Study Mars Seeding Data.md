@@ -1,6 +1,9 @@
 ---
 title: "Case Study - Seeding Data into a Crowd-Sourced Application."
 tags: ["ruby", "mars", "rails", "postgresql"]
+date: "2017-01-01"
+featureImage: "./article_3.jpg"
+featured: "false"
 ---
 
 One of the classic issues with a crowd-sourced web application is the chicken-egg problem of attracting users to generate user-generated content without actually having any user-generated content to begin with. In this example, I attempt to seed the web application with as much information as possible; however given the granular nature of this information (restaurant menus), the extent of this seed data is the relevant restaurant information (name, address).

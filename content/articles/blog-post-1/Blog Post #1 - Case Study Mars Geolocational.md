@@ -1,6 +1,9 @@
 ---
 title: "Case Study - Mars Geolocational Single-Page-Search"
 tags: ["mars", "ruby", "rails", "postgresql"]
+date: "2016-01-01"
+featureImage: "./article_1.jpg"
+featured: "true"
 ---
 
 

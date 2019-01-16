@@ -1,6 +1,9 @@
 ---
 title: "Case Study - Mars Devise Omniauthentication and Social Media Sharing"
 tags: ["mars", "ruby", "rails", "postgresql"]
+date: "2016-02-01"
+featureImage: "./article_2.jpg"
+featured: "false"
 ---
 
   
