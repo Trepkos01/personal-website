@@ -59,8 +59,8 @@ module.exports = {
     {
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				path: `${__dirname}/content/articles`,
-				name: 'articles',
+				path: `${__dirname}/content/posts`,
+				name: 'posts',
 			},
     },
     {
@@ -82,6 +82,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        excerpt_separator: '<!-- end -->',
 				plugins: [
 					{
 						resolve: 'gatsby-remark-images',

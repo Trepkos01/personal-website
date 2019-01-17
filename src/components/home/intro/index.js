@@ -33,6 +33,7 @@ const BioWrapper = styled.div `
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    align-items: center;
 `
 
 const ImageWrapper = styled.div `
