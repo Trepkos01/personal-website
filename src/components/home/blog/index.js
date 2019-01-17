@@ -10,24 +10,25 @@ const FeaturedPost = styled.div `
     display: flex;
     flex-direction: column;
     margin-bottom: 1em;
-    align-items: flex-start;
+    align-items: center;
+    margin: 1em;
 
     @media (min-width:768px) {
         flex-direction: row;
+        padding:1em;
     }
 
     border: 1px solid lightgray;
     box-shadow: 2px 2px #ccc;
-    padding: 1em;
 `
 
 const FeaturedPostImage = styled.div `
     width:100%;
-    box-shadow: 2px 2px #ccc;
     flex: 1 0 200px;
 
     @media (min-width:768px) {
         flex: 1 0 400px;
+        box-shadow: 2px 2px #ccc;
     }
 `
 
@@ -36,28 +37,32 @@ const FeaturedPostTitle = styled.span `
 `
 
 const FeaturedPostExcerpt = styled.div `
+    padding: 1em;
+
     @media (min-width:768px) {
-        padding-left: 1em;
+        padding 0 0 0 1em;
     }
 `
 
 const RecentPosts = styled.div `
     display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 `
 
 const RecentPost = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 0 0 300px;
+
     border: 1px solid lightgray;
     box-shadow: 2px 2px #ccc;
     padding: 1em;
-    margin-bottom:1em;
+    margin: 1em;
 
     @media (min-width:768px) {
-        flex-direction: row;
+        flex: 0 0 28%;
     }
 `
 
@@ -68,9 +73,7 @@ const RecentPostThumbnail = styled.div `
     overflow:hidden;
 
     @media (min-width:768px) {
-        width:100px;
-        height:100px;
-        flex: 0 0 100px;
+        flex: 0 0 auto;
     }
 `
 
@@ -87,29 +90,31 @@ const Blog = () => (
         query={blogContentQuery}
         render={data => 
         <Wrapper>
-                <FeaturedPost>
-                    <FeaturedPostImage>
-                        <Img sizes={ data.featuredPost.edges[0].node.frontmatter.featureImage.childImageSharp.sizes }/>
-                    </FeaturedPostImage>
-                    <FeaturedPostExcerpt>
-                        <FeaturedPostTitle>{ data.featuredPost.edges[0].node.frontmatter.title }</FeaturedPostTitle>
-                        <p><small>{ data.featuredPost.edges[0].node.frontmatter.date }</small></p>
-                        <p>{ data.featuredPost.edges[0].node.excerpt } <a href="#">Read More</a></p>
-                    </FeaturedPostExcerpt>
-                </FeaturedPost>
-                <RecentPosts>
-                    { data.recentPosts.edges.map((node, index) => (
-                        <RecentPost key={ index }>
-                            <RecentPostThumbnail>
-                                <Img fluid={ node.node.frontmatter.featureImage.childImageSharp.fluid }/>
-                            </RecentPostThumbnail>
-                            <RecentPostTitle>
-                                <p><strong> { node.node.frontmatter.title } </strong></p>
-                                <p><a href="#">Read More..</a></p>
-                            </RecentPostTitle>
-                        </RecentPost>
-                    )) }
-                </RecentPosts>
+            <h1>Blog</h1>
+            <FeaturedPost>
+                <FeaturedPostImage>
+                    <Img sizes={ data.featuredPost.edges[0].node.frontmatter.featureImage.childImageSharp.sizes }/>
+                </FeaturedPostImage>
+                <FeaturedPostExcerpt>
+                    <FeaturedPostTitle>{ data.featuredPost.edges[0].node.frontmatter.title }</FeaturedPostTitle>
+                    <p><small>{ data.featuredPost.edges[0].node.frontmatter.date }</small></p>
+                    <p>{ data.featuredPost.edges[0].node.excerpt } <a href="#">Read More</a></p>
+                </FeaturedPostExcerpt>
+            </FeaturedPost>
+            <RecentPosts>
+                { data.recentPosts.edges.map((node, index) => (
+                    <RecentPost key={ index }>
+                        <RecentPostThumbnail>
+                            <Img fluid={ node.node.frontmatter.featureImage.childImageSharp.fluid }/>
+                        </RecentPostThumbnail>
+                        <RecentPostTitle>
+                            <p><strong> { node.node.frontmatter.title } </strong></p>
+                            <p> { node.node.excerpt } </p>
+                            <p><a href="#">Read More..</a></p>
+                        </RecentPostTitle>
+                    </RecentPost>
+                )) }
+            </RecentPosts>
         </Wrapper>
     }/>
 )
@@ -126,6 +131,7 @@ const blogContentQuery = graphql`
             edges {
                 node {
                     id
+                    excerpt(pruneLength: 100)
                     frontmatter {
                         title
                         date(formatString: "DD MMMM, YYYY")
