@@ -1,6 +1,6 @@
 ---
 title:  "Nothing excites you about technology?"
-tag: ["personal", "technology", "career", "computer science", "interviews"]
+tags: ["personal", "technology", "career", "computer science", "interviews"]
 date: "2018-01-01"
 featuredImage: "./featured.jpg"
 featured: "false"

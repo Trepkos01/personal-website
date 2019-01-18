@@ -85,6 +85,10 @@ const RecentPostExcerpt = styled.div `
     margin-top: 1em;
 `
 
+const PostTag = styled.small `
+    color: lightgray;
+`
+
 const Blog = () => (
     <StaticQuery
         query={blogContentQuery}
@@ -99,6 +103,7 @@ const Blog = () => (
                     <FeaturedPostTitle>{ data.featuredPost.edges[0].node.frontmatter.title }</FeaturedPostTitle>
                     <p><small>{ data.featuredPost.edges[0].node.frontmatter.date }</small></p>
                     <p>{ data.featuredPost.edges[0].node.excerpt } <a href="#">Read More</a></p>
+                    <p>{ data.featuredPost.edges[0].node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
                 </FeaturedPostExcerpt>
             </FeaturedPost>
             <RecentPosts>
@@ -111,6 +116,7 @@ const Blog = () => (
                             <p><strong> { node.node.frontmatter.title } </strong></p>
                             <p> { node.node.excerpt } </p>
                             <p><a href="#">Read More..</a></p>
+                            <p>{ node.node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
                         </RecentPostExcerpt>
                     </RecentPost>
                 )) }
