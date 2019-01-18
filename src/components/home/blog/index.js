@@ -62,6 +62,10 @@ const RecentPost = styled.div `
     margin: 1em;
 
     @media (min-width:768px) {
+        flex: 0 0 45%;
+    }
+
+    @media (min-width:1000px) {
         flex: 0 0 28%;
     }
 `
@@ -77,12 +81,8 @@ const RecentPostThumbnail = styled.div `
     }
 `
 
-const RecentPostTitle = styled.div `
+const RecentPostExcerpt = styled.div `
     margin-top: 1em;
-
-    @media (min-width:768px) {
-        margin-left: 1em;
-    }
 `
 
 const Blog = () => (
@@ -93,7 +93,7 @@ const Blog = () => (
             <h1>Blog</h1>
             <FeaturedPost>
                 <FeaturedPostImage>
-                    <Img sizes={ data.featuredPost.edges[0].node.frontmatter.featureImage.childImageSharp.sizes }/>
+                    <Img sizes={ data.featuredPost.edges[0].node.frontmatter.featuredImage.childImageSharp.sizes }/>
                 </FeaturedPostImage>
                 <FeaturedPostExcerpt>
                     <FeaturedPostTitle>{ data.featuredPost.edges[0].node.frontmatter.title }</FeaturedPostTitle>
@@ -105,13 +105,13 @@ const Blog = () => (
                 { data.recentPosts.edges.map((node, index) => (
                     <RecentPost key={ index }>
                         <RecentPostThumbnail>
-                            <Img fluid={ node.node.frontmatter.featureImage.childImageSharp.fluid }/>
+                            <Img fluid={ node.node.frontmatter.featuredImage.childImageSharp.fluid }/>
                         </RecentPostThumbnail>
-                        <RecentPostTitle>
+                        <RecentPostExcerpt>
                             <p><strong> { node.node.frontmatter.title } </strong></p>
                             <p> { node.node.excerpt } </p>
                             <p><a href="#">Read More..</a></p>
-                        </RecentPostTitle>
+                        </RecentPostExcerpt>
                     </RecentPost>
                 )) }
             </RecentPosts>
@@ -124,7 +124,7 @@ export { Blog }
 const blogContentQuery = graphql`
     query BlogContentQuery {
         recentPosts: allMarkdownRemark(
-        filter: { fileAbsolutePath: {regex : "\/posts/"},, frontmatter: {featured: {eq: "false"}}},
+        filter: { fileAbsolutePath: {regex : "\/posts/"}, frontmatter: {featured: {eq: "false"}}},
         sort: {fields: [frontmatter___date], order: DESC},
             limit: 5),
         {
@@ -135,10 +135,10 @@ const blogContentQuery = graphql`
                     frontmatter {
                         title
                         date(formatString: "DD MMMM, YYYY")
-                        featureImage {
+                        featuredImage {
                             publicURL
                             childImageSharp {
-                                fluid(maxWidth: 200, maxHeight: 200) {
+                                fluid(maxWidth: 300, maxHeight: 300) {
                                     ...GatsbyImageSharpFluid
                                 }
                             }
@@ -160,7 +160,7 @@ const blogContentQuery = graphql`
                     frontmatter{
                         title
                         date(formatString: "DD MMMM, YYYY")
-                        featureImage {
+                        featuredImage {
                             publicURL
                             childImageSharp {
                                 sizes(maxWidth: 960 ) {

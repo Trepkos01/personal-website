@@ -1,6 +1,10 @@
 ---
-title:  "Mars"
+title: "Mars"
 tags: ["ruby", "mars", "rails", "postgresql"]
+date: "2016-05-01"
+featuredImage: "./featured.jpg"
+liveUrl: "http://www.google.com"
+sourceUrl: "http://www.google.com"
 ---
 
 ***Online geolocational restaurant menu/meal browsing and recommendation platform. Allow users to add restaurants, meals and also place recommendations for restaurants and meals. Also allow users to search for potential highly recommended restaurants and meals based on provided or current location information. Allow users to share their recommendations on social media platforms.***

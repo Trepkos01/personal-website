@@ -2,7 +2,7 @@
 title:  "Nothing excites you about technology?"
 tag: ["personal", "technology", "career", "computer science", "interviews"]
 date: "2018-01-01"
-featureImage: "./article_4.jpg"
+featuredImage: "./featured.jpg"
 featured: "false"
 ---
 > What excites and interests you about technology?

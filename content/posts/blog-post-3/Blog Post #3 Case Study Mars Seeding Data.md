@@ -2,7 +2,7 @@
 title: "Case Study - Seeding Data into a Crowd-Sourced Application."
 tags: ["ruby", "mars", "rails", "postgresql"]
 date: "2017-01-01"
-featureImage: "./article_3.jpg"
+featuredImage: "./featured.jpg"
 featured: "false"
 ---
 
