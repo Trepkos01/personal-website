@@ -14,7 +14,13 @@ const returnTechIcon = (name) => ({
 const Wrapper = styled.div `
 `
 
-const ProjectsWrapper = styled.div `
+const ProjectsWrapper = styled.div`
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2em;
+`
+
+const ProjectsContainer = styled.div `
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -25,11 +31,14 @@ const ProjectCard = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 0 0 300px;
+    flex: 0 0 275px;
 
     border: 1px solid lightgray;
-    box-shadow: 2px 2px #ccc;
     margin: 1em;
+
+    :hover {
+        box-shadow: 6px 9px 20px 0px #0000003d
+    }
 
     @media (min-width:768px) {
         flex: 0 0 45%;
@@ -68,33 +77,35 @@ const Projects = () => (
         query={projectsContentQuery}
         render={data => 
         <Wrapper>
-            <h1>Projects</h1>
             <ProjectsWrapper>
-            { data.projects.edges.map((node, index) => (
-               <ProjectCard key={ index }>
-                    <ProjectImage>
-                        <Img fluid={ node.node.frontmatter.featuredImage.childImageSharp.fluid }/>
-                    </ProjectImage>
-                    <ProjectTech>
-                        { node.node.frontmatter.tags.map((node) => (returnTechIcon(node))) }
-                    </ProjectTech>
-                    <ProjectDescription>
-                        <p><strong> { node.node.frontmatter.title } </strong></p>
-                        <p> { node.node.excerpt } </p>
-                    </ProjectDescription>
-                    <ProjectLinks>
-                        <p><a href="#">Read More</a></p>
-                        {((node) => {
-                                if(node.node.frontmatter.liveUrl !== "")
-                                    return <p><a href={ node.node.frontmatter.liveUrl } >View Live</a></p>
-                        })(node)}
-                        {((node) => {
-                                if(node.node.frontmatter.sourceUrl !== "")
-                                    return <p><a href= { node.node.frontmatter.sourceUrl }>View Source</a></p>
-                        })(node)}
-                    </ProjectLinks>
-               </ProjectCard> 
-            ))}
+                <h1>Projects</h1>
+                <ProjectsContainer>
+                { data.projects.edges.map((node, index) => (
+                <ProjectCard key={ index }>
+                        <ProjectImage>
+                            <Img fluid={ node.node.frontmatter.featuredImage.childImageSharp.fluid }/>
+                        </ProjectImage>
+                        <ProjectTech>
+                            { node.node.frontmatter.tags.map((node) => (returnTechIcon(node))) }
+                        </ProjectTech>
+                        <ProjectDescription>
+                            <p><strong> { node.node.frontmatter.title } </strong></p>
+                            <p> { node.node.excerpt } </p>
+                        </ProjectDescription>
+                        <ProjectLinks>
+                            <p><a href="#">Read More</a></p>
+                            {((node) => {
+                                    if(node.node.frontmatter.liveUrl !== "")
+                                        return <p><a href={ node.node.frontmatter.liveUrl } >View Live</a></p>
+                            })(node)}
+                            {((node) => {
+                                    if(node.node.frontmatter.sourceUrl !== "")
+                                        return <p><a href= { node.node.frontmatter.sourceUrl }>View Source</a></p>
+                            })(node)}
+                        </ProjectLinks>
+                </ProjectCard> 
+                ))}
+                </ProjectsContainer>
             </ProjectsWrapper>
         </Wrapper>
     }/>
@@ -107,7 +118,7 @@ const projectsContentQuery = graphql`
         projects: allMarkdownRemark(
         filter: { fileAbsolutePath: {regex : "\/projects/"}},
         sort: {fields: [frontmatter___date], order: DESC},
-            limit: 5),
+            limit: 6),
         {
             edges {
                 node {

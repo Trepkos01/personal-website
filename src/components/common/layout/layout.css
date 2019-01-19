@@ -44,6 +44,8 @@ a {
 a:active,
 a:hover {
   outline-width: 0;
+  text-decoration: none !important;
+  font-weight: bold !important;
 }
 abbr[title] {
   border-bottom: none;

@@ -6,6 +6,12 @@ import Img from "gatsby-image";
 const Wrapper = styled.div `
 `
 
+const BlogWrapper = styled.div `
+    max-width:1080px;
+    margin: 0 auto;
+    padding: 2em;
+`
+
 const FeaturedPost = styled.div `
     display: flex;
     flex-direction: column;
@@ -57,9 +63,12 @@ const RecentPost = styled.div `
     flex: 0 0 300px;
 
     border: 1px solid lightgray;
-    box-shadow: 2px 2px #ccc;
     padding: 1em;
     margin: 1em;
+
+    :hover {
+        box-shadow: 6px 9px 20px 0px #0000003d
+    }
 
     @media (min-width:768px) {
         flex: 0 0 45%;
@@ -94,33 +103,35 @@ const Blog = () => (
         query={blogContentQuery}
         render={data => 
         <Wrapper>
-            <h1>Blog</h1>
-            <FeaturedPost>
-                <FeaturedPostImage>
-                    <Img sizes={ data.featuredPost.edges[0].node.frontmatter.featuredImage.childImageSharp.sizes }/>
-                </FeaturedPostImage>
-                <FeaturedPostExcerpt>
-                    <FeaturedPostTitle>{ data.featuredPost.edges[0].node.frontmatter.title }</FeaturedPostTitle>
-                    <p><small>{ data.featuredPost.edges[0].node.frontmatter.date }</small></p>
-                    <p>{ data.featuredPost.edges[0].node.excerpt } <a href="#">Read More</a></p>
-                    <p>{ data.featuredPost.edges[0].node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
-                </FeaturedPostExcerpt>
-            </FeaturedPost>
-            <RecentPosts>
-                { data.recentPosts.edges.map((node, index) => (
-                    <RecentPost key={ index }>
-                        <RecentPostThumbnail>
-                            <Img fluid={ node.node.frontmatter.featuredImage.childImageSharp.fluid }/>
-                        </RecentPostThumbnail>
-                        <RecentPostExcerpt>
-                            <p><strong> { node.node.frontmatter.title } </strong></p>
-                            <p> { node.node.excerpt } </p>
-                            <p><a href="#">Read More..</a></p>
-                            <p>{ node.node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
-                        </RecentPostExcerpt>
-                    </RecentPost>
-                )) }
-            </RecentPosts>
+            <BlogWrapper>
+                <h1>Blog</h1>
+                <FeaturedPost>
+                    <FeaturedPostImage>
+                        <Img sizes={ data.featuredPost.edges[0].node.frontmatter.featuredImage.childImageSharp.sizes }/>
+                    </FeaturedPostImage>
+                    <FeaturedPostExcerpt>
+                        <FeaturedPostTitle>{ data.featuredPost.edges[0].node.frontmatter.title }</FeaturedPostTitle>
+                        <p><small>{ data.featuredPost.edges[0].node.frontmatter.date }</small></p>
+                        <p>{ data.featuredPost.edges[0].node.excerpt } <a href="#">Read More</a></p>
+                        <p>{ data.featuredPost.edges[0].node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
+                    </FeaturedPostExcerpt>
+                </FeaturedPost>
+                <RecentPosts>
+                    { data.recentPosts.edges.map((node, index) => (
+                        <RecentPost key={ index }>
+                            <RecentPostThumbnail>
+                                <Img fluid={ node.node.frontmatter.featuredImage.childImageSharp.fluid }/>
+                            </RecentPostThumbnail>
+                            <RecentPostExcerpt>
+                                <p><strong> { node.node.frontmatter.title } </strong></p>
+                                <p> { node.node.excerpt } </p>
+                                <p><a href="#">Read More..</a></p>
+                                <p>{ node.node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
+                            </RecentPostExcerpt>
+                        </RecentPost>
+                    )) }
+                </RecentPosts>
+            </BlogWrapper>
         </Wrapper>
     }/>
 )

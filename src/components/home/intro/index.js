@@ -2,17 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { FaFacebook, FaTwitterSquare, FaLinkedin, FaYoutube, FaMedium, FaKeybase, FaGithub } from "react-icons/fa";
-
-const returnIcon = (name) => ({
-    "Facebook": <FaFacebook size='2em'/>,
-    "Twitter": <FaTwitterSquare size='2em'/>,
-    "LinkedIn": <FaLinkedin size='2em'/>,
-    "YouTube": <FaYoutube size='2em'/>,
-    "Medium": <FaMedium size='2em'/>,
-    "Keybase": <FaKeybase size='2em'/>,
-    "GitHub": <FaGithub size='2em'/>
-})[name]
+import { SocialIcon } from "../../common"
 
 const Bio = styled.div `
     padding: 1em;
@@ -27,6 +17,8 @@ const Social = styled.div `
 
 const Wrapper = styled.div `
     padding:2em;
+    max-width: 1080px;
+    margin: auto
 `
 
 const BioWrapper = styled.div `
@@ -63,7 +55,7 @@ const Intro = HighOrderIntro(({data, ...props}) => (
         </BioWrapper>
         <Social>
             { data.site.siteMetadata.social.map((node) => (
-                <a href={ node.url } key={ node.name }>{ returnIcon(node.name) }</a>
+                <SocialIcon url={ node.url } key={ node.name } social={ node.name }/>
             ))}
         </Social>
     </Wrapper>
