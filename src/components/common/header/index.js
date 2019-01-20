@@ -9,11 +9,15 @@ const HeaderContainer = styled.div `
   position: fixed;
   width: 100%;
   z-index: 2;
+
+  display:flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
 `
 
 const LogoContainer = styled.div `
-  margin: 0 auto;
-  max-width: 960px;
+  max-width:640px;
   padding: 1.45rem 1.0875rem;
 `
 
@@ -30,6 +34,17 @@ const LogoLink = styled(Link) `
   }
 `
 
+const NavLinks = styled.nav `
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+`
+
+const NavLink = styled(Link) `
+  color: white;
+  margin: 1em;
+`
+
 const Header = ({ siteTitle }) => (
   <HeaderContainer>
     <LogoContainer>
@@ -37,6 +52,12 @@ const Header = ({ siteTitle }) => (
         <LogoLink to="/">{siteTitle}</LogoLink>
       </LogoTitle>
     </LogoContainer>
+    <NavLinks>
+      <NavLink to="/">About</NavLink>
+      <NavLink to="/">Blog</NavLink>
+      <NavLink to="/">Projects</NavLink>
+      <NavLink to="/">Booknotes</NavLink>
+    </NavLinks>
   </HeaderContainer>
 )
 

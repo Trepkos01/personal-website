@@ -5,14 +5,17 @@ import { StaticQuery, graphql } from 'gatsby'
 import { SocialIcon } from '../'
 
 const FooterContainer = styled.footer `
-    height: 200px;
     width: 100%;
     background: rebeccapurple;
+
+    @media(min-width:768px){
+        height: 200px;
+    }
 `
 const MainBar = styled.div `
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
     padding: 1em;
@@ -26,16 +29,18 @@ const FooterNav = styled.div `
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
-    
-    flex: 1 0 50%;
+    margin: 1em; 2em 0 2em;
+
+    @media(min-width:768px){
+        margin: 0 2em 0 2em;
+    }
 `
 const FooterSocial = styled.div `
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-
-    flex: 1 0 50%
+    margin: 0 2em 0 2em;
 `
 
 const BottomBar = styled.div`
