@@ -28,6 +28,7 @@ const LogoTitle = styled.h1 `
 const LogoLink = styled(Link) `
   color: white;
   text-decoration: none;
+  font-weight: bold;
 
   :hover{
     text-decoration: none;
@@ -35,30 +36,78 @@ const LogoLink = styled(Link) `
 `
 
 const NavLinks = styled.nav `
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
+  display: none;
+
+  @media(min-width: 960px){
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+  }
 `
 
 const NavLink = styled(Link) `
   color: white;
   margin: 1em;
+  font-weight: bold;
+
+  :hover{
+    text-decoration: none;
+    color: black;
+  }
+`
+
+const SideNav = styled.div `
+  z-index: 3;
+  height: 100%;
+  width: 65%;
+  position: fixed;
+  background-color: rebeccapurple;
+
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+`
+
+const ToggleMenu = styled.div `
+  z-index: 3;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  display: block;
+  font-weight: bold;
+  font-size:2em;
+
+  @media(min-width: 960px){
+    display: none;
+  }
 `
 
 const Header = ({ siteTitle }) => (
-  <HeaderContainer>
-    <LogoContainer>
-      <LogoTitle>
-        <LogoLink to="/">{siteTitle}</LogoLink>
-      </LogoTitle>
-    </LogoContainer>
-    <NavLinks>
+  <>
+    <HeaderContainer>
+      <LogoContainer>
+        <LogoTitle>
+          <LogoLink to="/">{ siteTitle }</LogoLink>
+        </LogoTitle>
+      </LogoContainer>
+      <NavLinks>
+        <NavLink to="/">About</NavLink>
+        <NavLink to="/">Blog</NavLink>
+        <NavLink to="/">Projects</NavLink>
+        <NavLink to="/">Booknotes</NavLink>
+      </NavLinks>
+      <ToggleMenu>&#9776;</ToggleMenu>
+    </HeaderContainer>
+    <SideNav>
       <NavLink to="/">About</NavLink>
       <NavLink to="/">Blog</NavLink>
       <NavLink to="/">Projects</NavLink>
       <NavLink to="/">Booknotes</NavLink>
-    </NavLinks>
-  </HeaderContainer>
+    </SideNav>
+  </>
 )
 
 Header.propTypes = {
