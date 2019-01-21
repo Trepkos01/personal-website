@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const HeaderContainer = styled.div `
@@ -57,21 +57,31 @@ const NavLink = styled(Link) `
 `
 
 const SideNav = styled.div `
-  z-index: 3;
+  z-index: 4;
   height: 100%;
   width: 65%;
   position: fixed;
   background-color: rebeccapurple;
 
+  right: -200px;
+  top: 85px;
+
   display: none;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 
+  ${({ toggle }) => toggle && `
+    display: flex;
+  `}
+
+  @media(max-width: 360px){
+    right: -100px;
+  }
 `
 
 const ToggleMenu = styled.div `
-  z-index: 3;
+  z-index: 4;
   cursor: pointer;
   position: absolute;
   top: 0.5em;
@@ -85,7 +95,12 @@ const ToggleMenu = styled.div `
   }
 `
 
-const Header = ({ siteTitle }) => (
+export const Header = ({ siteTitle }) => {
+  const [sideNav, setSideNav] = useState(false)
+
+  const toggle = () => setSideNav(!sideNav)
+
+  return (
   <>
     <HeaderContainer>
       <LogoContainer>
@@ -99,16 +114,17 @@ const Header = ({ siteTitle }) => (
         <NavLink to="/">Projects</NavLink>
         <NavLink to="/">Booknotes</NavLink>
       </NavLinks>
-      <ToggleMenu>&#9776;</ToggleMenu>
+      <ToggleMenu onClick={ toggle }>&#9776;</ToggleMenu>
     </HeaderContainer>
-    <SideNav>
+    <SideNav toggle = { sideNav }>
       <NavLink to="/">About</NavLink>
       <NavLink to="/">Blog</NavLink>
       <NavLink to="/">Projects</NavLink>
       <NavLink to="/">Booknotes</NavLink>
     </SideNav>
   </>
-)
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
@@ -117,6 +133,3 @@ Header.propTypes = {
 Header.defaultProps = {
   siteTitle: ``,
 }
-
-
-export { Header }
