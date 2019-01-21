@@ -89,6 +89,7 @@ const ToggleMenu = styled.div `
   display: block;
   font-weight: bold;
   font-size:2em;
+  color: white;
 
   @media(min-width: 960px){
     display: none;
