@@ -10,10 +10,12 @@ const HeaderContainer = styled.div `
   width: 100%;
   z-index: 2;
 
+  padding: 0 2em 0 2em;
+
   display:flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 `
 
 const LogoContainer = styled.div `
@@ -83,13 +85,20 @@ const SideNav = styled.div `
 const ToggleMenu = styled.div `
   z-index: 4;
   cursor: pointer;
-  position: absolute;
+  /*position: absolute;
   top: 0.5em;
   right: 1em;
-  display: block;
+  display: block;*/
   font-weight: bold;
-  font-size:2em;
+  font-size: 2em;
   color: white;
+  padding: 1.45rem 1.0875rem;
+
+  align-self: flex-end;
+
+  ${({ sideNav }) => sideNav && `
+    color: gray;
+  `}
 
   @media(min-width: 960px){
     display: none;
@@ -115,7 +124,7 @@ export const Header = ({ siteTitle }) => {
         <NavLink to="/">Projects</NavLink>
         <NavLink to="/">Booknotes</NavLink>
       </NavLinks>
-      <ToggleMenu onClick={ toggle }>&#9776;</ToggleMenu>
+      <ToggleMenu onClick={ toggle } sideNav={ sideNav }>&#9776;</ToggleMenu>
     </HeaderContainer>
     <SideNav toggle = { sideNav }>
       <NavLink to="/">About</NavLink>

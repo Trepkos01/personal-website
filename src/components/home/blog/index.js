@@ -124,7 +124,7 @@ const Blog = () => (
                             </RecentPostThumbnail>
                             <RecentPostExcerpt>
                                 <p><strong> { node.node.frontmatter.title } </strong></p>
-                                <p> { node.node.excerpt } </p>
+                                <p> { node.node.frontmatter.description } </p>
                                 <p><a href="#">Read More..</a></p>
                                 <p>{ node.node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
                             </RecentPostExcerpt>
@@ -148,10 +148,10 @@ const blogContentQuery = graphql`
             edges {
                 node {
                     id
-                    excerpt(pruneLength: 100)
                     frontmatter {
                         title
                         date(formatString: "DD MMMM, YYYY")
+                        description
                         featuredImage {
                             publicURL
                             childImageSharp {
@@ -173,10 +173,11 @@ const blogContentQuery = graphql`
             edges {
                 node {
                     id
-                    excerpt(pruneLength: 280)
+                    excerpt(pruneLength: 180)
                     frontmatter{
                         title
                         date(formatString: "DD MMMM, YYYY")
+                        description
                         featuredImage {
                             publicURL
                             childImageSharp {

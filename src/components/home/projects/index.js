@@ -90,7 +90,7 @@ const Projects = () => (
                         </ProjectTech>
                         <ProjectDescription>
                             <p><strong> { node.node.frontmatter.title } </strong></p>
-                            <p> { node.node.excerpt } </p>
+                            <p> { node.node.frontmatter.description } </p>
                         </ProjectDescription>
                         <ProjectLinks>
                             <p><a href="#">Read More</a></p>
@@ -123,10 +123,10 @@ const projectsContentQuery = graphql`
             edges {
                 node {
                     id
-                    excerpt(pruneLength: 180)
                     frontmatter {
                         title
                         date(formatString: "DD MMMM, YYYY")
+                        description
                         featuredImage {
                             publicURL
                             childImageSharp {

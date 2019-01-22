@@ -4,6 +4,7 @@ tags: ["mars", "ruby", "rails", "postgresql"]
 date: "2016-02-01"
 featuredImage: "./featured.jpg"
 featured: "false"
+description: "Multi-login/social media omniauthentication management in a Ruby on Rails web application."
 ---
 
   
@@ -28,13 +29,14 @@ Once they have logged in via a social media account, the user would have the abi
 To accomplish this functionality, I need the following Ruby gems.
 
 *In Gemfile*
-
+```ruby
     gem 'devise'  # Added devise gem for authentication purposes.
     gem 'omniauth-twitter'  # Omni-authentication with Devise(Facebook, Twitter)
     gem 'omniauth-facebook'  # ^^^
     gem "koala", "~> 2.2"  # Used for interfacing with users' Facebook wall.
     gem "twitter"  # Self-explanatory.
-    gem 'bitly', '~> 0.9.0'  # Shorten URL for twitter.
+	gem 'bitly', '~> 0.9.0'  # Shorten URL for twitter.
+```
 
 The *devise* gem generated the initial registration/authentication tables, views, and controllers.
 
@@ -49,9 +51,7 @@ I modified the ***id*** field by changing it to hold a unique alphanumeric ID va
 Within the user model file created by devise, I added the following functionality to generate this new custom ID.
 
 *In app/models/user.rb*
-
-  
-
+```ruby
     require 'securerandom'
     [...]
     before_create :generate_id
@@ -61,19 +61,18 @@ Within the user model file created by devise, I added the following functionalit
     def generate_id
 	    self.id = SecureRandom.uuid
     end
-
+```
 Another component that I wanted to add to the user model is the *deleted_at* datetime field. In this case, the user is able to remove access to his/her account without actually removing the user account record. This would ensure that any information such as recommendations, meals, or restaurants created by the user would remain even if the user was no longer active.
 
 **This would require the additional field for the user:**
-
-    t.datetime :deleted_at
+```ruby
+	t.datetime :deleted_at
+```
 
 The following model functions are used to achieve this "soft delete" functionality.
 
 *In app/models/user.rb*
-
-  
-
+```ruby
     # Instead of deleting, indicate the user requested a delete & timestamp it.
     
     def soft_delete
@@ -91,21 +90,21 @@ The following model functions are used to achieve this "soft delete" functionali
     def inactive_message
 	    !deleted_at ? super : :deleted_account
     end
-
-  
+```
 
 Within the devise configuration file, I changed the following configuration settings to allow the user to actively start generating content without confirming their email address immediately.
 
 *In config/initializer/devise.rb*
-
-    config.allow_unconfirmed_access_for = 2.days
+```ruby
+	config.allow_unconfirmed_access_for = 2.days
+```
 
 This setting would allow the user two days before they would need to formally confirm their email address.
 
 Also, I allowed for the user to optionally provide a user name, otherwise their official username would be created from a combination of their email address (sans domain) and their unique identifier ID.
 
 *In app/models/user.rb*
-
+```ruby
     before_create :generate_username
     [...]
     private
@@ -115,7 +114,7 @@ Also, I allowed for the user to optionally provide a user name, otherwise their 
     def generate_username
 	    self.user_name = "#{self.email[/^[^@]*/]}#{self.id.to_s[0..7]}" if self.user_name.blank?
     end
-
+```
 So with these changes, I had the basic core functionality of registration, authentication, and authorization. However, I needed to incorporate social media into the scheme.
 
 First, I would need to register my web application with the social media platforms which I was targeting, namely Facebook and Twitter.
@@ -129,7 +128,7 @@ Next, I would need to integrate the registration/authentication process of devis
 Once the web application was registered with Facebook and Twitter, it was time to formally setup the omniauthentication functionality of devise with the application ID and application "secret" provided by each respective social media platform.
 
 *In /config/initializer/devise.rb*
-
+```ruby
     require "omniauth-facebook"
 
     config.omniauth :facebook, ENV["FACEBOOK_ID"], ENV["FACEBOOK_SECRET"], scope: 'email publish_actions', info_fields: 'name,email',
@@ -139,19 +138,19 @@ Once the web application was registered with Facebook and Twitter, it was time t
     }, token_params: { parse: :json }
     
     config.omniauth :twitter, ENV["TWITTER_ID"], ENV["TWITTER_SECRET"], scope: 'email'
-
+```
 And the following changes needed to be made to the application's routes file to ensure that the omniauthentication process returned to the correct callbacks controller and if the social media service doesn't return a verified email address then the entire process is aborted and the user is prompted.
 
 *In /config/routes.rb*
-
+```ruby
     devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'omniauth_callbacks', sessions: "sessions" }
     
     match '/users/:id/verified_email_not_found' => 'users#verified_email_not_found', via: [:get, :patch], :as => :verified_email_not_found
-
+```
 **The omniauth_callbacks controller is defined as:**
 
 ***/app/controllers/omniauth_callbacks_controller.rb***
-
+```ruby
     class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 	    def self.provides_callback_for(provider)
 		    class_eval %Q{
@@ -180,11 +179,11 @@ And the following changes needed to be made to the application's routes file to 
 		    end
 	    end
     end
-
+```
 **The verified_email_not_found action is defined below:**
 
 *In /app/controllers/users_controller.rb*
-
+```ruby
     def verified_email_not_found
 	    # We could not get a verified email address from Facebook/Twitter to link or create the account.	
 	    
@@ -193,7 +192,7 @@ And the following changes needed to be made to the application's routes file to 
 	    @user.destroy
 		redirect_to root_url, notice: 'Could not link social media account.'
     end
-
+```
   
 Next, I created a separate table, ***identity***" which would stored the following social media information for each user who registers their social media account with the application as returned from the social media provider.
 
@@ -205,8 +204,7 @@ Next, I created a separate table, ***identity***" which would stored the followi
 
 - **Their actual provider (Facebook, Twitter)**
 
-  
-
+```ruby
       class CreateIdentities < ActiveRecord::Migration
 	    def change
 		    create_table :identities do |t|
@@ -217,6 +215,7 @@ Next, I created a separate table, ***identity***" which would stored the followi
 		    end
 	    end
       end
+```
 
 The user account can have many identities and when the user logs in, the identity that they are using (Facebook, Twitter, Default) is recorded to control access.
 
@@ -225,12 +224,12 @@ This may seem confusing so I will attempt to step-through the registration/authe
 On the user registration and user authentication (login) views, there are two links to allow authentication for Facebook and Twitter, respectively.
 
 *In /app/views/devise/registrations/new.html.erb*
-
+```html
     <%= image_tag(image_valid("facebook-clear-90.png"), :alt => "Join with Facebook", :width => "25", :height => "25")%> <%= link_to "Join with Facebook", user_facebook_omniauth_authorize_path %>
     <br/>
     <br/>
     <%= image_tag(image_valid("twitter-clear-90.png"), :alt => "Join with Twitter", :width => "25", :height => "25")%> <%= link_to "Join with Twitter", user_twitter_omniauth_authorize_path %>
-
+```
 **Where user_[provider]_omniauth_authorize_path corresponds to the /users/auth/[provider] path.**
 
 When the user clicks on the above button it will navigate the browser to the corresponding social media application's "***Sign-In***" page. Assuming the user isn't already signed into the social media platform.
@@ -240,42 +239,39 @@ Upon a successful authentication, the browser will then navigate back to the /us
 Passing the authentication hash and the "current_user" session value to the "User" model action find_for_oauth
 
 *In /app/controllers/omniauth_callbacks_controller.rb*
-
-  
-
+```ruby
     [...]
     
     @user = User.find_for_oauth(env["omniauth.auth"], current_user)
     
     [...]
-
+```
 *In /app/models/user.rb*
-
+```ruby
     def self.find_for_oauth(auth, signed_in_resource = nil)
  
 	    # Get the identity and user if they exist
     
 	    identity = Identity.find_for_oauth(auth)
-
+```
   
 
 Which attempts to either lookup the user's identity based on the contents of the authentication hash or create a new identity, it will also update the access information for that user allowing them the ability to perform actions on their social media platform through the web application.
 
 *In /app/models/identity.rb*
-
+```ruby
     def self.find_for_oauth(auth)
 	    identity = find_or_create_by(uid: auth.uid, provider: auth.provider)
 	    identity.update_attributes(access_token: auth.credentials.token, access_secret: auth.credentials.secret)
 	    return identity
     end
-
+```
   
 
 Once an identity has been created/found, updated, and returned, we attempt to get the user from the identity.
 
 *In /app/models/user.rb*
-
-
+```ruby
     # We are dealing with a new identity that doesn't have a user yet. Else, we have this identity already stored,
     # update the user's current provider and continue.
     
@@ -307,7 +303,7 @@ Once an identity has been created/found, updated, and returned, we attempt to ge
 	    user.provider = auth.provider
 	    user.save!
     end
-
+```
   
 
 This is how the user can have multiple social media accounts (or identities) linked to a single user account for the web application and we can record which platform (if any), they are logged in as on the web application.
@@ -317,7 +313,7 @@ Once they have logged in on either Facebook or Twitter, I wanted to create a way
 The option to share the recommendation does not become available on the page until the user has actually submitted an assessment of the meal and the user has authenticated through a social media provider with the web application.
 
 *In /app/views/meals/show.html.erb*
-
+```ruby
     <% if @meal_recommendation && (current_user.provider == "facebook" || current_user.provider == "twitter") %>
 	    <hr/>
 	    <div id = "share_recommendation">		    
@@ -331,13 +327,11 @@ The option to share the recommendation does not become available on the page unt
 		    <% end %>
 	    </div>
     <% end %>
-
+```
 The following "share" action is defined in the meals' controller file. First, we find the assessment of the meal from the user.
 
 *In /app/controllers/meals_controller.rb*
-
-  
-
+```ruby
     def share
 	    meal = Meal.find(params[:id])
 	    restaurant_name = meal.restaurant.restaurant_name
@@ -349,11 +343,12 @@ The following "share" action is defined in the meals' controller file. First, we
     else
 	    recommend_string = "does not recommend"
     end
+```
 
 If the logged-in provider is Facebook, I get the access token for their Facebook identity and create a new graph object using the Koala ruby gem which will interact with their Facebook wall. The remainder is creating the corresponding title, content, and link for the wall post. If no meal image is provided, the restaurant image is used (if the restaurant image is available). If neither the meal or restaurant image is provided then the web application logo is used.
 
 *In /app/controllers/meals_controller.rb*
-
+```ruby
     if params[:share_facebook]
 	    # Set up the Koala Facebook graph API.
 	    access_token = Identity.where(" user_id = ? AND provider = ? ", current_user.id, "facebook").first.access_token
@@ -381,7 +376,7 @@ If the logged-in provider is Facebook, I get the access token for their Facebook
 		    :description => message,
 		    :picture => share_image_url
 	    })
-
+```
   
 
 If Twitter is the social media platform, the process is a bit different. Twitter requires both an access token and also an access secret which is provided during the omniauthentication process and attached to the user's identity.
@@ -389,7 +384,7 @@ If Twitter is the social media platform, the process is a bit different. Twitter
 Also, given the nature of Twitter's tweets (namely the character limit), the URL is shortened using the Bitly ruby gem.
 
 *In /app/controllers/meals_controller.rb*
-
+```ruby
 	else
 	    twitter_identity = Identity.where(" user_id = ? AND provider = ? ", current_user.id, "twitter").first
 	    access_token = twitter_identity.access_token
@@ -411,11 +406,11 @@ Also, given the nature of Twitter's tweets (namely the character limit), the URL
 		    callback = false
 	    end
     end
-
+```
 If the meal recommendation has been successfully shared on the provider's Facebook wall or Twitter feed, the recommendation's "shared" attribute is marked as shared and the user is redirected back to the page of the meal whose recommendation they shared.
 
 *In /app/controllers/meals_controller.rb*
-
+```ruby
     if callback
 	    flash[:success] = "Your recommendation has been shared."
 	    meal_recommendation.shared = true
@@ -425,21 +420,7 @@ If the meal recommendation has been successfully shared on the provider's Facebo
     end
 
 	redirect_to restaurant_meal_path(params[:restaurant_id],meal.id)
-
+```
   
 
 So in this case study, we went over the very general details of implementing the devise omniauthentication functionality with the ability of linking multiple social media accounts to one user. Next we covered how I addressed the functionality issue of allowing the user to share their recommendation on the feed of whichever social media platform they are currently logged in as in the web application itself.
-
-
-
-
-
-
-
-
-
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyNTMxMjU0LDIyODc0NjY2MCw4MDkxNT
-EzNjUsNzMwOTk4MTE2XX0=
--->

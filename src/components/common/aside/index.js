@@ -1,7 +1,8 @@
 import React from 'react'
 
-const SideBar = () => (
+
+const Aside = () => (
     <h1>Sidebar</h1>
 )
 
-export { SideBar }
+export { Aside }
