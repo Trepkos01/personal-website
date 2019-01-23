@@ -3,13 +3,7 @@ import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby';
 import Img from "gatsby-image";
 
-import { PostgreSQL, Ruby, Rails } from '../../common/svg'
-
-const returnTechIcon = (name) => ({
-    "ruby" : <Ruby key="ruby" style={{width:'50px', height:'50px'}}/>,
-    "rails" : <Rails key="rails" style={{width:'50px', height:'50px'}}/>,
-    "postgresql" : <PostgreSQL key="postgresql" style={{width:'50px', height:'50px'}}/>,
-})[name]
+import { Tech } from "../../common"
 
 const Wrapper = styled.div `
 `
@@ -85,9 +79,7 @@ const Projects = () => (
                         <ProjectImage>
                             <Img fluid={ node.node.frontmatter.featuredImage.childImageSharp.fluid }/>
                         </ProjectImage>
-                        <ProjectTech>
-                            { node.node.frontmatter.tags.map((node) => (returnTechIcon(node))) }
-                        </ProjectTech>
+                        <Tech tech = { node.node.frontmatter.tags }/>
                         <ProjectDescription>
                             <p><strong> { node.node.frontmatter.title } </strong></p>
                             <p> { node.node.frontmatter.description } </p>

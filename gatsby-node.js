@@ -1,5 +1,15 @@
 const path = require('path')
-const { createFilePath } = require(`gatsby-source-filesystem`)
+
+const postTemplate = path.resolve(`./src/templates/post.js`)
+const projectTemplate = path.resolve(`./src/templates/project.js`)
+const booknoteTemplate = path.resolve(`./src/templates/booknote.js`)
+
+const returnPath = (name) => ({
+  "post": postTemplate,
+  "project": projectTemplate,
+  "booknote": booknoteTemplate,
+})[name]
+
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
@@ -13,19 +23,21 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
   }
 
-
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
     return new Promise((resolve, reject) => {
       graphql(`
         {
           allMarkdownRemark(
-            filter: { fileAbsolutePath: {regex : "\/posts/" } }
+            filter: { fileAbsolutePath: {regex : "\/content/" } }
           ) {
             edges {
               node {
                 fields {
                   slug
+                }
+                frontmatter {
+                  type
                 }
               }
             }
@@ -35,7 +47,7 @@ exports.createPages = ({ graphql, actions }) => {
         result.data.allMarkdownRemark.edges.forEach(({ node }) => {
           createPage({
             path: node.fields.slug,
-            component: path.resolve(`./src/templates/post.js`),
+            component: returnPath(node.frontmatter.type),
             context: {
               slug: node.fields.slug,
             },

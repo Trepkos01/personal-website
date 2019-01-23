@@ -5,6 +5,7 @@ date: "2018-01-01"
 featuredImage: "./featured.jpg"
 featured: "false"
 description: "The beginning of a complete re-design and refactoring of a legacy LAMP system from the ground up."
+type: "post"
 --- 
 Following the theme of my poor interview experience (See "Nothing Excites You About Technology?"). I was asked to describe my previous/current work experience.  Honestly, I thought that this would be an incredibly exciting topic to delve into over the phone (if not a topic that would require a great deal of time to exhaustively explore). I was in-fact in the twilight period of developing the remaining functionality of this project in the midst of its initial deployment. It would be fantastic to reflect on some of the challenges and design choices I had made from the beginning and if those choices could have been better (yes).
 

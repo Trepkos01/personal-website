@@ -3,31 +3,38 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import { Header, Footer } from '../'
+import { Header, Footer, Aside } from '../'
 import './layout.css'
 
-const Container = styled.div `
-  margin: 0 auto;
-  padding-top: 100px;
+const Wrapper = styled.div `
+  display: flex;
+  flex-flow: row wrap;
 `
 
-const Layout = ({ children }) => (
+const Content = styled.div `
+  margin: 0 auto;
+  padding-top: 100px;
+  width: 100%;
+
+  flex: 1 1 auto;
+
+  @media all and (min-width: 800px) {
+    flex: 2 0px;
+  }
+`
+
+const Layout = ({ children, hideAside }) => (
   <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
+    query={layoutContentQuery}
     render={data => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <Container>
-          {children}
-        </Container>
+        <Wrapper>
+          <Content>
+            { children }
+          </Content>
+          <Aside hide={ hideAside }/>
+        </Wrapper>
         <Footer/>
       </>
     )}
@@ -36,6 +43,17 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  hideAside: PropTypes.bool
 }
 
 export { Layout }
+
+const layoutContentQuery = graphql`
+  query LayoutContentQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+}
+`

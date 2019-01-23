@@ -8,7 +8,7 @@ const IndexPage = () => (
   <StaticQuery
         query={homeContentQuery}
         render={data => 
-          <Layout>
+          <Layout hideAside={ true }>
             <SEO description = { data.short_bio } title="Home" keywords={[`blake adams`, `software`, `software developer`, `technology`, `financial independence`, `entrepreneur`, `career`, `consultancy`, `blog`]} />
             <Intro/>
             <Current/>

@@ -5,6 +5,7 @@ date: "2016-02-01"
 featuredImage: "./featured.jpg"
 featured: "false"
 description: "Multi-login/social media omniauthentication management in a Ruby on Rails web application."
+type: "post"
 ---
 
   

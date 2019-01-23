@@ -4,21 +4,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components'
 import Img from "gatsby-image";
 
-import { Layout, SEO } from '../components/common'
-
-import {
-  FacebookIcon,
-  FacebookShareButton,
-  FacebookShareCount,
-  LinkedinIcon,
-  LinkedinShareButton,
-  LinkedinShareCount,
-  TwitterIcon,
-  TwitterShareButton,
-  RedditIcon,
-  RedditShareButton,
-  RedditShareCount
-} from 'react-share';
+import { Layout, SEO, SocialShare } from '../components/common'
 
 const PostWrapper = styled.div `
   padding: 2em;
@@ -62,17 +48,6 @@ const PostComments = styled.div `
   margin: 0 auto;
 `
 
-const SocialShareIcons = styled.div `
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: flex-start;
-
-  width: 95%;
-  margin: 0 auto;
-  height: 100px;
-`
-
 export default ({ data }) => {
     const post = data.markdownRemark
     const url = data.site.siteMetadata.siteUrl + "/" + post.fields.slug
@@ -83,7 +58,7 @@ export default ({ data }) => {
       title: post.frontmatter.title,
     };
     return (
-      <Layout>
+      <Layout hideAside={ false }>
         <SEO description={ post.description } title={ post.frontmatter.title } keywords={ post.frontmatter.tags } />
         <PostWrapper>
           <FeatureImage>
@@ -98,29 +73,7 @@ export default ({ data }) => {
           </PostDetails>
           <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
         </PostWrapper>
-
-        <SocialShareIcons>
-
-          <FacebookShareButton url={ url } quote={ post.frontmatter.title } style={{textAlign:'center', margin:'1em'}}>
-            <FacebookIcon round size={ 50 }/>
-            <FacebookShareCount url={ url }/>
-          </FacebookShareButton>
-
-          <TwitterShareButton url={ url } title={ post.frontmatter.title } style={{textAlign:'center', margin:'1em'}}>
-            <TwitterIcon round size={ 50 }/>
-          </TwitterShareButton>
-
-          <LinkedinShareButton url={ url } title={ post.frontmatter.title } style={{textAlign:'center', margin:'1em'}}>
-            <LinkedinIcon round size={ 50 }/>
-            <LinkedinShareCount url={ url }/>
-          </LinkedinShareButton>
-
-          <RedditShareButton url={ url } title={ post.frontmatter.title } style={{textAlign:'center', margin:'1em'}}>
-            <RedditIcon round size={ 50 } />
-            <RedditShareCount url={ url }/>
-          </RedditShareButton>
-
-        </SocialShareIcons>
+        <SocialShare url={ url } title={ post.frontmatter.title } size={ 50 }/>
         <PostComments>
           <strong>Like what you read? Don't? Discuss it.</strong>
           <Disqus.DiscussionEmbed shortname={ disqusShortname } config={ disqusConfig } />

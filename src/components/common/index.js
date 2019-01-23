@@ -4,4 +4,5 @@ export * from './layout'
 export * from './seo'
 export * from './aside'
 export * from './social'
+export * from './tech'
 
