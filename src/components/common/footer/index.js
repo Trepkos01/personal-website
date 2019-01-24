@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 
 import { SocialIcon } from '../'
 
@@ -59,11 +59,11 @@ const Footer = () => (
         <FooterContainer>
             <MainBar>
                 <FooterNav>
-                    <a href='#'>Home</a>
-                    <a href='#'>About</a>
-                    <a href='#'>Blog</a>
-                    <a href='#'>Projects</a>
-                    <a href='#'>Booknotes</a>
+                    <Link to='/'>Home</Link>
+                    <Link to='/about'>About</Link>
+                    <Link to='/blog'>Blog</Link>
+                    <Link to='/projects'>Projects</Link>
+                    <Link to='/booknotes'>Booknotes</Link>
                 </FooterNav>
                 <FooterSocial>
                 { data.site.siteMetadata.social.map((node) => (

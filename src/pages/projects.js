@@ -3,15 +3,15 @@ import styled from 'styled-components'
 import { graphql, StaticQuery, Link } from 'gatsby';
 import Img from "gatsby-image";
 
-import { Tech } from "../../common"
+import { Layout, SEO } from '../components/common'
+import { Tech } from "../components/common"
 
 const Wrapper = styled.div `
-`
+  padding: 2em;
+  min-height: 768px;
 
-const ProjectsWrapper = styled.div`
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 2em;
+  display: flex;
+  flex-direction: column;
 `
 
 const ProjectsContainer = styled.div `
@@ -25,7 +25,7 @@ const ProjectCard = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 0 0 275px;
+    flex: 0 1 275px;
 
     border: 1px solid lightgray;
     margin: 1em;
@@ -59,12 +59,13 @@ const ProjectLinks = styled.div `
     text-align: center;
 `
 
-const Projects = () => (
+const ProjectsPage = () => (
+    <Layout hideAside={ false }>
+        <SEO title="Projects" keywords={[`blake adams`, `software`, `software developer`, `technology`, `financial independence`, `entrepreneur`, `career`, `consultancy`, `projects`]} />
         <StaticQuery
-            query={projectsContentQuery}
+            query={projectsPageContentQuery}
             render={data => 
             <Wrapper>
-                <ProjectsWrapper>
                     <h1>Projects</h1>
                     <ProjectsContainer>
                     { data.projects.edges.map((node, index) => (
@@ -91,15 +92,15 @@ const Projects = () => (
                     </ProjectCard> 
                     ))}
                     </ProjectsContainer>
-                </ProjectsWrapper>
             </Wrapper>
         }/>
+    </Layout>
 )
 
-export { Projects }
+export default ProjectsPage
 
-const projectsContentQuery = graphql`
-    query ProjectsContentQuery {
+const projectsPageContentQuery = graphql`
+    query ProjectsPageContentQuery {
         projects: allMarkdownRemark(
         filter: { fileAbsolutePath: {regex : "\/projects/"}},
         sort: {fields: [frontmatter___date], order: DESC},

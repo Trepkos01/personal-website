@@ -15,7 +15,7 @@ const BooknotesTitle = styled.h1 `
 
 const BooknotesContent = styled.div `
   border-bottom: 1px solid lightgray;
-  min-height: 300px;
+  min-height: 400px;
 `
 
 export default ({ data }) => {

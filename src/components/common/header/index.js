@@ -119,18 +119,18 @@ export const Header = ({ siteTitle }) => {
         </LogoTitle>
       </LogoContainer>
       <NavLinks>
-        <NavLink to="/">About</NavLink>
-        <NavLink to="/">Blog</NavLink>
-        <NavLink to="/">Projects</NavLink>
-        <NavLink to="/">Booknotes</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
+        <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/booknotes">Booknotes</NavLink>
       </NavLinks>
       <ToggleMenu onClick={ toggle } sideNav={ sideNav }>&#9776;</ToggleMenu>
     </HeaderContainer>
     <SideNav toggle = { sideNav }>
-      <NavLink to="/">About</NavLink>
-      <NavLink to="/">Blog</NavLink>
-      <NavLink to="/">Projects</NavLink>
-      <NavLink to="/">Booknotes</NavLink>
+      <NavLink to="/about">About</NavLink>
+      <NavLink to="/blog">Blog</NavLink>
+      <NavLink to="/projects">Projects</NavLink>
+      <NavLink to="/booknotes">Booknotes</NavLink>
     </SideNav>
   </>
   )

@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import { graphql, StaticQuery, Link } from 'gatsby';
 import Img from "gatsby-image";
 
-const Wrapper = styled.div `
-`
+import { Layout, SEO } from '../components/common'
 
-const BlogWrapper = styled.div `
-    max-width:1080px;
-    margin: 0 auto;
-    padding: 2em;
+const Wrapper = styled.div `
+  padding: 2em;
+  min-height: 768px;
+
+  display: flex;
+  flex-direction: column;
 `
 
 const FeaturedPost = styled.div `
@@ -50,13 +51,13 @@ const FeaturedPostExcerpt = styled.div `
     }
 `
 
-const RecentPosts = styled.div `
+const BlogPosts = styled.div `
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: center;
 `
 
-const RecentPost = styled.div `
+const BlogCard = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,11 +76,11 @@ const RecentPost = styled.div `
     }
 
     @media (min-width:1000px) {
-        flex: 0 0 28%;
+        flex: 0 0 22%;
     }
 `
 
-const RecentPostThumbnail = styled.div `
+const BlogCardThumbnail = styled.div `
     width:100%;
     flex: 0 0 200px;
     box-shadow: 2px 2px #ccc;
@@ -90,7 +91,7 @@ const RecentPostThumbnail = styled.div `
     }
 `
 
-const RecentPostExcerpt = styled.div `
+const BlogCardExcerpt = styled.div `
     margin-top: 1em;
 `
 
@@ -98,52 +99,52 @@ const PostTag = styled.small `
     color: lightgray;
 `
 
-const Blog = () => (
+const BlogPage = () => (
+  <Layout hideAside={ false }>
+    <SEO title="Blog" keywords={[`blake adams`, `software`, `software developer`, `technology`, `financial independence`, `entrepreneur`, `career`, `consultancy`, `blog`]} />
     <StaticQuery
-        query={blogContentQuery}
+        query={blogPageContentQuery}
         render={data =>
         <Wrapper>
-            <BlogWrapper>
-                <h1>Blog</h1>
-                <FeaturedPost>
-                    <FeaturedPostImage>
-                        <Img sizes={ data.featuredPost.edges[0].node.frontmatter.featuredImage.childImageSharp.sizes }/>
-                    </FeaturedPostImage>
-                    <FeaturedPostExcerpt>
-                        <FeaturedPostTitle>{ data.featuredPost.edges[0].node.frontmatter.title }</FeaturedPostTitle>
-                        <p><small>{ data.featuredPost.edges[0].node.frontmatter.date }</small></p>
-                        <p>{ data.featuredPost.edges[0].node.excerpt } <Link to={ data.featuredPost.edges[0].node.fields.slug }>Read More</Link></p>
-                        <p>{ data.featuredPost.edges[0].node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
-                    </FeaturedPostExcerpt>
-                </FeaturedPost>
-                <RecentPosts>
-                    { data.recentPosts.edges.map((node, index) => (
-                        <RecentPost key={ index }>
-                            <RecentPostThumbnail>
-                                <Img fluid={ node.node.frontmatter.featuredImage.childImageSharp.fluid }/>
-                            </RecentPostThumbnail>
-                            <RecentPostExcerpt>
-                                <p><strong> { node.node.frontmatter.title } </strong></p>
-                                <p> { node.node.frontmatter.description } </p>
-                                <p><Link to={ node.node.fields.slug }>Read More..</Link></p>
-                                <p>{ node.node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
-                            </RecentPostExcerpt>
-                        </RecentPost>
-                    )) }
-                </RecentPosts>
-            </BlogWrapper>
+            <h1>Blog</h1>
+            <FeaturedPost>
+                <FeaturedPostImage>
+                    <Img sizes={ data.featuredPost.edges[0].node.frontmatter.featuredImage.childImageSharp.sizes }/>
+                </FeaturedPostImage>
+                <FeaturedPostExcerpt>
+                    <FeaturedPostTitle>{ data.featuredPost.edges[0].node.frontmatter.title }</FeaturedPostTitle>
+                    <p><small>{ data.featuredPost.edges[0].node.frontmatter.date }</small></p>
+                    <p>{ data.featuredPost.edges[0].node.excerpt } <Link to={ data.featuredPost.edges[0].node.fields.slug }>Read More</Link></p>
+                    <p>{ data.featuredPost.edges[0].node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
+                </FeaturedPostExcerpt>
+            </FeaturedPost>
+            <BlogPosts>
+                { data.blogPosts.edges.map((node, index) => (
+                    <BlogCard key={ index }>
+                        <BlogCardThumbnail>
+                            <Img fluid={ node.node.frontmatter.featuredImage.childImageSharp.fluid }/>
+                        </BlogCardThumbnail>
+                        <BlogCardExcerpt>
+                            <p><strong> { node.node.frontmatter.title } </strong></p>
+                            <p> { node.node.frontmatter.description } </p>
+                            <p><Link to={ node.node.fields.slug }>Read More..</Link></p>
+                            <p>{ node.node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
+                        </BlogCardExcerpt>
+                    </BlogCard>
+                )) }
+            </BlogPosts>
         </Wrapper>
     }/>
+  </Layout>
 )
 
-export { Blog }
+export default BlogPage
 
-const blogContentQuery = graphql`
-    query BlogContentQuery {
-        recentPosts: allMarkdownRemark(
+const blogPageContentQuery = graphql`
+    query BlogPageContentQuery {
+        blogPosts: allMarkdownRemark(
         filter: { fileAbsolutePath: {regex : "\/posts/"}, frontmatter: {featured: {eq: "false"}}},
-        sort: {fields: [frontmatter___date], order: DESC},
-            limit: 5),
+        sort: {fields: [frontmatter___date], order: DESC}),
         {
             edges {
                 node {
@@ -201,4 +202,4 @@ const blogContentQuery = graphql`
         }
     }
 }
-`  
+`

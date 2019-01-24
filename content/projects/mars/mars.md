@@ -3,8 +3,8 @@ title: "Mars"
 tags: ["ruby", "mars", "rails", "postgresql"]
 date: "2016-05-01"
 featuredImage: "./featured.jpg"
-liveUrl: "http://www.google.com"
-sourceUrl: "http://www.google.com"
+liveUrl: "https://mars-score.herokuapp.com/"
+sourceUrl: "https://github.com/Trepkos01/Mars"
 description: "Allow users to add restaurants, meals and also place recommendations for restaurants and meals. Also allow users to search for potential highly recommended restaurants and meals based on provided or current location information. Allow users to share their recommendations on social media platforms."
 type: "project"
 ---
@@ -32,7 +32,3 @@ An awards system was also added whereas meals could obtain badges based on their
   
 
 This was my very first foray into the Ruby programming language and the Ruby On Rails framework.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2OTgxNzU4NCwtNzE0NzgwMDA5LDczMD
-k5ODExNl19
--->
