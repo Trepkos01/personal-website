@@ -19,31 +19,53 @@ const Content = styled.div `
   flex: 1 1 auto;
 
   @media all and (min-width: 800px) {
-    flex: 2 0px;
+    flex: 2 0;
+    width: 60%;
   }
 `
 
-const Layout = ({ children, hideAside }) => (
-  <StaticQuery
-    query={layoutContentQuery}
-    render={data => (
-      <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <Wrapper>
-          <Content>
-            { children }
-          </Content>
-          <Aside hide={ hideAside }/>
-        </Wrapper>
-        <Footer/>
-      </>
-    )}
-  />
-)
+const Layout = ({ children, hideAside, relatedPosts }) => { 
+  
+  
+  return (
+    <StaticQuery
+      query={layoutContentQuery}
+      render={data => (
+        <>
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <Wrapper>
+            <Content>
+              { children }
+            </Content>
+            <Aside hide={ hideAside } relatedPosts={ relatedPosts }/>
+          </Wrapper>
+          <Footer/>
+        </>
+      )}
+    />)
+}
+
+let postNode = PropTypes.shape({
+  node: PropTypes.shape({
+    frontmatter: PropTypes.shape({
+        title: PropTypes.string,
+        date: PropTypes.string,
+        description: PropTypes.string,
+        featuredImage: PropTypes.any,
+        tags: PropTypes.arrayOf(PropTypes.string)
+    }),
+    fields: PropTypes.shape({
+        slug: PropTypes.string
+    })
+  })
+})
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  hideAside: PropTypes.bool
+  hideAside: PropTypes.bool,
+  relatedPosts: PropTypes.shape({
+    edges: PropTypes.arrayOf(postNode)
+  })
 }
 
 export { Layout }

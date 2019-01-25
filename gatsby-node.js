@@ -57,6 +57,7 @@ exports.createPages = ({ graphql, actions }) => {
             component: returnPath(node.frontmatter.type),
             context: {
               slug: node.fields.slug,
+              tags: node.frontmatter.tags
             },
           })
         })

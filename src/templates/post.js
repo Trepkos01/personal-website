@@ -57,8 +57,9 @@ export default ({ data }) => {
       identifier: post.id,
       title: post.frontmatter.title,
     };
+    const relatedPosts = data.relatedPosts
     return (
-      <Layout hideAside={ false }>
+      <Layout hideAside={ false } relatedPosts = { relatedPosts }>
         <SEO description={ post.description } title={ post.frontmatter.title } keywords={ post.frontmatter.tags } />
         <PostWrapper>
           <FeatureImage>
@@ -83,7 +84,7 @@ export default ({ data }) => {
   }
   
   export const query = graphql`
-    query($slug: String!) {
+    query($slug: String!, $tags: [String]) {
       markdownRemark(fields: { slug: { eq: $slug } }) {
         id
         html
@@ -105,6 +106,33 @@ export default ({ data }) => {
             }
           }
         }
+      }
+      relatedPosts: allMarkdownRemark(
+        limit: 5
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: { frontmatter: { tags: { in: $tags } }, fileAbsolutePath: {regex : "\/posts/"} }
+      ) {
+        edges {
+            node {
+                frontmatter{
+                    title
+                    date(formatString: "DD MMMM, YYYY")
+                    description
+                    tags
+                    featuredImage {
+                        publicURL
+                        childImageSharp {
+                            fluid(maxWidth: 150, maxHeight: 150) {
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
+                }
+                fields {
+                    slug
+                }
+            }
+        }    
       }
       site{
         siteMetadata{
