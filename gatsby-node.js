@@ -1,4 +1,5 @@
 const path = require('path')
+const _ = require("lodash")
 
 const postTemplate = path.resolve(`./src/templates/post.js`)
 const projectTemplate = path.resolve(`./src/templates/project.js`)
@@ -9,7 +10,6 @@ const returnPath = (name) => ({
   "project": projectTemplate,
   "booknote": booknoteTemplate,
 })[name]
-
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
@@ -38,13 +38,20 @@ exports.createPages = ({ graphql, actions }) => {
                 }
                 frontmatter {
                   type
+                  tags
                 }
               }
             }
           }
         }
       `).then(result => {
-        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        if(result.error){
+            return Promise.reject(result.error)
+        }
+
+        const markdownPages = result.data.allMarkdownRemark.edges
+
+        markdownPages.forEach(({ node }) => {
           createPage({
             path: node.fields.slug,
             component: returnPath(node.frontmatter.type),
@@ -53,6 +60,27 @@ exports.createPages = ({ graphql, actions }) => {
             },
           })
         })
+
+        let tags = []
+        
+        _.each(markdownPages, edge => {
+          if(_.get(edge, "node.frontmatter.tags")){
+            tags = tags.concat(edge.node.frontmatter.tags)
+          }
+        })
+
+        tags = _.uniq(tags)
+
+        tags.forEach(tag => {
+          createPage({
+            path: `/tags/${_.kebabCase(tag)}/`,
+            component: path.resolve(`./src/templates/tag.js`),
+            context: {
+              tag
+            },
+          })
+        })
+
         resolve()
       })
     })
