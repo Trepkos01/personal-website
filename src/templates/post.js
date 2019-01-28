@@ -51,18 +51,32 @@ const PostComments = styled.div `
   margin: 0 auto;
 `
 
+const PostProject = styled.div `
+`
+
 export default ({ data }) => {
     const post = data.markdownRemark
     const url = data.site.siteMetadata.siteUrl + "/" + post.fields.slug
     const disqusShortname = 'blakeadams-io';
+
     const disqusConfig = {
       url: url, 
       identifier: post.id,
       title: post.frontmatter.title,
     };
-    const relatedPosts = data.relatedPosts
+
+    const asideInfo = {
+      relatedPosts: data.relatedPosts,
+      tags: post.frontmatter.tags
+    }
+
+    let project = ""
+    if(data.project !== null){
+      project = <PostProject><h1>{ data.project.frontmatter.title }</h1></PostProject>
+    } 
+
     return (
-      <Layout hideAside={ false } relatedPosts = { relatedPosts }>
+      <Layout hideAside={ false } asideInfo = { asideInfo }>
         <SEO description={ post.description } title={ post.frontmatter.title } keywords={ post.frontmatter.tags } />
         <PostWrapper>
           <FeatureImage>
@@ -76,6 +90,7 @@ export default ({ data }) => {
             <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>Comments</Disqus.CommentCount>
           </PostDetails>
           <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
+          { project }
         </PostWrapper>
         <SocialShare url={ url } title={ post.frontmatter.title } size={ 50 }/>
         <PostComments>
@@ -87,7 +102,7 @@ export default ({ data }) => {
   }
   
   export const query = graphql`
-    query($slug: String!, $tags: [String]) {
+    query($slug: String!, $tags: [String], $project: String) {
       markdownRemark(fields: { slug: { eq: $slug } }) {
         id
         html
@@ -106,6 +121,11 @@ export default ({ data }) => {
                 ...PostFrontmatter
             }
         }    
+      }
+      project: markdownRemark(fields: { slug: { eq: $project } }) {
+        id
+        ...MarkdownFields
+        ...ProjectsItemFrontmatter
       }
       site {
       ...SiteInformation

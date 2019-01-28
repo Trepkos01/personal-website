@@ -42,37 +42,47 @@ const ProjectLinks = styled.div `
 `
 
 export default ({ data }) => {
-    const post = data.markdownRemark
-    const url = data.site.siteMetadata.siteUrl + "/" + post.fields.slug
+    const project = data.markdownRemark
+    const url = data.site.siteMetadata.siteUrl + "/" + project.fields.slug
+
+    let relatedPosts = ""
+    if(data.relatedPosts !== null)
+      relatedPosts = <div><h1>Related Posts</h1></div>
+
+    const asideInfo = {
+      relatedPosts: data.relatedPosts,
+      tags: project.frontmatter.tags
+    }
 
     return (
-        <Layout hideAside={ false }>
-            <SEO description={ post.description } title={ post.frontmatter.title } keywords={ post.frontmatter.tags } />
+        <Layout hideAside={ false } asideInfo={ asideInfo }>
+            <SEO description={ project.description } title={ project.frontmatter.title } keywords={ project.frontmatter.tags } />
             <ProjectWrapper>
                 <FeatureImage>
-                    <Img fluid={ post.frontmatter.featuredImage.childImageSharp.fluid }/>
+                    <Img fluid={ project.frontmatter.featuredImage.childImageSharp.fluid }/>
                 </FeatureImage>
-                <ProjectTitle>{ post.frontmatter.title }</ProjectTitle>
+                <ProjectTitle>{ project.frontmatter.title }</ProjectTitle>
                 <ProjectLinks>
                   {((url) => {
                     if(url !== "")
                       return <p><a href={ url } > View Live </a></p>
-                  })(post.frontmatter.liveUrl)}
+                  })(project.frontmatter.liveUrl)}
                   {((url) => {
                     if(url !== "")
                       return <p><a href= { url }> View Source </a></p>
-                  })(post.frontmatter.sourceUrl)}
+                  })(project.frontmatter.sourceUrl)}
                 </ProjectLinks>
-                <Tech tech={ post.frontmatter.tags }/>
-                <ProjectContent dangerouslySetInnerHTML={{ __html: post.html }} />
+                <Tech tech={ project.frontmatter.tags }/>
+                <ProjectContent dangerouslySetInnerHTML={{ __html: project.html }} />
+                { relatedPosts }
             </ProjectWrapper>
-            <SocialShare url={ url } title={ post.frontmatter.title } size={ 50 }/>
+            <SocialShare url={ url } title={ project.frontmatter.title } size={ 50 }/>
         </Layout>
     )
 }
 
 export const query = graphql`
-    query($slug: String!) {
+    query($slug: String!, $tags: [String]) {
       markdownRemark(fields: { slug: { eq: $slug } }) {
         id
         html
@@ -82,6 +92,30 @@ export const query = graphql`
       }
       site{
         ...SiteInformation
+      }
+      projectPosts: allMarkdownRemark(
+        limit: 5
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: { frontmatter: { tags: { in: [$slug] } }, fileAbsolutePath: {regex : "\/posts/"} }
+      ) {
+        edges {
+            node {
+                ...MarkdownFields
+                ...PostFrontmatter
+            }
+        }    
+      }
+      relatedPosts: allMarkdownRemark(
+        limit: 5
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: { frontmatter: { tags: { in: $tags } }, fileAbsolutePath: {regex : "\/posts/"} }
+      ) {
+        edges {
+            node {
+                ...MarkdownFields
+                ...PostFrontmatter
+            }
+        }    
       }
     }
   `

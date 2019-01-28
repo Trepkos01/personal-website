@@ -39,6 +39,8 @@ exports.createPages = ({ graphql, actions }) => {
                 frontmatter {
                   type
                   tags
+                  category
+                  project
                 }
               }
             }
@@ -57,20 +59,28 @@ exports.createPages = ({ graphql, actions }) => {
             component: returnPath(node.frontmatter.type),
             context: {
               slug: node.fields.slug,
-              tags: node.frontmatter.tags
+              tags: node.frontmatter.tags,
+              project: node.frontmatter.project
             },
           })
         })
 
         let tags = []
+        let categories = []
         
         _.each(markdownPages, edge => {
           if(_.get(edge, "node.frontmatter.tags")){
             tags = tags.concat(edge.node.frontmatter.tags)
           }
+
+          if(_.get(edge, "node.frontmatter.category")){
+            categories.push(edge.node.frontmatter.category)
+          }
+
         })
 
         tags = _.uniq(tags)
+        categories = _.uniq(categories)
 
         tags.forEach(tag => {
           createPage({
@@ -78,6 +88,16 @@ exports.createPages = ({ graphql, actions }) => {
             component: path.resolve(`./src/templates/tag.js`),
             context: {
               tag
+            },
+          })
+        })
+        
+        categories.forEach(category => {
+          createPage({
+            path: `/category/${_.kebabCase(category)}/`,
+            component: path.resolve(`./src/templates/category.js`),
+            context: {
+              category
             },
           })
         })

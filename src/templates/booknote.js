@@ -22,8 +22,13 @@ export default ({ data }) => {
     const post = data.markdownRemark
     const url = data.site.siteMetadata.siteUrl + "/" + post.fields.slug
 
+    const asideInfo = {
+      relatedPosts: {edges: []},
+      tags: []
+    }
+
     return (
-        <Layout hideAside={ false }>
+        <Layout hideAside={ false } asideInfo={ asideInfo }>
             <SEO description={ post.description } title={ post.frontmatter.title } keywords={ post.frontmatter.tags } />
             <BooknotesWrapper>
                 <BooknotesTitle>{ post.frontmatter.title }</BooknotesTitle>

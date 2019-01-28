@@ -7,6 +7,7 @@ featured: "true"
 description: "Using the Geokit gem package for geocoding locations and geolocational search in a Ruby on Rails application."
 type: "post"
 category: "Software Development"
+project: "mars"
 ---
 
 

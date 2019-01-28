@@ -39,13 +39,13 @@ const Tag = ({pageContext, data}) => {
         <Layout hideAside={ false }>
             <SEO title={ title } keywords={[`blake adams`, `software`, `software developer`, `technology`, `financial independence`, `entrepreneur`, `career`, `consultancy`, `projects`, 'blog', tag]} />
             <Wrapper>
-                <h1>{ postsSectionHeader }</h1>
+                <h2>{ postsSectionHeader }</h2>
                 <PostsWrapper>
                 { posts.map((node, index) => (
                     <PostCard key={ index } post={ node }/>
                 ))}
                 </PostsWrapper>
-                <h1>{ projectsSectionHeader }</h1>
+                <h2>{ projectsSectionHeader }</h2>
                 <ProjectsWrapper>
                 { projects.map((node, index) => (
                     <ProjectCard key={ index } project={ node }/>

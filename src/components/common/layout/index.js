@@ -24,7 +24,7 @@ const Content = styled.div `
   }
 `
 
-const Layout = ({ children, hideAside, relatedPosts }) => { 
+const Layout = ({ children, hideAside, asideInfo }) => { 
   
   
   return (
@@ -37,7 +37,7 @@ const Layout = ({ children, hideAside, relatedPosts }) => {
             <Content>
               { children }
             </Content>
-            <Aside hide={ hideAside } relatedPosts={ relatedPosts }/>
+            <Aside hide={ hideAside } asideInfo={ asideInfo }/>
           </Wrapper>
           <Footer/>
         </>
@@ -63,8 +63,11 @@ let postNode = PropTypes.shape({
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   hideAside: PropTypes.bool,
-  relatedPosts: PropTypes.shape({
-    edges: PropTypes.arrayOf(postNode)
+  asideInfo: PropTypes.shape({
+    relatedPosts: PropTypes.shape({
+      edges: PropTypes.arrayOf(postNode)
+    }),
+    tags: PropTypes.arrayOf(PropTypes.string)
   })
 }
 

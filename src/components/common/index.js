@@ -9,6 +9,6 @@ export * from './postcard'
 export * from './featuredpost'
 export * from './projectcard'
 export * from './booknotescard'
-export * from './relatedposts'
+export * from './postitem'
 
 

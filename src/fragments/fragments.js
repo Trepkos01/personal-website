@@ -4,6 +4,7 @@ export const siteInformationFragment = graphql`
   fragment SiteInformation on Site {
     siteMetadata{
         siteUrl
+        description
         author {
             short_bio
         }
@@ -69,6 +70,7 @@ export const booknotesFrontMatterFragment = graphql`
         date(formatString: "DD MMMM, YYYY")
         description
         category
+        project
         coverImage {
             publicURL
             childImageSharp {

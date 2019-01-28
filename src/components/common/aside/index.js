@@ -3,7 +3,13 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { SocialIcon, RelatedPosts } from "../../common"
+import { About } from './about'
+import { Social } from './social'
+import { RelatedPosts } from './relatedposts'
+import { Tags } from './tags'
+import { LatestPosts } from './latestposts'
+import { Categories } from './categories'
+import { LatestBooknotes } from "./latestbooknotes"
 
 const Wrapper = styled.div `
     display: flex;
@@ -23,33 +29,25 @@ const Wrapper = styled.div `
     }
 `
 
-const About = styled.div `
-
-`
-
-const Social = styled.div `
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-`
-
-const Aside = ({ hide, relatedPosts }) => { 
-    
+const Aside = ({ hide, asideInfo=null }) => { 
+    if(asideInfo === null)
+        asideInfo = {
+            relatedPosts: {edges: []},
+            tags: []
+        }
+  
     return (
         <StaticQuery
         query={asideContentQuery}
         render={data => (
             <Wrapper hide={ hide }>
-                <About>
-                    <h3>About</h3>
-                    <p>{ data.site.siteMetadata.description }</p>
-                </About>
-                <Social>
-                    { data.site.siteMetadata.social.map((node) => (
-                        <SocialIcon url={ node.url } key={ node.name } social={ node.name }/>
-                    ))}
-                </Social>
-                <RelatedPosts relatedPosts={ relatedPosts }/>
+                <About bio={ data.site.siteMetadata.description }/>
+                <Social social={ data.site.siteMetadata.social }/>
+                <RelatedPosts relatedPosts={ asideInfo.relatedPosts }/>
+                <LatestPosts latestPosts={ data.latestPosts }/>
+                <LatestBooknotes latestBooknotes={ data.latestBooknotes }/>
+                <Tags tags={ asideInfo.tags }/>
+                <Categories categories={ data.categories}/>
             </Wrapper>
         )}/>
     )
@@ -74,20 +72,53 @@ let postNode = PropTypes.shape({
 
 Aside.propTypes = {
     hide: PropTypes.bool,
-    relatedPosts: PropTypes.shape({
-        edges: PropTypes.arrayOf(postNode)
+    asideInfo: PropTypes.shape({
+        relatedPosts: PropTypes.shape({
+          edges: PropTypes.arrayOf(postNode)
+        }),
+        tags: PropTypes.arrayOf(PropTypes.string)
     })
 }
 
 const asideContentQuery = graphql`
     query AsideContentQuery {
         site {
-            siteMetadata {
-                description
-                social {
-                    name
-                    url
+            ...SiteInformation
+        }
+        categories: allMarkdownRemark(filter: { fileAbsolutePath: {regex : "\/content/" } }) {
+            edges {
+                node {
+                    frontmatter {
+                        category
+                    }
                 }
             }
         }
+        latestPosts: allMarkdownRemark(
+            filter: { fileAbsolutePath: {regex : "\/posts/"}, frontmatter: {featured: {eq: "false"}}},
+            sort: {fields: [frontmatter___date], order: DESC},
+                limit: 5),
+        {
+            edges {
+                node {
+                    id
+                    ...PostItemFrontmatter
+                    ...MarkdownFields
+                }
+            }
+        }
+        latestBooknotes: allMarkdownRemark(
+            filter: { fileAbsolutePath: {regex : "\/booknotes/"}},
+            sort: {fields: [frontmatter___date], order: DESC},
+            limit: 3)
+        {
+            edges {
+                node {
+                    id
+                    excerpt(pruneLength: 180)
+                    ...BooknotesItemFrontmatter
+                    ...MarkdownFields
+                }
+            }
+        } 
     }`
