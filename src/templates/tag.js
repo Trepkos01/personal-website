@@ -20,12 +20,15 @@ const ProjectsWrapper = styled.div`
 
 const Tag = ({pageContext, data}) => {
     const { tag } = pageContext
-    const { posts, postsCount } = data.taggedPosts
+
+    const { posts, postsCount } = data.taggedPosts || { posts: [], postsCount: 0}
+
+    const { projects, projectsCount } = data.taggedProjects || { projects: [], projectsCount: 0}
+
     const postsSectionHeader = `${postsCount} post${
         postsCount === 1 ? "" : "s"
-      } tagged with "${tag}"`
-
-    const { projects, projectsCount } = data.taggedProjects
+        } tagged with "${tag}"`
+    
     const projectsSectionHeader = `${projectsCount} project${
         projectsCount === 1 ? "" : "s"
       } tagged with "${tag}"`

@@ -1,6 +1,6 @@
 import React from 'react'
 import Disqus from 'disqus-react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components'
 import Img from "gatsby-image";
 
@@ -35,8 +35,9 @@ const PostDetails = styled.div `
   border-bottom: 1px solid lightgray;
   font-size: small;
 `
-const PostTag = styled.span `
+const PostTag = styled(Link)`
     color: lightgray;
+    font-size: small;
 `
 
 const PostContent = styled.div `
@@ -69,7 +70,7 @@ export default ({ data }) => {
           <PostDetails>
             <p><strong>Date:</strong> { post.frontmatter.date }</p>
             <p><strong>Time to Read:</strong> { post.timeToRead } Minutes</p>
-            <p><strong>Tags:</strong> { post.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
+            <p><strong>Tags:</strong> { post.frontmatter.tags.map((node, index) => (<PostTag key={ index } to={ `/tags/${node}` }> { node } </PostTag>)) }</p>
             <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>Comments</Disqus.CommentCount>
           </PostDetails>
           <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
