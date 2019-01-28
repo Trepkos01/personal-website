@@ -68,23 +68,8 @@ export const tagPostsQuery = graphql`
             node {
                 id
                 excerpt(pruneLength: 180)
-                frontmatter{
-                    title
-                    date(formatString: "DD MMMM, YYYY")
-                    description
-                    tags
-                    featuredImage {
-                        publicURL
-                        childImageSharp {
-                            fluid(maxWidth: 300, maxHeight: 300) {
-                                ...GatsbyImageSharpFluid
-                            }
-                        }
-                    }
-                }
-                fields {
-                    slug
-                }
+                ...PostItemFrontmatter
+                ...MarkdownFields
             }
         }
     }
@@ -98,25 +83,8 @@ export const tagPostsQuery = graphql`
                 node {
                     id
                     excerpt(pruneLength: 180)
-                    frontmatter{
-                        title
-                        date(formatString: "DD MMMM, YYYY")
-                        description
-                        liveUrl
-                        sourceUrl
-                        tags
-                        featuredImage {
-                            publicURL
-                            childImageSharp {
-                                fluid(maxWidth: 300, maxHeight: 300) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                    }
-                    fields {
-                        slug
-                    }
+                    ...ProjectsItemFrontmatter
+                    ...MarkdownFields
                 }
             }
         }

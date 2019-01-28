@@ -65,16 +65,8 @@ export { Intro }
 
 const introContentQuery = graphql`
     query IntroContentQuery {
-        site {
-            siteMetadata {
-                author {
-                    short_bio
-                }
-                social {
-                    name
-                    url
-                }
-            }
+        site{
+        ...SiteInformation
         }
         # Get the intro image.
         introImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {

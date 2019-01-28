@@ -6,6 +6,7 @@ featuredImage: "./featured.jpg"
 featured: "false"
 description: "Overwhelmed with the breadth of the field of technology, how to find your specialization in a multitude of competing fields? How to generate excitement again, or for the first time."
 type: "post"
+category: "Career"
 ---
 > What excites and interests you about technology?
 

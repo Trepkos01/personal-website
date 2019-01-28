@@ -6,6 +6,8 @@ import Img from "gatsby-image";
 
 import { Layout, SEO, SocialShare } from '../components/common'
 
+const _ = require("lodash")
+
 const PostWrapper = styled.div `
   padding: 2em;
   display: flex;
@@ -70,7 +72,7 @@ export default ({ data }) => {
           <PostDetails>
             <p><strong>Date:</strong> { post.frontmatter.date }</p>
             <p><strong>Time to Read:</strong> { post.timeToRead } Minutes</p>
-            <p><strong>Tags:</strong> { post.frontmatter.tags.map((node, index) => (<PostTag key={ index } to={ `/tags/${node}` }> { node } </PostTag>)) }</p>
+            <p><strong>Tags:</strong> { post.frontmatter.tags.map((node, index) => (<PostTag key={ index } to={ `/tags/${_.kebabCase(node)}/` }> { node } </PostTag>)) }</p>
             <Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>Comments</Disqus.CommentCount>
           </PostDetails>
           <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -90,23 +92,8 @@ export default ({ data }) => {
         id
         html
         timeToRead
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          date
-          tags
-          description
-          featuredImage {
-            publicURL
-            childImageSharp {
-                fluid(maxWidth: 960) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-          }
-        }
+        ...MarkdownFields
+        ...PostFrontmatter
       }
       relatedPosts: allMarkdownRemark(
         limit: 5
@@ -115,30 +102,13 @@ export default ({ data }) => {
       ) {
         edges {
             node {
-                frontmatter{
-                    title
-                    date(formatString: "DD MMMM, YYYY")
-                    description
-                    tags
-                    featuredImage {
-                        publicURL
-                        childImageSharp {
-                            fluid(maxWidth: 150, maxHeight: 150) {
-                                ...GatsbyImageSharpFluid
-                            }
-                        }
-                    }
-                }
-                fields {
-                    slug
-                }
+                ...MarkdownFields
+                ...PostFrontmatter
             }
         }    
       }
-      site{
-        siteMetadata{
-          siteUrl
-        }
+      site {
+      ...SiteInformation
       }
     }
   `

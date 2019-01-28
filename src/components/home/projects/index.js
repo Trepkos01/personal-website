@@ -45,25 +45,8 @@ const projectsContentQuery = graphql`
             edges {
                 node {
                     id
-                    frontmatter {
-                        title
-                        date(formatString: "DD MMMM, YYYY")
-                        description
-                        featuredImage {
-                            publicURL
-                            childImageSharp {
-                                fluid(maxWidth: 960) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                        tags
-                        liveUrl
-                        sourceUrl
-                    }
-                    fields {
-                        slug
-                    }
+                    ...ProjectsFrontmatter
+                    ...MarkdownFields
                 }
             }
         }

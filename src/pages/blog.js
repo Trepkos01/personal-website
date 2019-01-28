@@ -47,23 +47,8 @@ const blogPageContentQuery = graphql`
             edges {
                 node {
                     id
-                    frontmatter {
-                        title
-                        date(formatString: "DD MMMM, YYYY")
-                        description
-                        featuredImage {
-                            publicURL
-                            childImageSharp {
-                                fluid(maxWidth: 300, maxHeight: 300) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                        tags
-                    }
-                    fields {
-                        slug
-                    }
+                    ...PostItemFrontmatter
+                    ...MarkdownFields
                 }
             }
         }
@@ -76,26 +61,8 @@ const blogPageContentQuery = graphql`
                 node {
                     id
                     excerpt(pruneLength: 180)
-                    frontmatter{
-                        title
-                        date(formatString: "DD MMMM, YYYY")
-                        description
-                        featuredImage {
-                            publicURL
-                            childImageSharp {
-                                sizes(maxWidth: 960 ) {
-                                    srcSet
-                                    aspectRatio
-                                    src
-                                    sizes
-                                }
-                            }
-                        }
-                    tags
-                }
-                fields {
-                    slug
-                }
+                    ...PostFrontmatter
+                    ...MarkdownFields
             }
         }
     }

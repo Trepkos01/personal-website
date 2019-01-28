@@ -77,30 +77,11 @@ export const query = graphql`
         id
         html
         timeToRead
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          date
-          tags
-          description
-          featuredImage {
-            publicURL
-            childImageSharp {
-                fluid(maxWidth: 960) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-          }
-          liveUrl
-          sourceUrl
-        }
+        ...MarkdownFields
+        ...ProjectsFrontmatter
       }
       site{
-        siteMetadata{
-          siteUrl
-        }
+        ...SiteInformation
       }
     }
   `

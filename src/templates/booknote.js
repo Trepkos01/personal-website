@@ -40,19 +40,11 @@ export const query = graphql`
         id
         html
         timeToRead
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          date
-          description
-        }
+        ...MarkdownFields
+        ...BooknotesItemFrontmatter
       }
       site{
-        siteMetadata{
-          siteUrl
-        }
+        ...SiteInformation
       }
     }
   `

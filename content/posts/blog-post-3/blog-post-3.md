@@ -6,6 +6,7 @@ featuredImage: "./featured.jpg"
 featured: "false"
 description: "Seeding base data to a crowd-sourced Ruby on Rails application using a Python web-scraper."
 type: "post"
+category: "Software Development"
 ---
 
 One of the classic issues with a crowd-sourced web application is the chicken-egg problem of attracting users to generate user-generated content without actually having any user-generated content to begin with. In this example, I attempt to seed the web application with as much information as possible; however given the granular nature of this information (restaurant menus), the extent of this seed data is the relevant restaurant information (name, address).

@@ -50,21 +50,8 @@ const currentContentQuery = graphql`
                 node {
                     id
                     excerpt(pruneLength: 180)
-                    frontmatter {
-                        title
-                        date(formatString: "DD MMMM, YYYY")
-                        coverImage {
-                            publicURL
-                            childImageSharp {
-                                fluid(maxWidth: 200, maxHeight: 200) {
-                                    ...GatsbyImageSharpFluid
-                                }
-                            }
-                        }
-                    }
-                    fields {
-                        slug
-                    }
+                    ...BooknotesItemFrontmatter
+                    ...MarkdownFields
                 }
             }
         }

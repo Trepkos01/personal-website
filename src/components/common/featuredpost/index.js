@@ -49,7 +49,7 @@ const PostTag = styled.small `
 const FeaturedPost = ({ post }) => (
     <FeaturedWrapper>
         <FeaturedPostImage>
-            <Img sizes={ post.node.frontmatter.featuredImage.childImageSharp.sizes }/>
+            <Img fluid={ post.node.frontmatter.featuredImage.childImageSharp.fluid }/>
         </FeaturedPostImage>
         <FeaturedPostExcerpt>
             <FeaturedPostTitle>{ post.node.frontmatter.title }</FeaturedPostTitle>
