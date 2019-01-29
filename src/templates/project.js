@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components'
 import Img from "gatsby-image";
 
-import { Layout, SEO, SocialShare, Tech } from '../components/common'
+import { Layout, SEO, SocialShare, Tech, PostItem } from '../components/common'
 
 const ProjectWrapper = styled.div `
   padding: 2em;
@@ -41,13 +41,21 @@ const ProjectLinks = styled.div `
   }
 `
 
+const RelatedPostsWrapper = styled.div `
+`
+
 export default ({ data }) => {
     const project = data.markdownRemark
     const url = data.site.siteMetadata.siteUrl + "/" + project.fields.slug
 
-    let relatedPosts = ""
-    if(data.relatedPosts !== null)
-      relatedPosts = <div><h1>Related Posts</h1></div>
+    let projectPosts = ""
+    if(data.projectPosts !== null)
+      projectPosts = (<RelatedPostsWrapper>
+                        <h1>Posts about this Project</h1>
+                        { data.projectPosts.edges.map((node, index) => (
+                        <PostItem key={ index } post={ node }/>
+                        ))}
+                      </RelatedPostsWrapper>)
 
     const asideInfo = {
       relatedPosts: data.relatedPosts,
@@ -74,7 +82,7 @@ export default ({ data }) => {
                 </ProjectLinks>
                 <Tech tech={ project.frontmatter.tags }/>
                 <ProjectContent dangerouslySetInnerHTML={{ __html: project.html }} />
-                { relatedPosts }
+                { projectPosts }
             </ProjectWrapper>
             <SocialShare url={ url } title={ project.frontmatter.title } size={ 50 }/>
         </Layout>

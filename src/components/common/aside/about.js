@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const AboutWrapper = styled.div `
+    margin-bottom: 2em;
 `
 
 const About = ({ bio }) => (

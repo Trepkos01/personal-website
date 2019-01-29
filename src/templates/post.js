@@ -52,6 +52,37 @@ const PostComments = styled.div `
 `
 
 const PostProject = styled.div `
+  padding: 1em;
+  margin: 1em;
+
+  display: flex;
+  flex-flow: row wrap;
+  border-bottom: 1px solid lightgray;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width:768px) {
+    justify-content: flex-start;
+  }
+`
+
+const PostProjectThumbnail = styled.div `
+  flex: 0 0 200px;
+  box-shadow: 2px 2px #ccc;
+  overflow:hidden;
+  height: 100%
+`
+
+const PostProjectDescription = styled.div `
+  padding: 1em;
+
+  flex: 1 0 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width:768px) {
+      flex: 0 0 50%;
+  }
 `
 
 export default ({ data }) => {
@@ -72,7 +103,16 @@ export default ({ data }) => {
 
     let project = ""
     if(data.project !== null){
-      project = <PostProject><h1>{ data.project.frontmatter.title }</h1></PostProject>
+      project = (<PostProject>
+                    <PostProjectThumbnail>
+                      <Img fluid={ data.project.frontmatter.featuredImage.childImageSharp.fluid }/>
+                    </PostProjectThumbnail>
+                    <PostProjectDescription>
+                      <p><strong>This post is about the project, { data.project.frontmatter.title }</strong></p>
+                      <p>{ data.project.frontmatter.description }</p>
+                      <p><Link to={ data.project.fields.slug }>Read More</Link></p>
+                    </PostProjectDescription>
+                 </PostProject>)
     } 
 
     return (
