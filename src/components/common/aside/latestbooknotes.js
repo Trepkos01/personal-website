@@ -22,7 +22,13 @@ const BooknoteWrapper = styled.div `
 
     @media (min-width:768px) {
         justify-content: flex-start;
+
+        p {
+            margin-bottom: 0px;
+        }
     }
+
+    background-color: ${props => props.color || "inherit"};
 `
 const BookCover = styled.div `
     flex: 0 0 100px;
@@ -39,7 +45,7 @@ const BooknotesDetails = styled.div `
     flex-direction: column;
 
     @media (min-width:768px) {
-        flex: 0 0 50%;
+        flex: 1 0 50%;
     }
 `
 
@@ -47,7 +53,7 @@ const LatestBooknotes = ({ latestBooknotes }) => (
     <LatestBooknotesWrapper  style={ { display: (latestBooknotes !== null) ? 'flex' : 'none' } }>
     <h3>Latest Booknotes</h3>
     { latestBooknotes.edges.map((node, index) => (
-        <BooknoteWrapper key={ index }>
+        <BooknoteWrapper key={ index } color={ "white" }>
             <BookCover>
                 <Img fluid={ node.node.frontmatter.coverImage.childImageSharp.fluid }/>
             </BookCover>

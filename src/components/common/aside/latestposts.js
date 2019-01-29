@@ -15,7 +15,7 @@ const LatestPosts = ({ latestPosts }) => {
         <LatestPostsWrapper style={ { display: (posts.edges.length > 0) ? 'flex' : 'none' } }>
             <h3>Latest Posts</h3>
             { posts.edges.map((node, index) => (
-                <PostItem key={ index } post={ node }/>
+                <PostItem key={ index } post={ node } color={ "white" }/>
             ))}
         </LatestPostsWrapper>
     )

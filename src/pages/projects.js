@@ -26,10 +26,9 @@ const ProjectsPage = () => (
             query={projectsPageContentQuery}
             render={data => 
             <Wrapper>
-                    <h1>Projects</h1>
                     <ProjectsContainer>
                     { data.projects.edges.map((node, index) => (
-                        <ProjectCard key={ index } project={ node }/>
+                        <ProjectCard key={ index } project={ node } color={ "#f0f8ff82" }/>
                     ))}
                     </ProjectsContainer>
             </Wrapper>

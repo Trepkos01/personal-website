@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const HeaderContainer = styled.div `
-  background: rebeccapurple;
+  background: #336f99;
   margin-bottom: 1.45rem;
   position: fixed;
   width: 100%;
@@ -54,7 +54,7 @@ const NavLink = styled(Link) `
 
   :hover{
     text-decoration: none;
-    color: black;
+    color: #e4ebf963;
   }
 `
 
@@ -63,7 +63,7 @@ const SideNav = styled.div `
   height: 100%;
   width: 65%;
   position: fixed;
-  background-color: rebeccapurple;
+  background-color: #336f99;
 
   right: -200px;
   top: 85px;

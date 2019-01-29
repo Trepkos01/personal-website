@@ -22,10 +22,10 @@ const Blog = () => (
         render={data =>
         <BlogWrapper>
             <h1>Blog</h1>
-            <FeaturedPost post={ data.featuredPost.edges[0] }/>
+            <FeaturedPost post={ data.featuredPost.edges[0] } color={ "white" }/>
             <RecentPosts>
                 { data.recentPosts.edges.map((node, index) => (
-                    <PostCard key={ index } post={ node }/>
+                    <PostCard key={ index } post={ node } color={ "white" }/>
                 )) }
             </RecentPosts>
         </BlogWrapper>

@@ -24,11 +24,10 @@ const BlogPage = () => (
         query={blogPageContentQuery}
         render={data =>
         <Wrapper>
-            <h1>Blog</h1>
-            <FeaturedPost post={ data.featuredPost.edges[0] }/>
+            <FeaturedPost post={ data.featuredPost.edges[0] } color={ "#f0f8ff82" }/>
             <BlogPosts>
                 { data.blogPosts.edges.map((node, index) => (
-                    <PostCard key={ index } post={ node }/>
+                    <PostCard key={ index } post={ node } color={ "#f0f8ff82" }/>
                 )) }
             </BlogPosts>
         </Wrapper>

@@ -27,6 +27,8 @@ const Wrapper = styled.div `
         flex: 1 0;
         width: 40%;
     }
+
+    background-color: #f0f8ff
 `
 
 const Aside = ({ hide, asideInfo=null }) => { 

@@ -26,7 +26,7 @@ const Projects = () => (
                     <h1>Projects</h1>
                     <ProjectsContainer>
                     { data.projects.edges.map((node, index) => (
-                        <ProjectCard key={ index } project={ node }/>
+                        <ProjectCard key={ index } project={ node } color={ "#c2e9fb3d" }/>
                     ))}
                     </ProjectsContainer>
                 </ProjectsWrapper>

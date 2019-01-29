@@ -25,6 +25,8 @@ const PostCardWrapper = styled.div `
     @media (min-width:1000px) {
         flex: 0 0 28%;
     }
+
+    background-color: ${props => props.color || "inherit"};
 `
 
 const PostCardThumbnail = styled.div `
@@ -46,8 +48,8 @@ const PostTag = styled.small `
     color: lightgray;
 `
 
-const PostCard = ({ post }) => (
-    <PostCardWrapper>
+const PostCard = ({ post, color }) => (
+    <PostCardWrapper color={ color }>
         <PostCardThumbnail>
             <Img fluid={ post.node.frontmatter.featuredImage.childImageSharp.fluid }/>
         </PostCardThumbnail>
@@ -77,7 +79,8 @@ PostCard.propTypes = {
                 slug: PropTypes.string
             })
         })
-    })
+    }),
+    color: PropTypes.string
 }
 
 

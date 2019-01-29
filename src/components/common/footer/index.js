@@ -6,7 +6,7 @@ import { SocialIcon } from '../'
 
 const FooterContainer = styled.footer `
     width: 100%;
-    background: rebeccapurple;
+    background: #336f99;
 
     @media(min-width:768px){
         height: 200px;

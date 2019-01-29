@@ -19,9 +19,8 @@ const BooknotesPage = () => (
             query={booknotesContentQuery}
             render={data => 
                 <Wrapper>
-                    <h1>Booknotes</h1>
                     { data.booknotes.edges.map((node, index) => (
-                        <BooknotesCard key={ index } booknotes={ node }/>
+                        <BooknotesCard key={ index } booknotes={ node } color={ "#f0f8ff82" }/>
                     ))}
                 </Wrapper>
         }/>

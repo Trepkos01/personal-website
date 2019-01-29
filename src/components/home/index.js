@@ -1,4 +1,5 @@
 export * from './intro'
-export * from './current'
+export * from './announcements'
+export * from './booknotes'
 export * from './blog'
 export * from './projects'

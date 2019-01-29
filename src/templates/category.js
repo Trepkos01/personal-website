@@ -11,16 +11,22 @@ const Wrapper = styled.div `
 const PostsWrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
+    border-bottom: lightgray 1px solid;
 `
 
 const ProjectsWrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
+    border-bottom: lightgray 1px solid;
 `
 
 const BooknotesWrapper = styled.div`
     display: flex;
     flex-flow: column;
+    justify-content: center;
+    border-bottom: lightgray 1px solid;
 `
 
 const Category = ({pageContext, data}) => {
@@ -51,19 +57,19 @@ const Category = ({pageContext, data}) => {
                 <h2>{ postsSectionHeader }</h2>
                 <PostsWrapper>
                 { posts.map((node, index) => (
-                    <PostCard key={ index } post={ node }/>
+                    <PostCard key={ index } post={ node } color={ "#f0f8ff82;" }/>
                 ))}
                 </PostsWrapper>
                 <h2>{ projectsSectionHeader }</h2>
                 <ProjectsWrapper>
                 { projects.map((node, index) => (
-                    <ProjectCard key={ index } project={ node }/>
+                    <ProjectCard key={ index } project={ node } color={ "#f0f8ff82;" }/>
                 ))}
                 </ProjectsWrapper>
                 <h2>{ booknotesSectionHeader }</h2>
                 <BooknotesWrapper>
                 { booknotes.map((node, index) => (
-                    <BooknotesCard key={ index } booknotes={ node }/>
+                    <BooknotesCard key={ index } booknotes={ node } color={ "#f0f8ff82;" }/>
                 ))}
                 </BooknotesWrapper>
             </Wrapper>

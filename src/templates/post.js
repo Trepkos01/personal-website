@@ -34,8 +34,13 @@ const PostDetails = styled.div `
   display: flex;
   flex-direction: column;
   margin-bottom: 2em;
+  padding: 1em;
   border-bottom: 1px solid lightgray;
   font-size: small;
+
+  p {
+    margin-bottom: 0px;
+  }
 `
 const PostTag = styled(Link)`
     color: lightgray;
@@ -53,13 +58,16 @@ const PostComments = styled.div `
 
 const PostProject = styled.div `
   padding: 1em;
-  margin: 1em;
+  margin: 1em auto;
 
   display: flex;
   flex-flow: row wrap;
   border-bottom: 1px solid lightgray;
   justify-content: center;
   align-items: center;
+  width: 100%;
+
+  background-color: #f0f8ff82;
 
   @media (min-width:768px) {
     justify-content: flex-start;

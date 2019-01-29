@@ -53,7 +53,7 @@ export default ({ data }) => {
       projectPosts = (<RelatedPostsWrapper>
                         <h1>Posts about this Project</h1>
                         { data.projectPosts.edges.map((node, index) => (
-                        <PostItem key={ index } post={ node }/>
+                        <PostItem key={ index } post={ node } color={ "#f0f8ff82;" }/>
                         ))}
                       </RelatedPostsWrapper>)
 
@@ -82,9 +82,9 @@ export default ({ data }) => {
                 </ProjectLinks>
                 <Tech tech={ project.frontmatter.tags }/>
                 <ProjectContent dangerouslySetInnerHTML={{ __html: project.html }} />
+                <SocialShare url={ url } title={ project.frontmatter.title } size={ 50 }/>
                 { projectPosts }
             </ProjectWrapper>
-            <SocialShare url={ url } title={ project.frontmatter.title } size={ 50 }/>
         </Layout>
     )
 }

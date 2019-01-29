@@ -22,6 +22,8 @@ const ProjectWrapper = styled.div `
     @media (min-width:768px) {
         flex: 0 0 45%;
     }
+
+    background-color: ${props => props.color || "inherit"};
 `
 
 const ProjectImage = styled.div `
@@ -44,8 +46,8 @@ const ProjectLinks = styled.div `
     text-align: center;
 `
 
-const ProjectCard = ({ project }) => (
-    <ProjectWrapper>
+const ProjectCard = ({ project, color }) => (
+    <ProjectWrapper color={ color }>
         <ProjectImage>
             <Img fluid={ project.node.frontmatter.featuredImage.childImageSharp.fluid }/>
         </ProjectImage>
@@ -85,5 +87,6 @@ ProjectCard.propTypes = {
                 slug: PropTypes.string
             })
         })
-    })
+    }),
+    color: PropTypes.string
 }

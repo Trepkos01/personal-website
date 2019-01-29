@@ -16,7 +16,7 @@ const RelatedPosts = ({ relatedPosts }) => {
         <RelatedPostsWrapper style={ { display: (posts.edges.length > 0) ? 'flex' : 'none' } }>
             <h3>Related Posts</h3>
             { posts.edges.map((node, index) => (
-                <PostItem key={ index } post={ node }/>
+                <PostItem key={ index } post={ node }  color={ "white" }/>
             ))}
         </RelatedPostsWrapper>
     )

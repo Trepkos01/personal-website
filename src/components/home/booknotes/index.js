@@ -5,42 +5,26 @@ import { StaticQuery, graphql } from 'gatsby';
 import { BooknotesCard } from '../../common';
 
 const Wrapper = styled.div `
-    background: light blue;
-`
-
-const CurrentWrapper = styled.div `
     max-width: 1080px;
-    margin: 0 auto;
+    margin: auto;
     padding: 2em;
 `
 
-const CurrentAnnouncements = styled.ul `
-`
-
-const Announcement = styled.li `
-`
-
-const Current = () => (
+const Booknotes = () => (
     <StaticQuery
-        query = {currentContentQuery}
+        query = {booknotesContentQuery}
         render = {data => 
         <Wrapper>
-            <CurrentWrapper>
-                <h2>What's new?</h2>
-                <CurrentAnnouncements>
-                    <Announcement>Nothing, beep boop.</Announcement>
-                </CurrentAnnouncements>
-                <h2>What I've been reading.</h2>
-                <BooknotesCard booknotes={ data.latestBooknotes.edges[0] }/>
-            </CurrentWrapper>
+            <h1>What I've been reading.</h1>
+            <BooknotesCard booknotes={ data.latestBooknotes.edges[0] } color={ "white" }/>
         </Wrapper>
     }/>
 )
 
-export { Current }
+export { Booknotes }
 
-const currentContentQuery = graphql`
-    query CurrentContentQuery {
+const booknotesContentQuery = graphql`
+    query ContentQuery {
         latestBooknotes: allMarkdownRemark(
         filter: { fileAbsolutePath: {regex : "\/booknotes/"}},
         sort: {fields: [frontmatter___date], order: DESC},

@@ -9,15 +9,17 @@ const FeaturedWrapper = styled.div `
     flex-direction: column;
     margin-bottom: 1em;
     align-items: center;
-    margin: 1em;
-
+    
     @media (min-width:768px) {
         flex-direction: row;
         padding:1em;
+        margin: 1em;
     }
 
     border: 1px solid lightgray;
     box-shadow: 2px 2px #ccc;
+
+    background-color: ${props => props.color || "inherit"};
 `
 
 const FeaturedPostImage = styled.div `
@@ -46,8 +48,8 @@ const PostTag = styled.small `
     color: lightgray;
 `
 
-const FeaturedPost = ({ post }) => (
-    <FeaturedWrapper>
+const FeaturedPost = ({ post, color }) => (
+    <FeaturedWrapper color={ color }>
         <FeaturedPostImage>
             <Img fluid={ post.node.frontmatter.featuredImage.childImageSharp.fluid }/>
         </FeaturedPostImage>
@@ -76,5 +78,6 @@ FeaturedPost.propTypes = {
                 slug: PropTypes.string
             })
         })
-    })
+    }),
+    color: PropTypes.string
 }

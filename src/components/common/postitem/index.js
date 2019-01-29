@@ -16,7 +16,13 @@ const Post = styled.div `
 
     @media (min-width:768px) {
         justify-content: flex-start;
+        
+        p {
+            margin-bottom: 0px;
+        }
     }
+
+    background-color: ${props => props.color || "inherit"};
 `
 
 const PostThumbnail = styled.div `
@@ -34,11 +40,11 @@ const PostDescription = styled.div `
     flex-direction: column;
 
     @media (min-width:768px) {
-        flex: 0 0 50%;
+        flex: 1 0 50%;
 `
 
-const PostItem = ({ post }) => (
-    <Post>
+const PostItem = ({ post, color }) => (
+    <Post color={ color }>
         <PostThumbnail>
             <Img fluid={ post.node.frontmatter.featuredImage.childImageSharp.fluid }/>
         </PostThumbnail>
@@ -53,16 +59,19 @@ const PostItem = ({ post }) => (
 export { PostItem }
 
 PostItem.propTypes = {
-    node: PropTypes.shape({
-        frontmatter: PropTypes.shape({
-            title: PropTypes.string,
-            date: PropTypes.string,
-            description: PropTypes.string,
-            featuredImage: PropTypes.any,
-            tags: PropTypes.arrayOf(PropTypes.string)
-        }),
-        fields: PropTypes.shape({
-            slug: PropTypes.string
+    post: PropTypes.shape({
+        node: PropTypes.shape({
+            frontmatter: PropTypes.shape({
+                title: PropTypes.string,
+                date: PropTypes.string,
+                description: PropTypes.string,
+                featuredImage: PropTypes.any,
+                tags: PropTypes.arrayOf(PropTypes.string)
+            }),
+            fields: PropTypes.shape({
+                slug: PropTypes.string
+            })
         })
-    })
+    }),
+    color: PropTypes.string
 }
