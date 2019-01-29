@@ -7,6 +7,7 @@ export const siteInformationFragment = graphql`
         description
         author {
             short_bio
+            long_bio
         }
         social {
             name

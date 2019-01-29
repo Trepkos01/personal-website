@@ -2,21 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { SocialIcon } from "../../common"
+
+import { Social } from "../../common"
 
 const Bio = styled.div `
     padding: 1em;
     flex: 1 0 300px;
 `
-const Social = styled.div `
-    display: flex;
-    flex-flow: row wrap;
-    padding: 1em;
-    justify-content: space-around;
-`
-
 const Wrapper = styled.div `
-    padding:2em;
+    padding: 2em;
     max-width: 1080px;
     margin: auto
 `
@@ -29,7 +23,7 @@ const BioWrapper = styled.div `
 `
 
 const ImageWrapper = styled.div `
-    padding:1em;
+    padding: 1em;
     flex: 0 0 300px;
 `
 
@@ -53,11 +47,7 @@ const Intro = HighOrderIntro(({data, ...props}) => (
             <IntroImage/>
             <Bio dangerouslySetInnerHTML={{__html: data.site.siteMetadata.author.short_bio }}/>
         </BioWrapper>
-        <Social>
-            { data.site.siteMetadata.social.map((node) => (
-                <SocialIcon url={ node.url } key={ node.name } social={ node.name }/>
-            ))}
-        </Social>
+        <Social socials={ data.site.siteMetadata.social }/>
     </Wrapper>
 ));
 

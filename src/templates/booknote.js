@@ -19,8 +19,8 @@ const BooknotesContent = styled.div `
 `
 
 export default ({ data }) => {
-    const post = data.markdownRemark
-    const url = data.site.siteMetadata.siteUrl + "/" + post.fields.slug
+    const booknotes = data.markdownRemark
+    const url = data.site.siteMetadata.siteUrl + "/" + booknotes.fields.slug
 
     const asideInfo = {
       relatedPosts: {edges: []},
@@ -29,12 +29,12 @@ export default ({ data }) => {
 
     return (
         <Layout hideAside={ false } asideInfo={ asideInfo }>
-            <SEO description={ post.description } title={ post.frontmatter.title } keywords={ post.frontmatter.tags } />
+            <SEO description={ booknotes.description } title={ booknotes.frontmatter.title } keywords={ booknotes.frontmatter.tags } />
             <BooknotesWrapper>
-                <BooknotesTitle>{ post.frontmatter.title }</BooknotesTitle>
-                <BooknotesContent dangerouslySetInnerHTML={{ __html: post.html }} />
+                <BooknotesTitle>{ booknotes.frontmatter.title }</BooknotesTitle>
+                <BooknotesContent dangerouslySetInnerHTML={{ __html: booknotes.html }} />
             </BooknotesWrapper>
-            <SocialShare url={ url } title={ post.frontmatter.title } size={ 50 }/>
+            <SocialShare url={ url } title={ booknotes.frontmatter.title } size={ 50 }/>
         </Layout>
     )
 }

@@ -14,10 +14,6 @@ const returnIcon = (name) => ({
     "GitHub": <FaGithub size='2em'/>
 })[name]
 
-const SocialIcon = ({url, social}) => (
-    <a href={ url }>{ returnIcon(social) }</a> 
-)
-
 const SocialShareIcons = styled.div `
   display: flex;
   flex-flow: row wrap;
@@ -28,6 +24,17 @@ const SocialShareIcons = styled.div `
   margin: 1em auto 1em auto;
   height: 100px;
 `
+
+const SocialWrapper = styled.div `
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1em;
+  justify-content: space-around;
+`
+
+const SocialIcon = ({url, social}) => (
+  <a href={ url }>{ returnIcon(social) }</a> 
+)
 
 const SocialShare = ({url, title, size}) => (
     <SocialShareIcons>
@@ -49,16 +56,34 @@ const SocialShare = ({url, title, size}) => (
     </SocialShareIcons>
 )
 
+const Social = ({socials}) =>  (
+    <SocialWrapper>
+      { socials.map((node,index) => (
+        <SocialIcon key={ index } url={ node.url } social={ node.name }/>
+      ))}
+    </SocialWrapper>
+)
+
 SocialIcon.propTypes = {
     url: PropTypes.string,
     social: PropTypes.string
 }
 
-SocialIcon.propTypes = {
+SocialShare.propTypes = {
     url: PropTypes.string,
     title: PropTypes.string,
     size: PropTypes.number
 }
 
-export { SocialIcon, SocialShare }
+let socialNode = PropTypes.shape({
+  url: PropTypes.string,
+  name: PropTypes.string
+})
+
+Social.propTypes = {
+  socials: PropTypes.arrayOf(socialNode)
+}
+
+
+export { SocialIcon, SocialShare, Social }
 
