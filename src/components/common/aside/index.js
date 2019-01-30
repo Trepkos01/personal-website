@@ -26,9 +26,21 @@ const Wrapper = styled.div `
         padding-top: 100px;
         flex: 1 0;
         width: 40%;
+
+        background: linear-gradient(to right, #f0f8ff 0%, #f0f8ff 50%, #f0f8ff00 100%)
+            left 
+            bottom
+            rgba(0,0,0,0)    
+            no-repeat;
     }
 
-    background-color: #f0f8ff
+    background: linear-gradient(to top, #f0f8ff 0%, #f0f8ff 98%, #f0f8ff00 100%)
+        left 
+        bottom
+        rgba(0,0,0,0)    
+        no-repeat;
+    
+
 `
 
 const Aside = ({ hide, asideInfo=null }) => { 

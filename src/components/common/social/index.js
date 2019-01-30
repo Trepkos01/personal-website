@@ -38,18 +38,18 @@ const SocialIcon = ({url, social}) => (
 
 const SocialShare = ({url, title, size}) => (
     <SocialShareIcons>
-          <FacebookShareButton url={ url } quote={ title } style={{textAlign:'center', margin:'1em'}}>
+          <FacebookShareButton url={ url } quote={ title } style={{textAlign:'center', margin:'1em', cursor: "pointer"}}>
             <FacebookIcon round size={ size }/>
             <FacebookShareCount url={ url }/>
           </FacebookShareButton>
-          <TwitterShareButton url={ url } title={ title} style={{textAlign:'center', margin:'1em'}}>
+          <TwitterShareButton url={ url } title={ title} style={{textAlign:'center', margin:'1em', cursor: "pointer"}}>
             <TwitterIcon round size={ size }/>
           </TwitterShareButton>
-          <LinkedinShareButton url={ url } title={ title } style={{textAlign:'center', margin:'1em'}}>
+          <LinkedinShareButton url={ url } title={ title } style={{textAlign:'center', margin:'1em', cursor: "pointer"}}>
             <LinkedinIcon round size={ size }/>
             <LinkedinShareCount url={ url }/>
           </LinkedinShareButton>
-          <RedditShareButton url={ url } title={ title } style={{textAlign:'center', margin:'1em'}}>
+          <RedditShareButton url={ url } title={ title } style={{textAlign:'center', margin:'1em', cursor: "pointer"}}>
             <RedditIcon round size={ size } />
             <RedditShareCount url={ url }/>
           </RedditShareButton>

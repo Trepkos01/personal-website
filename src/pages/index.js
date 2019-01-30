@@ -6,7 +6,16 @@ import { Intro, Blog, Projects, Booknotes } from '../components/home'
 import { StaticQuery, graphql } from 'gatsby';
 
 const BackgroundWrapper = styled.div `
-  background-color: ${props => props.color || "inherit"};
+
+  background: linear-gradient(to top, 
+    ${props => props.color}00 0%, 
+    ${props => props.color} 5%, 
+    ${props => props.color} 95%, 
+    ${props => props.color}00 100%)
+    left 
+    bottom
+    rgba(0,0,0,0)    
+    no-repeat;
 `
 
 const IndexPage = () => (
@@ -18,13 +27,13 @@ const IndexPage = () => (
             <BackgroundWrapper>
               <Intro/>
             </BackgroundWrapper>
-            <BackgroundWrapper color={ "#f0f8ff82" }>
+            <BackgroundWrapper color={ "#f0f8ff" }>
               <Blog/>
             </BackgroundWrapper>
             <BackgroundWrapper>
               <Projects/>
             </BackgroundWrapper>
-            <BackgroundWrapper color={ "#f0f8ff82" }>
+            <BackgroundWrapper color={ "#f0f8ff" }>
               <Booknotes/>
             </BackgroundWrapper>
           </Layout>
