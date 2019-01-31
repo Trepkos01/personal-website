@@ -27,14 +27,14 @@ const Wrapper = styled.div `
         flex: 1 0;
         width: 40%;
 
-        background: linear-gradient(to right, #f0f8ff 0%, #f0f8ff 50%, #f0f8ff00 100%)
+        background: linear-gradient(to right, #f0f8ff00 0%, #f0f8ff 2%, #f0f8ff 50%, #f0f8ff00 100%)
             left 
             bottom
             rgba(0,0,0,0)    
             no-repeat;
     }
 
-    background: linear-gradient(to top, #f0f8ff 0%, #f0f8ff 98%, #f0f8ff00 100%)
+    background: linear-gradient(to top, #f0f8ff00 0%, #f0f8ff 98%, #f0f8ff00 100%)
         left 
         bottom
         rgba(0,0,0,0)    
