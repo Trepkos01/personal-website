@@ -14,7 +14,7 @@ const ProjectsContainer = styled.div `
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 `
 
 

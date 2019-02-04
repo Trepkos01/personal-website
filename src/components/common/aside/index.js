@@ -39,8 +39,6 @@ const Wrapper = styled.div `
         bottom
         rgba(0,0,0,0)    
         no-repeat;
-    
-
 `
 
 const Aside = ({ hide, asideInfo=null }) => { 

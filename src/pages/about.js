@@ -3,17 +3,27 @@ import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image'
 
+import { FaRegEnvelope, FaRegFileAlt } from "react-icons/fa";
+
 import { Layout, SEO, Social } from '../components/common'
 
 const Wrapper = styled.div `
-  padding: 2em;
-  min-height: 768px;
 `
 
 const Bio = styled.div `
   display: flex;
   flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
   background-color: #f0f8ff82;
+
+  background: linear-gradient(to top, 
+    #f0f8ff00 0%, 
+    #f0f8ff 5%, 
+    #f0f8ff 95%, 
+    #f0f8ff00 100%)
+    rgba(0,0,0,0)    
+    no-repeat;
 `
 
 const HeadshotWrapper = styled.div `
@@ -31,9 +41,37 @@ const BioWrapper = styled.div `
 `
 
 const SocialWrapper = styled.div `
-  width: 50%;
+  width: 100%;
   margin: auto;
   margin-top: 1em;
+  text-align: center;
+
+  padding: 2em;
+
+  background: linear-gradient(to top, 
+    #f0f8ff00 0%, 
+    #f0f8ff 5%, 
+    #f0f8ff 95%, 
+    #f0f8ff00 100%)
+    rgba(0,0,0,0)    
+    no-repeat;
+`
+
+const PersonalWrapper = styled.div `
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 2em;
+`
+
+const PersonalLink = styled.div `
+  flex: 1 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 `
 
@@ -50,9 +88,18 @@ const AboutPage = () => (
               </HeadshotWrapper>
               <BioWrapper>
                 <p dangerouslySetInnerHTML={{__html: data.site.siteMetadata.author.long_bio }}/>
-                <p><a href="resume.pdf">Resume</a></p>
               </BioWrapper>
             </Bio>
+            <PersonalWrapper>
+              <PersonalLink>
+                <FaRegEnvelope size='2em'/>
+                <p>blake (at) blakeadams.io</p>
+              </PersonalLink>
+              <PersonalLink>
+                <a href="resume.pdf"><FaRegFileAlt size='2em'/></a>
+                <a href="resume.pdf">Resume</a>
+              </PersonalLink>
+            </PersonalWrapper>
             <SocialWrapper>
               <h3>You can follow me on:</h3>
               <Social socials={ data.site.siteMetadata.social }/>
