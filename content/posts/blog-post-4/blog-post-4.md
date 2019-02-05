@@ -101,15 +101,3 @@ Sure, but let's say that for some reason you didn't get the opportunity to explo
 Maybe one of the above approaches can help you avoid the unfortunate situation described in the beginning and rekindle some passion in your life.
 
 For those who are self-described specialists or have a genuine area of interest, how did you come to discover this interest?
-
-
-
- 
-
-
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDM1NDc2NzYsLTIxMDU2MTYwMjksLT
-E5ODI1NDIyMiwxNDUxNzU4MDczLC0xODA1MTEwMjEzLDQzNzI5
-ODk2OCwtMTU1Mjc0NjU2MSw3MzA5OTgxMTZdfQ==
--->

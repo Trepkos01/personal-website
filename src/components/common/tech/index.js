@@ -22,7 +22,6 @@ const ProjectTechWrapper = styled.div `
 `
 
 const Tech = ({ tech }) => {
-    console.log(returnTechIcon("react"));
     return (
     <ProjectTechWrapper>
         { tech.map((node) => (returnTechIcon(node))) }

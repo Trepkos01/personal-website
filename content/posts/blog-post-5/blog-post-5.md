@@ -44,7 +44,3 @@ To start things off, I began to list some broad requirements that I had gathered
 I was still in the beginning stages of my own professional career, so this was a fairly large undertaking with my little-to-no experience of taking a project of this scale from design to deployment. I was bound to make mistakes from both an architectural and implementation perspective from my inexperience alone. Unfortunately, being the sole contributor to such a project doesn't allow for the opportunity to learn under the mentor-ship from a more senior person. 
 
 Despite that reality, this would provide a great learning experience.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk4ODcwNjkwNCwtOTQwODI2MjQ0LDczMD
-k5ODExNl19
--->
