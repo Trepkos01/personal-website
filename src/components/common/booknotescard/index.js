@@ -25,7 +25,6 @@ const BookCover = styled.div `
     flex: 0 0 200px;
     box-shadow: 2px 2px #ccc;
     overflow:hidden;
-    height: 100%
 `
 
 const BooknotesDetails = styled.div `

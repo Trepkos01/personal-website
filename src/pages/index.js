@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Layout, SEO } from '../components/common'
 import { Intro, Blog, Projects, Booknotes } from '../components/home'
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby'
 
 const BackgroundWrapper = styled.div `
 

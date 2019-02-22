@@ -23,8 +23,9 @@ const BioWrapper = styled.div `
 `
 
 const ImageWrapper = styled.div `
-    padding: 1em;
+    margin: 1em;
     flex: 0 0 300px;
+    box-shadow: 12px 11px 15px 0px #ccc;
 `
 
 const HighOrderIntro = (WrappedComponent) => (
@@ -59,9 +60,9 @@ const introContentQuery = graphql`
         ...SiteInformation
         }
         # Get the intro image.
-        introImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+        introImage: file(relativePath: { eq: "thats-me.png" }) {
             childImageSharp {
-              fluid(maxWidth: 300) {
+              fluid(maxWidth: 400) {
                 ...GatsbyImageSharpFluid
               }
             }

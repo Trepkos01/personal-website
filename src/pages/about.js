@@ -16,6 +16,7 @@ const Bio = styled.div `
   align-items: center;
   justify-content: center;
   background-color: #f0f8ff82;
+  padding: 1em;
 
   background: linear-gradient(to top, 
     #f0f8ff00 0%, 
@@ -27,8 +28,9 @@ const Bio = styled.div `
 `
 
 const HeadshotWrapper = styled.div `
-  padding: 1em;
   flex: 0 0 300px;
+
+  box-shadow: 12px 11px 15px 0px #ccc;
 
   @media (min-width:768px) {
     flex: 0 0 400px;
@@ -36,8 +38,12 @@ const HeadshotWrapper = styled.div `
 `
 
 const BioWrapper = styled.div `
-  padding: 1em;
+  padding: 2em;
   flex: 1 0 300px;
+
+  @media (min-width:768px) {
+    flex: 1 0 500px;
+  }
 `
 
 const SocialWrapper = styled.div `
@@ -47,14 +53,6 @@ const SocialWrapper = styled.div `
   text-align: center;
 
   padding: 2em;
-
-  background: linear-gradient(to top, 
-    #f0f8ff00 0%, 
-    #f0f8ff 5%, 
-    #f0f8ff 95%, 
-    #f0f8ff00 100%)
-    rgba(0,0,0,0)    
-    no-repeat;
 `
 
 const PersonalWrapper = styled.div `
@@ -88,18 +86,18 @@ const AboutPage = () => (
               </HeadshotWrapper>
               <BioWrapper>
                 <p dangerouslySetInnerHTML={{__html: data.site.siteMetadata.author.long_bio }}/>
+                <PersonalWrapper>
+                  <PersonalLink>
+                    <FaRegEnvelope size='2em'/>
+                    <p>blake (at) blakeadams.io</p>
+                  </PersonalLink>
+                  <PersonalLink>
+                    <a href="resume.pdf"><FaRegFileAlt size='2em'/></a>
+                    <a href="resume.pdf">Resume</a>
+                  </PersonalLink>
+                </PersonalWrapper>
               </BioWrapper>
             </Bio>
-            <PersonalWrapper>
-              <PersonalLink>
-                <FaRegEnvelope size='2em'/>
-                <p>blake (at) blakeadams.io</p>
-              </PersonalLink>
-              <PersonalLink>
-                <a href="resume.pdf"><FaRegFileAlt size='2em'/></a>
-                <a href="resume.pdf">Resume</a>
-              </PersonalLink>
-            </PersonalWrapper>
             <SocialWrapper>
               <h3>You can follow me on:</h3>
               <Social socials={ data.site.siteMetadata.social }/>
@@ -117,7 +115,7 @@ const aboutContentQuery = graphql`
         ...SiteInformation
         }
         # Get the headshot image.
-        headshotImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+        headshotImage: file(relativePath: { eq: "thats-me.png" }) {
             childImageSharp {
               fluid(maxWidth: 300) {
                 ...GatsbyImageSharpFluid

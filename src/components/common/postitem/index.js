@@ -29,7 +29,6 @@ const PostThumbnail = styled.div `
     flex: 0 0 100px;
     box-shadow: 2px 2px #ccc;
     overflow:hidden;
-    height: 100%
 `
 
 const PostDescription = styled.div `

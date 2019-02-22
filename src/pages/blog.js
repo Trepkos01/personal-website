@@ -59,7 +59,7 @@ const blogPageContentQuery = graphql`
             edges {
                 node {
                     id
-                    excerpt(pruneLength: 180)
+                    excerpt(pruneLength: 400)
                     ...PostFrontmatter
                     ...MarkdownFields
             }

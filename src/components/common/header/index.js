@@ -61,7 +61,7 @@ const NavLink = styled(Link) `
 const SideNav = styled.div `
   z-index: 4;
   height: 100%;
-  width: 65%;
+  width: 85%;
   position: fixed;
   background-color: #336f99;
 
@@ -85,10 +85,6 @@ const SideNav = styled.div `
 const ToggleMenu = styled.div `
   z-index: 4;
   cursor: pointer;
-  /*position: absolute;
-  top: 0.5em;
-  right: 1em;
-  display: block;*/
   font-weight: bold;
   font-size: 2em;
   color: white;
