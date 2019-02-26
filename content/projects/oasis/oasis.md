@@ -3,7 +3,7 @@ title: "Oasis"
 tags: ["typescript", "oasis", "angular", "javascript", "node"]
 date: "2017-04-01"
 featuredImage: "./featured.jpg"
-liveUrl: ""
+liveUrl: "https://www.blakeadams.io/_projects/oasis/"
 sourceUrl: "https://github.com/Trepkos01/oasis"
 description: "This was a litle pet personal project that I had spinning in my head, born out of my own personal interest in Personal Finance. I wanted to toy with the idea of a calculator of sorts that would allow you to define income streams, buckets,
 and other financial entities and you could simulate the timeline of changes and accummulation and make adjustments along the way. Since I hadn't worked with Angular since AngularJS, I used it as an opportunity to learn the new Typescript-based Angular framework."
