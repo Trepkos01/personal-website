@@ -32,7 +32,7 @@ const Layout = ({ children, hideAside, asideInfo }) => {
       query={layoutContentQuery}
       render={data => (
         <>
-          <Header siteTitle={data.site.siteMetadata.title} />
+          <Header siteTitle={data.site.siteMetadata.title} logo={data.logo.childImageSharp.fluid} />
           <Wrapper>
             <Content>
               { children }
@@ -80,5 +80,12 @@ const layoutContentQuery = graphql`
         title
       }
     }
+    logo: file(relativePath: { eq: "logo.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 50) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+  }
 }
 `

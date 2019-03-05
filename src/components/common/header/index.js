@@ -2,6 +2,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 const HeaderContainer = styled.div `
   background: #336f99;
@@ -21,10 +22,27 @@ const HeaderContainer = styled.div `
 const LogoContainer = styled.div `
   max-width:640px;
   padding: 1.45rem 1.0875rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+`
+
+const Logo = styled.div `
+  width:50px;
+  border: solid 1px white;
+  box-shadow: 2px 1px 20px 1px #0000003d;
+  margin-right: 10px;
 `
 
 const LogoTitle = styled.h1 `
-  margin 0;
+  margin: 0;
+  font-size: large;
+  padding-bottom: 0px;
+
+  @media(min-width: 768px){
+    display: inherit;
+    font-size: 2rem;
+  }
 `
 
 const LogoLink = styled(Link) `
@@ -101,7 +119,7 @@ const ToggleMenu = styled.div `
   }
 `
 
-export const Header = ({ siteTitle }) => {
+export const Header = ({ siteTitle, logo }) => {
   const [sideNav, setSideNav] = useState(false)
 
   const toggle = () => setSideNav(!sideNav)
@@ -110,6 +128,9 @@ export const Header = ({ siteTitle }) => {
   <>
     <HeaderContainer>
       <LogoContainer>
+        <Logo>
+          <Link to ="/"><Img to="/" fluid={ logo } /></Link>
+        </Logo>
         <LogoTitle>
           <LogoLink to="/">{ siteTitle }</LogoLink>
         </LogoTitle>
@@ -134,6 +155,7 @@ export const Header = ({ siteTitle }) => {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  logo: PropTypes.any
 }
 
 Header.defaultProps = {
