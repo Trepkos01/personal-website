@@ -69,9 +69,10 @@ export const booknotesFrontMatterFragment = graphql`
     frontmatter {
         title
         date(formatString: "DD MMMM, YYYY")
+        author
         description
         category
-        project
+        book_url
         coverImage {
             publicURL
             childImageSharp {
@@ -136,7 +137,7 @@ export const projectsItemFrontMatterFragment = graphql`
         featuredImage {
             publicURL
             childImageSharp {
-                fluid(maxWidth: 300, maxHeight: 300) {
+                fluid(maxWidth: 600, maxHeight: 600) {
                     ...GatsbyImageSharpFluid
                 }
             }

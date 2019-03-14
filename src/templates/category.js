@@ -118,6 +118,7 @@ export const categoryPostsQuery = graphql`
             booknotes: edges {
                 node {
                     id
+                    timeToRead
                     excerpt(pruneLength: 180)
                     ...BooknotesItemFrontmatter
                     ...MarkdownFields

@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby';
 import styled from 'styled-components'
+import Img from "gatsby-image";
 
 import { Layout, SEO, SocialShare } from '../components/common'
 
@@ -10,7 +11,21 @@ const BooknotesWrapper = styled.div `
   flex-direction: column;
 `
 
+const BookCover = styled.div `
+  height: 100%;
+  width: 200px;
+  border: lightgray solid 1px;
+  margin: auto;
+
+  box-shadow: 6px 9px 20px 0px #0000003d;
+`
+
 const BooknotesTitle = styled.h1 `
+`
+
+const BooknotesDetails = styled.div `
+  border-bottom: lightblue solid 1px;
+  margin-bottom: 15px;
 `
 
 const BooknotesContent = styled.div `
@@ -31,7 +46,14 @@ export default ({ data }) => {
         <Layout hideAside={ false } asideInfo={ asideInfo }>
             <SEO description={ booknotes.description } title={ booknotes.frontmatter.title } keywords={ booknotes.frontmatter.tags } />
             <BooknotesWrapper>
-                <BooknotesTitle>{ booknotes.frontmatter.title }</BooknotesTitle>
+                <BookCover><Img fluid={ booknotes.frontmatter.coverImage.childImageSharp.fluid }/></BookCover>
+                <BooknotesDetails>
+                  <BooknotesTitle>{ booknotes.frontmatter.title }</BooknotesTitle>
+                    <p><strong>By { booknotes.frontmatter.author }</strong></p>
+                    <p><strong>Date:</strong> { booknotes.frontmatter.date }</p>
+                    <p><strong>Just the Highlights in :</strong> { booknotes.timeToRead } Minutes</p>
+                    <p><strong>Buy the book <a href={ booknotes.frontmatter.book_url }>Here</a></strong></p>
+                </BooknotesDetails>
                 <BooknotesContent dangerouslySetInnerHTML={{ __html: booknotes.html }} />
             </BooknotesWrapper>
             <SocialShare url={ url } title={ booknotes.frontmatter.title } size={ 50 }/>
@@ -46,7 +68,7 @@ export const query = graphql`
         html
         timeToRead
         ...MarkdownFields
-        ...BooknotesItemFrontmatter
+        ...BooknotesFrontmatter
       }
       site{
         ...SiteInformation

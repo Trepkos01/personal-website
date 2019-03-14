@@ -33,6 +33,7 @@ const booknotesContentQuery = graphql`
             edges {
                 node {
                     id
+                    timeToRead
                     excerpt(pruneLength: 180)
                     ...BooknotesItemFrontmatter
                     ...MarkdownFields
