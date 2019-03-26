@@ -49,6 +49,29 @@ const PostTag = styled(Link)`
 
 const PostContent = styled.div `
   border-bottom: 1px solid lightgray;
+
+  table{
+    background-color: #add8e640;
+    border: lightgray solid 1px;
+    overflow: auto;
+  }
+
+  table > thead {
+    background-color: #2196f359;
+  }
+
+  table > thead > tr > th {
+    text-align: center;
+    padding:5px;
+    border: white solid 1px;
+  }
+
+  table > tbody > tr > td {
+    text-align: center;
+    padding:5px;
+    border: lightblue solid 1px;
+  }
+
 `
 
 const PostComments = styled.div `

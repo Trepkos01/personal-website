@@ -39,7 +39,7 @@ const blogContentQuery = graphql`
         recentPosts: allMarkdownRemark(
         filter: { fileAbsolutePath: {regex : "\/posts/"}, frontmatter: {featured: {eq: "false"}}},
         sort: {fields: [frontmatter___date], order: DESC},
-            limit: 5),
+            limit: 6),
         {
             edges {
                 node {

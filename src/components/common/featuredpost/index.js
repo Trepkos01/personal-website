@@ -16,10 +16,22 @@ const FeaturedWrapper = styled.div `
         margin: 1em;
     }
 
-    border: 1px solid lightgray;
+    @media (min-width:960px) {
+        background: linear-gradient(to right, #aad2f5 0%, #ffffff00 50%, #ffffff00 100%) left bottom rgba(0,0,0,0) no-repeat;
+    }
+
+    background: linear-gradient(to bottom, #aad2f5 0%, #ffffff00 50%, #ffffff00 100%) left bottom rgba(0,0,0,0) no-repeat;
+
+    border-bottom: lightgray 1px solid;
+    box-shadow: 6px 9px 20px 0px #0000003d;
+
+    /*border: 1px solid lightgray;
     box-shadow: 2px 2px #ccc;
 
-    background-color: ${props => props.color || "inherit"};
+    background-color: ${props => props.color || "inherit"};*/
+
+    
+    
 `
 
 const FeaturedPostImage = styled.div `
@@ -45,7 +57,7 @@ const FeaturedPostExcerpt = styled.div `
 `
 
 const PostTag = styled.small `
-    color: lightgray;
+    color: hsla(0,0%,0%,0.8);
 `
 
 const FeaturedPost = ({ post, color }) => (
