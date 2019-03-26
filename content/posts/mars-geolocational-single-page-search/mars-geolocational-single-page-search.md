@@ -3,7 +3,7 @@ title: "Case Study - Mars Geolocational Single-Page-Search"
 tags: ["mars", "ruby", "rails", "postgresql"]
 date: "2016-01-01"
 featuredImage: "./featured.jpg"
-featured: "true"
+featured: "false"
 description: "Using the Geokit gem package for geocoding locations and geolocational search in a Ruby on Rails application."
 type: "post"
 category: "Software Development"
