@@ -1,7 +1,7 @@
 ---
 title: "DREAM Series: The beginning of the design and development of a complete new system."
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
-date: "2018-01-01"
+date: "2019-01-01"
 featuredImage: "./featured.jpg"
 featured: "false"
 description: "The beginning of a complete re-design and refactoring of a legacy LAMP system from the ground up."

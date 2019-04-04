@@ -1,7 +1,7 @@
 ---
 title:  "Nothing excites you about technology?"
 tags: ["personal", "technology", "career", "computer science", "interviews"]
-date: "2018-01-01"
+date: "2019-01-01"
 featuredImage: "./featured.jpg"
 featured: "true"
 description: "Overwhelmed with the breadth of the field of technology, how to find your specialization in a multitude of competing fields? How to generate excitement again, or for the first time."

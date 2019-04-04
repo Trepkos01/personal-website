@@ -1,22 +1,13 @@
 ---
 title: "DREAM Series: Generalizing the enrollment application process."
-
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
-
 date: "2019-04-01"
-
 featuredImage: "./featured.jpg"
-
 featured: "false"
-
 description: "Student users submit an application for approval to generate their enrollments but each program has their own specific structure for this application? I determine the ideal way to generalize this process, allowing each program to create and change their enrollment application with the constant shifting requirements."
-
 type: "post"
-
 category: "Software Development"
-
 project: ""
-
 ---
 
 In the old system, several programs had different processes where students would submit a **Placement Application**, this application would be reviewed by a faculty or staff user who would then approve the application to effectively generate an enrollment loosely based on the details of that application.

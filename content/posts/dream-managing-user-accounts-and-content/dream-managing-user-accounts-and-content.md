@@ -1,23 +1,13 @@
 ---
-
 title: "DREAM Series: Managing user accounts from within and content management."
-
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
-
 date: "2019-03-25"
-
 featuredImage: "./featured.jpg"
-
 featured: "false"
-
 description: "Allowing administrative ability to govern user accounts and restructuring the content managed by the new system."
-
 type: "post"
-
 category: "Software Development"
-
 project: ""
-
 ---
 
 One of the key design requirements of the new system was to essentially remove the programmer element from the majority of the functionality of the system. Unless there was a reason for new functionality to be added or problems to be resolved, the system could grow and be managed by the activity of a user within the system itself. In the old system, user account management had to be handled by interacting directly with the database itself. This included tasks such as: **registering a new user account, changing user account details, changing passwords, and manually activating the user account**. In the new system, I allowed these actions to be performed in their own separate module responsible for managing all aspects concerning user accounts.
