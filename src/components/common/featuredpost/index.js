@@ -68,7 +68,7 @@ const FeaturedPost = ({ post, color }) => (
         <FeaturedPostExcerpt>
             <FeaturedPostTitle>{ post.node.frontmatter.title }</FeaturedPostTitle>
             <p><small>{ post.node.frontmatter.date }</small></p>
-            <p>{ post.node.excerpt } <Link to={ post.node.fields.slug }>Read More</Link></p>
+            <p>{ post.node.frontmatter.description } <Link to={ post.node.fields.slug }>Read More</Link></p>
             <p>{ post.node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
         </FeaturedPostExcerpt>
     </FeaturedWrapper>
