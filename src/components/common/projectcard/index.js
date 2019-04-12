@@ -10,10 +10,10 @@ const ProjectWrapper = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 0 0 275px;
+    flex: 0 0 100%;
 
     border: 1px solid lightgray;
-    margin: 1em;
+    margin: 1em auto;
 
     :hover {
         box-shadow: 6px 9px 20px 0px #0000003d

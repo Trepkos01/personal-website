@@ -8,7 +8,7 @@ const PostCardWrapper = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 0 0 300px;
+    flex: 0 0 100%;
 
     border: 1px solid lightgray;
     padding: 1em;
