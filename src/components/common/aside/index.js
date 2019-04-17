@@ -107,7 +107,7 @@ const asideContentQuery = graphql`
             }
         }
         latestPosts: allMarkdownRemark(
-            filter: { fileAbsolutePath: {regex : "\/posts/"}, frontmatter: {featured: {eq: "false"}}},
+            filter: { fileAbsolutePath: {regex : "\/posts/"}},
             sort: {fields: [frontmatter___date], order: DESC},
                 limit: 5),
         {
