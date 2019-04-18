@@ -1,5 +1,5 @@
 ---
-title: "Crash-Course Introduction to Freelance Work (Legal Business Entity, Taxes, and Financial Institutions"
+title: "Crash-Course Introduction to Freelance Work (Legal Business Entity, Taxes, and Financial Institutions)"
 tags: ["freelancing", "taxes", "freelance developer", "side business", "legal"]
 date: "2019-04-08"
 featuredImage: "./featured.jpg"
