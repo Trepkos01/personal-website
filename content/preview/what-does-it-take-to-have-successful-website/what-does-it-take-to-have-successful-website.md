@@ -123,6 +123,7 @@ First, I decided to note the content, features, and functionality of the above w
 | **Posts Per Year** | 83/Year | 171/Year | 29/Year | 78/Year | 6/Year |
 
 *= Many of the websites do not disclose their statistics so it's difficult to get a completely accurate read. I used [https://www.similarweb.com/](https://www.similarweb.com/) to at least get a consistent statistic on visits.
+
 ***= There are many more blog posts on the **Simple Programmer**, I tried to narrow it down to those authored by only John himself.*
 
 **Some social media statistics.**
@@ -235,7 +236,7 @@ Mr. Money Mustache went the opposite route, emphasizing frugality, intentional l
 
 Afford Anything, though sharing several attributes with the previous financial independence websites, incorporated a focus on travel, freedom, and leveraging rental real estate and active/passive web-based revenue streams to accomplish that freedom. 
 
-And the MadFientist echoed very similar sentiments as the above. 
+And the Mad Fientist echoed very similar sentiments as the above. 
 
 Additionally, they both entered their respective spaces when their value could be easily recognized and differentiated. **There are thousands upon thousands of financial independence blogs now.** And most simply regurgitate the same general information, therefore it's very hard to be noticed beyond taking a controversial stance.
 
