@@ -126,6 +126,7 @@ First, I decided to note the content, features, and functionality of the above w
 ***= There are many more blog posts on the **Simple Programmer**, I tried to narrow it down to those authored by only John himself.*
 
 **Some social media statistics.**
+
 | | Simple Programmer | Financial Samurai | Afford Anything | Mr. Money Mustache | Mad Fientist |
 |:---:|:---:|:---:|:---:|:---:|:---:| 
 | **Facebook Page Likes** | 14.4k | 3.7k | 14k | 107k | 9.2k |
