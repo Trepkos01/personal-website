@@ -43,25 +43,25 @@ First, I decided to note the content, features, and functionality of the above w
 
 | | Simple Programmer | Financial Samurai | Afford Anything | Mr. Money Mustache | Mad Fientist |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| **Introduction/Short Bio** | | | | x | |
+| **Introduction/Short Bio** | | x | | x | |
 | **Blog Posts** | x | x | x | x | x |
 | **Latest/Popular on Front Page** | x | x |  | x | x |
 | **Social Media Feeds** | | | | Twitter | |
 | ***Featured On*** | | x | x | x | x |
 | **Subscribe** | | | x | x | x |
 | **Social Media Links** | | | x | x | x |
-| **Advertisement** | | x | | Google | |
+| **Advertisement<sup>[1]</sup>** | | Google | | Google | |
 
 **We've established that blogging is an important content feature for each website. In addition to the post content, what other content and features are available on the post's page.**
 
 | | Simple Programmer | Financial Samurai | Afford Anything | Mr. Money Mustache | Mad Fientist |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| **Links to Other Posts (Related/Popular)** | x | | x | x |  x |
+| **Links to Other Posts (Related/Popular)** | x |x | x | x |  x |
 | **Comments** | x | x | x | x | x |
 | **Subscribe** | | x | x | x | x |
 | **Social Share** | | x | x | x |x |
 | **Author Bio** | x | x | | | |
-| **Adverstisement** | | Google | | Google | |
+| **Adverstisement<sup>[1]</sup>** | | Google | | Google | |
 
 **Some of the websites also present content on a sidebar.**
 
@@ -74,7 +74,7 @@ First, I decided to note the content, features, and functionality of the above w
 | **Categories/Tags/Topics** | x | x | | | |
 | **Social Links** | | | | x | |
 | **Social Media Feed** | | | | Twitter | |
-| **Advertisement** | | Google | | | | |
+| **Advertisement<sup>[1]</sup>** | | Google | | | | |
 
 **Next, I look at some of the different features that the websites offer in general.**
 
@@ -106,9 +106,7 @@ First, I decided to note the content, features, and functionality of the above w
 | **Twitter** | x | x | x | x | x |
 | **Instagram** | | | x | | |
 | **Pinterest** | x | x | | | |
-| **Youtube** | x | | x* | x* | x | x* |
-
-**= Mostly reposts of podcast recordings.*
+| **Youtube** | x | | x<sup>[2]</sup> | x<sup>[2]</sup> | x | x<sup>[2]</sup> |
 
 **Now for some of the interesting statistics regarding the above websites.**
  
@@ -117,14 +115,10 @@ First, I decided to note the content, features, and functionality of the above w
 | **Year Founded** | 2009 | 2009 | 2011 | 2011 | 2012 |
 | **Duration (As of 2019)** | ~10 Years | ~10 Years | ~8 Years | ~8 Years | ~7 Years |
 | **Page Views** | N/A | 1.5m/month Page Views | N/A | 1.6m/month Page Views | N/A |
-| **Visits*** | ~552k/month Visits| 1.3m/month Visits | 212k/month Visits | ~1.85m/month Visits | ~322k/month Visits |
-| **Income** | ~$65k/month | ~$18.2k/month | N/A | ~$33.3k/month | N/A |
-| **Blog Posts** | 753** |1539 | 205 | 550 | 45 |
-| **Posts Per Year** | 83/Year | 171/Year | 29/Year | 78/Year | 6/Year |
-
-*= Many of the websites do not disclose their statistics so it's difficult to get a completely accurate read. I used [https://www.similarweb.com/](https://www.similarweb.com/) to at least get a consistent statistic on visits.
-
-***= There are many more blog posts on the **Simple Programmer**, I tried to narrow it down to those authored by only John himself.*
+| **Visits<sup>[3]</sup>** | ~552k/month Visits| 1.3m/month Visits | 212k/month Visits | ~1.85m/month Visits | ~322k/month Visits |
+| **Income** | ~$65k/month<sup>[4]</sup> | N/A | N/A | ~$33.3k/month<sup>[5]</sup> | N/A |
+| **Blog Posts** | 753<sup>[6]</sup> |1539 | 205 | 550 | 45 |
+| **Posts Per Year** | 83/Year | 156/Year<sup>[7]</sup> | 29/Year | 78/Year | 6/Year |
 
 **Some social media statistics.**
 
@@ -245,3 +239,13 @@ Most of those spaces are very saturated now.
 It is for this reason that you need to recognize your own niche space or emerging and growing interest group and utilize the information drawn from these examples to build your own platform early enough to experience similar success. So as true in business, the nature of success in online websites seems to be the combination of some formulaic structure, valuable content, and opportunity. The first two being within your control, the third less-so. 
 
 However, that isn't to discourage you (or me). Simply concentrate on that which you can actively control and contribute to and hope that you'll be ready for when and if opportunity ever presents itself. 
+
+**Notes**
+
+[1] - Advertisement means the presence of advertisement banners on the site component.
+[2] - Mostly reposts of podcast recordings.
+[3] - Many of the websites do not disclose their statistics so it's difficult to get a completely accurate read. I used [https://www.similarweb.com/](https://www.similarweb.com/) to at least get a consistent statistic on visits.
+[4] - [https://simpleprogrammer.com/store/products/make-money-from-your-blog/](https://simpleprogrammer.com/store/products/make-money-from-your-blog/)
+[5] - [https://www.newyorker.com/magazine/2016/02/29/mr-money-mustache-the-frugal-guru](https://www.newyorker.com/magazine/2016/02/29/mr-money-mustache-the-frugal-guru) as of **2016**.
+[6] - There are many more blog posts on the **Simple Programmer**, I tried to narrow it down to those authored by only John himself.
+[7] - Sam reported that he publishes 3 posts per week on average and 156 posts a year.
