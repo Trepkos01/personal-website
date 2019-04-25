@@ -242,10 +242,16 @@ However, that isn't to discourage you (or me). Simply concentrate on that which 
 
 **Notes**
 
-[1] - Advertisement means the presence of advertisement banners on the site component.
-[2] - Mostly reposts of podcast recordings.
-[3] - Many of the websites do not disclose their statistics so it's difficult to get a completely accurate read. I used [https://www.similarweb.com/](https://www.similarweb.com/) to at least get a consistent statistic on visits.
-[4] - [https://simpleprogrammer.com/store/products/make-money-from-your-blog/](https://simpleprogrammer.com/store/products/make-money-from-your-blog/)
-[5] - [https://www.newyorker.com/magazine/2016/02/29/mr-money-mustache-the-frugal-guru](https://www.newyorker.com/magazine/2016/02/29/mr-money-mustache-the-frugal-guru) as of **2016**.
-[6] - There are many more blog posts on the **Simple Programmer**, I tried to narrow it down to those authored by only John himself.
-[7] - Sam reported that he publishes 3 posts per week on average and 156 posts a year.
+**[1]** - Advertisement means the presence of advertisement banners on the site component.
+
+**[2]** - Mostly reposts of podcast recordings.
+
+**[3]** - Many of the websites do not disclose their statistics so it's difficult to get a completely accurate read. I used [https://www.similarweb.com/](https://www.similarweb.com/) to at least get a consistent statistic on visits.
+
+**[4]** - [https://simpleprogrammer.com/store/products/make-money-from-your-blog/](https://simpleprogrammer.com/store/products/make-money-from-your-blog/)
+
+**[5]** - [https://www.newyorker.com/magazine/2016/02/29/mr-money-mustache-the-frugal-guru](https://www.newyorker.com/magazine/2016/02/29/mr-money-mustache-the-frugal-guru) as of **2016**.
+
+**[6]** - There are many more blog posts on the **Simple Programmer**, I tried to narrow it down to those authored by only John himself.
+
+**[7]** - Sam reported that he publishes 3 posts per week on average and 156 posts a year.
