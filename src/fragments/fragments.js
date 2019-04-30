@@ -35,7 +35,7 @@ export const postFrontmatterFragment = graphql`
         featuredImage {
           publicURL
           childImageSharp {
-              fluid(maxWidth: 960) {
+              fluid(maxWidth: 1280) {
                   ...GatsbyImageSharpFluid
               }
           }
@@ -76,7 +76,7 @@ export const booknotesFrontMatterFragment = graphql`
         coverImage {
             publicURL
             childImageSharp {
-                fluid(maxWidth: 960) {
+                fluid(maxWidth: 1280) {
                     ...GatsbyImageSharpFluid
                 }
             }
@@ -114,7 +114,7 @@ export const projectsFrontMatterFragment = graphql`
         featuredImage {
           publicURL
           childImageSharp {
-              fluid(maxWidth: 960) {
+              fluid(maxWidth: 1280) {
                   ...GatsbyImageSharpFluid
               }
           }
