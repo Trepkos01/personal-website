@@ -7,7 +7,7 @@ featured: "false"
 description: "The most important functionality of an assessment system is the gathering of data for the purpose of assessment, this is the responsibility of the assessment instruments."
 type: "post"
 category: "Software Development"
-project: ""
+project: "dream"
 --- 
 
 The purpose of the assessment system is to collect information regarding students for the purpose of assessing the effectiveness of the various programs in accordance to their respective standards that are required for accreditation purposes. The responsibility of this data collection is the enterprise of tools called **Assessment Instruments**.  

@@ -8,7 +8,7 @@ featured: "false"
 description: "One important functionality of the assessment system is to capture assessment data attached to distinct enrollments or courses. Unfortunately, different programs treat the process of creating and managing these enrollments differently."
 type: "post"
 category: "Software Development"
-project: ""
+project: "dream"
 ---
 
 In the old system, faculty and clinical instructors were responsible for submitting assessment data for students enrolled in courses that they were actively supervising in some capacity. These enrollments were separated in three different tables. 

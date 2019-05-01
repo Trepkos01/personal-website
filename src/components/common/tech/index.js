@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { PostgreSQLIcon, RubyIcon, RailsIcon, AngularIcon, ReactIcon, NodeIcon } from '../svg'
+import { PostgreSQLIcon, RubyIcon, RailsIcon, AngularIcon, ReactIcon, NodeIcon, JavascriptIcon, JQueryIcon, MySQLIcon, PHPIcon } from '../svg'
 
 const returnTechIcon = (name) => ({
     "postgresql" : <PostgreSQLIcon key="postgresql" style={{width:'50px', height:'50px'}}/>,
@@ -10,7 +10,11 @@ const returnTechIcon = (name) => ({
     "rails" : <RailsIcon key="rails" style={{width:'50px', height:'50px'}}/>,
     "angular" : <AngularIcon key="angular" style={{width:'50px', height:'50px'}}/>,
     "react" : <ReactIcon key="react" style={{width:'50px', height:'50px'}}/>,
-    "node" : <NodeIcon key="node" style={{width:'50px', height:'50px'}}/>
+    "node" : <NodeIcon key="node" style={{width:'50px', height:'50px'}}/>,
+    "javascript" : <JavascriptIcon key="node" style={{width:'50px', height:'50px'}}/>,
+    "jquery" : <JQueryIcon key="node" style={{width:'50px', height:'50px'}}/>,
+    "mysql" : <MySQLIcon key="node" style={{width:'50px', height:'50px'}}/>,
+    "php" : <PHPIcon key="node" style={{width:'50px', height:'50px'}}/>
 })[name]
 
 const ProjectTechWrapper = styled.div `

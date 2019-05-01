@@ -7,7 +7,7 @@ featured: "false"
 description: "One of the key features of the system is the ability to grant and limit the interaction between users and different functionalities of the system. This required revisiting the overall design of the system and how user roles were handled."
 type: "post"
 category: "Software Development"
-project: ""
+project: "dream"
 ---
 In the old system, the user was responsible for choosing their user role upon registration. As you may expect, this could be abused such that a user could choose a user role which they didn't actually belong to. This problem was resolved by performing a lookup in various tables based on the chosen user role to verify that the registering user actually chose the correct user role. 
 

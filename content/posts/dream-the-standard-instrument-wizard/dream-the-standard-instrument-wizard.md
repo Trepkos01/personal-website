@@ -7,7 +7,7 @@ featured: "false"
 description: "Given the varied structure and behavior of the standard assessment instruments. There would need to be a creative and involved way to create new standard instruments within the new assessment system."
 type: "post"
 category: "Software Development"
-project: ""
+project: "dream"
 ---
 In the previous blog entries, I described the primary components responsible for collecting the key information gathered by the assessment system, the Assessment Instruments. This included the Capture Hours Instrument type, the Attendance Instrument type, and the Standard Instrument type: these instrument types allowed for complete customization of the structure and behavior of the instrument to fit all previous and most future instruments; the Standard Instrument being the most complicated as the the standard workhorse of data collection for the system.
 

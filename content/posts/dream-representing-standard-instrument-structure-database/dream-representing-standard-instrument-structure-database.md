@@ -7,7 +7,7 @@ featured: "false"
 description: "Generalizing the structure of the workhorse assessment instrument in the new system, the Standard Instrument."
 type: "post"
 category: "Software Development"
-project: ""
+project: "dream"
 ---
 In earlier posts, I discussed at length the utility of **Assessment Instruments** and their role in collecting data in the system for the purpose of assessing the effectiveness of the various degree programs in preparing students in their respective fields in accordance with national and regional standards. I detailed how these instruments were handled in the old system, namely each instrument has its own database table and associated file responsible for generating the page responsible for handling the instruments' behavior and submission and the issues that this design presented in the old system. I also grouped assessment instruments into three distinct types: **Attendance Instruments, Capture Hours Instruments**, and **Standard Instruments** and proceeded to describe the nature of the **Attendance Instrument** and **Capture Hours Instrument**. However, the most complicated instrument is the **Standard Instrument** and it makes up roughly 95% of all assessment instruments within the system.
 

@@ -102,7 +102,6 @@ export const query = graphql`
         ...SiteInformation
       }
       projectPosts: allMarkdownRemark(
-        limit: 5
         sort: { fields: [frontmatter___date], order: DESC }
         filter: { frontmatter: { tags: { in: [$slug] } }, fileAbsolutePath: {regex : "\/posts/"} }
       ) {
