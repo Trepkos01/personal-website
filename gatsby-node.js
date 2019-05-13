@@ -5,6 +5,8 @@ const postTemplate = path.resolve(`./src/templates/post.js`)
 const projectTemplate = path.resolve(`./src/templates/project.js`)
 const booknoteTemplate = path.resolve(`./src/templates/booknote.js`)
 
+const ignoreBlogNumber = new RegExp("[0-9]+~(.+)")
+
 const returnPath = (name) => ({
   "post": postTemplate,
   "project": projectTemplate,
@@ -15,10 +17,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const { createNodeField } = actions
     if (node.internal.type === `MarkdownRemark`) {
       const fileNode = getNode(node.parent)
+      const fileNodeTitle = fileNode.name.match(ignoreBlogNumber)[1]
       createNodeField({
         node,
         name: `slug`,
-        value: fileNode.name,
+        value: fileNodeTitle,
       })
     }
   }
