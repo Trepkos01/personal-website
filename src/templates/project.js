@@ -64,7 +64,7 @@ export default ({ data }) => {
 
     return (
         <Layout hideAside={ false } asideInfo={ asideInfo }>
-            <SEO description={ project.description } title={ project.frontmatter.title } keywords={ project.frontmatter.tags } />
+            <SEO url = { url } type = 'article' description={ project.frontmatter.description } title={ project.frontmatter.title } keywords={ project.frontmatter.tags }  image={ project.frontmatter.featuredImage.childImageSharp.fluid.src }/>
             <ProjectWrapper>
                 <FeatureImage>
                     <Img fluid={ project.frontmatter.featuredImage.childImageSharp.fluid }/>

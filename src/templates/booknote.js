@@ -44,7 +44,7 @@ export default ({ data }) => {
 
     return (
         <Layout hideAside={ false } asideInfo={ asideInfo }>
-            <SEO description={ booknotes.description } title={ booknotes.frontmatter.title } keywords={ booknotes.frontmatter.tags } />
+            <SEO url = { url } type = 'article' description={ booknotes.frontmatter.description } title={ booknotes.frontmatter.title } keywords={ booknotes.frontmatter.tags }  image={ booknotes.frontmatter.coverImage.childImageSharp.fluid.src }/>
             <BooknotesWrapper>
                 <BookCover><Img fluid={ booknotes.frontmatter.coverImage.childImageSharp.fluid }/></BookCover>
                 <BooknotesDetails>

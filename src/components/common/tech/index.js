@@ -11,10 +11,10 @@ const returnTechIcon = (name) => ({
     "angular" : <AngularIcon key="angular" style={{width:'50px', height:'50px'}}/>,
     "react" : <ReactIcon key="react" style={{width:'50px', height:'50px'}}/>,
     "node" : <NodeIcon key="node" style={{width:'50px', height:'50px'}}/>,
-    "javascript" : <JavascriptIcon key="node" style={{width:'50px', height:'50px'}}/>,
-    "jquery" : <JQueryIcon key="node" style={{width:'50px', height:'50px'}}/>,
-    "mysql" : <MySQLIcon key="node" style={{width:'50px', height:'50px'}}/>,
-    "php" : <PHPIcon key="node" style={{width:'50px', height:'50px'}}/>
+    "javascript" : <JavascriptIcon key="javascript" style={{width:'50px', height:'50px'}}/>,
+    "jquery" : <JQueryIcon key="jquery" style={{width:'50px', height:'50px'}}/>,
+    "mysql" : <MySQLIcon key="mysql" style={{width:'50px', height:'50px'}}/>,
+    "php" : <PHPIcon key="php" style={{width:'50px', height:'50px'}}/>
 })[name]
 
 const ProjectTechWrapper = styled.div `

@@ -148,7 +148,7 @@ export default ({ data }) => {
 
     return (
       <Layout hideAside={ false } asideInfo = { asideInfo }>
-        <SEO description={ post.description } title={ post.frontmatter.title } keywords={ post.frontmatter.tags } />
+        <SEO url = { url } type = 'article' description={ post.frontmatter.description } title={ post.frontmatter.title } keywords={ post.frontmatter.tags } image={ post.frontmatter.featuredImage.childImageSharp.fluid.src } />
         <PostWrapper>
           <FeatureImage>
             <Img fluid={ post.frontmatter.featuredImage.childImageSharp.fluid }/>

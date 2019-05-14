@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 export const siteInformationFragment = graphql`
   fragment SiteInformation on Site {
     siteMetadata{
+        title
         siteUrl
         description
         author {

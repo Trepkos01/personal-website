@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://blakeadams.io",
+    siteUrl: "https://www.blakeadams.io",
     title: `Blake Adams`,
     description: `Blake Adams is a writer, software developer, technical consultant, and financial independence enthusiast living in Oxford, MS.`,
     author: {

@@ -3,13 +3,15 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, image, type, url }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
+        const metaDescription = description ||  data.site.siteMetadata.description
+        const metaImage = image || data.headshotImage.childImageSharp.fluid.src
+        const metaOGType = type || 'website'
+        const metaURL = url || data.site.siteMetadata.siteUrl
         return (
           <Helmet
             htmlAttributes={{
@@ -23,6 +25,10 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: metaDescription,
               },
               {
+                property: `og:url`,
+                content: metaURL,
+              },
+              {
                 property: `og:title`,
                 content: title,
               },
@@ -32,7 +38,11 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 property: `og:type`,
-                content: `website`,
+                content: metaOGType,
+              },
+              {
+                property: `og:image`,
+                content: `${data.site.siteMetadata.siteUrl}${metaImage}`,
               },
               {
                 name: `twitter:card`,
@@ -40,7 +50,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               },
               {
                 name: `twitter:creator`,
-                content: data.site.siteMetadata.author.name,
+                content: `@SBlakeAdams`,
               },
               {
                 name: `twitter:title`,
@@ -50,6 +60,14 @@ function SEO({ description, lang, meta, keywords, title }) {
                 name: `twitter:description`,
                 content: metaDescription,
               },
+              {
+                name: `twitter:image`,
+                content: `${data.site.siteMetadata.siteUrl}${metaImage}`,
+              },
+              {
+                name: `twitter:site`,
+                content: `@SBlakeAdams`,
+              }
             ]
               .concat(
                 keywords.length > 0
@@ -79,18 +97,23 @@ SEO.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  image: PropTypes.any,
+  type: PropTypes.string,
+  url: PropTypes.string
 }
 
 export { SEO }
 
 const detailsQuery = graphql`
   query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author {
-          name
+    site{
+      ...SiteInformation
+    }
+    # Get the headshot image.
+    headshotImage: file(relativePath: { eq: "thats-me.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
