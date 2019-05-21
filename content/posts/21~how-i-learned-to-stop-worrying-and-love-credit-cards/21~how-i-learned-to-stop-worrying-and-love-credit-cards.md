@@ -3,7 +3,7 @@ title: "How I Learned To Stop Worrying and Love The Credit Card"
 tags: ["personal finance", "financial", "credit cards"]
 date: "2019-05-13"
 featuredImage: "./featured.jpg"
-featured: "true"
+featured: "false"
 description: "The personal story about how I stopped avoiding credit cards and learned to utilize them for the benefit of earning a small amount on my everyday purchases."
 type: "post"
 category: "Personal Finance"
