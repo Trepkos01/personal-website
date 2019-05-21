@@ -128,6 +128,7 @@ const asideContentQuery = graphql`
                 node {
                     id
                     excerpt(pruneLength: 180)
+                    timeToRead
                     ...BooknotesItemFrontmatter
                     ...MarkdownFields
                 }

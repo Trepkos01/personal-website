@@ -59,7 +59,7 @@ const LatestBooknotes = ({ latestBooknotes }) => (
             <BooknotesDetails>
                 <p><strong>{ node.node.frontmatter.title }</strong></p>
                 <p><small>{ node.node.frontmatter.date }</small></p>
-                <p><Link to={ node.node.fields.slug }>Read My Notes</Link></p>
+                <p><Link to={ node.node.fields.slug }>Read My Highlights in { node.node.timeToRead } Minutes</Link></p>
             </BooknotesDetails>
         </BooknoteWrapper>
     ))}
