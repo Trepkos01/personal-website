@@ -120,6 +120,7 @@ export default ({ data }) => {
     const post = data.markdownRemark
     const url = data.site.siteMetadata.siteUrl + "/" + post.fields.slug
     const disqusShortname = 'blakeadams-io';
+    const socialShares = data.site.siteMetadata.socialShare
 
     const disqusConfig = {
       url: url, 
@@ -163,7 +164,7 @@ export default ({ data }) => {
           <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
           { project }
         </PostWrapper>
-        <SocialShare url={ url } title={ post.frontmatter.title } size={ 50 }/>
+        <SocialShare url={ url } title={ post.frontmatter.title } size={ 50 } socials = { socialShares }/>
         <PostComments>
           <strong>Like what you read? Don't? Discuss it.</strong>
           <Disqus.DiscussionEmbed shortname={ disqusShortname } config={ disqusConfig } />

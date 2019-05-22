@@ -42,6 +42,24 @@ module.exports = {
         name: "Keybase",
         url: "https://keybase.io/sbadams"
       }
+    ],
+    socialShare: [
+      {
+        name: "Facebook",
+        accessToken: process.env.FACEBOOK_ACCESS_TOKEN
+      },
+      {
+        name: "Twitter",
+        accessToken: ""
+      },
+      {
+        name: "LinkedIn",
+        accessToken: ""
+      },
+      {
+        name: "Reddit",
+        accessToken: ""
+      }
     ]
   },
   plugins: [

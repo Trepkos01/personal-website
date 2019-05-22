@@ -36,6 +36,7 @@ const BooknotesContent = styled.div `
 export default ({ data }) => {
     const booknotes = data.markdownRemark
     const url = data.site.siteMetadata.siteUrl + "/" + booknotes.fields.slug
+    const socialShares = data.site.siteMetadata.socialShare
 
     const asideInfo = {
       relatedPosts: {edges: []},
@@ -56,7 +57,7 @@ export default ({ data }) => {
                 </BooknotesDetails>
                 <BooknotesContent dangerouslySetInnerHTML={{ __html: booknotes.html }} />
             </BooknotesWrapper>
-            <SocialShare url={ url } title={ booknotes.frontmatter.title } size={ 50 }/>
+            <SocialShare url={ url } title={ booknotes.frontmatter.title } size={ 50 } socials = { socialShares }/>
         </Layout>
     )
 }

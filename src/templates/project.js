@@ -47,6 +47,7 @@ const RelatedPostsWrapper = styled.div `
 export default ({ data }) => {
     const project = data.markdownRemark
     const url = data.site.siteMetadata.siteUrl + "/" + project.fields.slug
+    const socialShares = data.site.siteMetadata.socialShare
 
     let projectPosts = ""
     if(data.projectPosts !== null)
@@ -82,7 +83,7 @@ export default ({ data }) => {
                 </ProjectLinks>
                 <Tech tech={ project.frontmatter.tags }/>
                 <ProjectContent dangerouslySetInnerHTML={{ __html: project.html }} />
-                <SocialShare url={ url } title={ project.frontmatter.title } size={ 50 }/>
+                <SocialShare url={ url } title={ project.frontmatter.title } size={ 50 } socials = { socialShares }/>
                 { projectPosts }
             </ProjectWrapper>
         </Layout>

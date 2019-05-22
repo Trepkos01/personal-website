@@ -14,6 +14,10 @@ export const siteInformationFragment = graphql`
             name
             url
         }
+        socialShare {
+            name
+            accessToken
+        }
     }
   }
 `
