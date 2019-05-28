@@ -3,7 +3,7 @@ title: "Why I Left My Regional Bank"
 tags: ["personal finance", "financial", "checking account", "saving account"]
 date: "2019-05-20"
 featuredImage: "./featured.jpg"
-featured: "true"
+featured: "false"
 description: "Another personal finance story about my discovery of the world outside my local brick and mortar bank and why I ultimately decided to leave it. And why you might want to do the same."
 type: "post"
 category: "Personal Finance"
