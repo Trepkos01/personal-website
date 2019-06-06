@@ -28,7 +28,7 @@ const IndexPage = () => (
               <Intro/>
             </BackgroundWrapper>
             <BackgroundWrapper color={ "#f0f8ff" }>
-              <Blog/>
+              <Blog categories = { data.categories }/>
             </BackgroundWrapper>
             <BackgroundWrapper>
               <Projects/>
@@ -49,6 +49,15 @@ const homeContentQuery = graphql`
           author {
             short_bio
           }
+        }
+      }
+      categories: allMarkdownRemark(filter: { fileAbsolutePath: {regex : "\/content/posts/" } }) {
+        edges {
+            node {
+                frontmatter {
+                    category
+                }
+            }
         }
       }
     }
