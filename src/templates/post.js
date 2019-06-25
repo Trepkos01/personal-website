@@ -190,7 +190,7 @@ export default ({ data }) => {
         edges {
             node {
                 ...MarkdownFields
-                ...PostFrontmatter
+                ...PostItemFrontmatter
             }
         }    
       }
