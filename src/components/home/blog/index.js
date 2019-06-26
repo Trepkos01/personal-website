@@ -80,7 +80,7 @@ let categoryNode = {
     })
 }
 
-Blog.proptypes = {
+Blog.propTypes = {
     categories: PropTypes.shape({
         edges: PropTypes.arrayOf(categoryNode)
     })

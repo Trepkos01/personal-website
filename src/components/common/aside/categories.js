@@ -43,7 +43,7 @@ let categoryNode = {
     })
 }
 
-Categories.proptypes = {
+Categories.propTypes = {
     categories: PropTypes.shape({
         edges: PropTypes.arrayOf(categoryNode)
     })

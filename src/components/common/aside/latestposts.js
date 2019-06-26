@@ -36,7 +36,7 @@ let postNode = {
     })
 }
 
-LatestPosts.proptypes = {
+LatestPosts.propTypes = {
     latestPosts: PropTypes.shape({
         edges: PropTypes.arrayOf(postNode)
     })

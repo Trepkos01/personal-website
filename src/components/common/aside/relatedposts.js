@@ -39,7 +39,7 @@ let postNode = {
     })
 }
 
-RelatedPosts.proptypes = {
+RelatedPosts.propTypes = {
     relatedPosts: PropTypes.shape({
         edges: PropTypes.arrayOf(postNode)
     })
