@@ -3,7 +3,7 @@ title: "A Goal-Agnostic Strategy to Personal Finance"
 tags: ["personal finance", "financial", "checking account", "saving account", "retirement"]
 date: "2019-06-10"
 featuredImage: "./featured.jpg"
-featured: "false"
+featured: "true"
 description: "Sometimes, when you don't have a clear consensus on your ultimate goals. It's good to have a system in place that you can later adapt if necessary to accommodate almost any future financial goal. Here's mine."
 type: "post"
 category: "Personal Finance"

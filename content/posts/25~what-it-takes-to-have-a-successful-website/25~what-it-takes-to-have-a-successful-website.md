@@ -3,7 +3,7 @@ title: "What It Takes To Have a Successful Website?"
 tags: ["financial independence", "computer science", "blogging"]
 date: "2019-05-28"
 featuredImage: "./featured.jpg"
-featured: "true"
+featured: "false"
 description: "I survey five extremely popular websites to determine many of the different commonalities that may have contributed to their success and how you can apply these same properties to your own blog website if you're starting out."
 type: "post"
 category: "Financial Independence"
