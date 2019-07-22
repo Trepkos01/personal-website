@@ -35,7 +35,7 @@ const booknotesContentQuery = graphql`
                     id
                     timeToRead
                     excerpt(pruneLength: 180)
-                    ...BooknotesItemFrontmatter
+                    ...BooknotesFrontmatter
                     ...MarkdownFields
                 }
             }

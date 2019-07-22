@@ -10,8 +10,6 @@ category: "Personal Development"
 project: ""
 ---
 
-**The Strangest Secret**
-
 In the summer of 2014 I stumbled upon the following motivational video, [The Strangest Secret](https://www.youtube.com/watch?v=m9PmuAFsQOM), a 1957 motivational speech recorded by Earl Nightingale for the purpose of motivating the sales personnel at the insurance agency he owned at that time. The recording grew in popularity outside of his own personal business and its popularity still grows today with every new generation that comes into contact with his musings.
 
 And there is something incredibly appealing about the speech. Everything from the simplistic theme of his message to his classic deep 1950's vocal style. This encouraging idea that your life is simply the product of your mindset, your directed thoughts. That the attainment of a goal begins first with the clarification of your specific goal and followed by repeatedly reminding yourself of that goal or mental image (similar to the principle and technique of auto-suggestion echoed in Napoleon Hill's *Think and Grow Rich* and Norman Vincent Peale's *The Power of Positive Thinking* --a very controversial concept in its effectiveness).
