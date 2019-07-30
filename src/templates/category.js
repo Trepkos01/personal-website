@@ -5,7 +5,14 @@ import styled from 'styled-components'
 import { Layout, SEO, PostCard, ProjectCard, BooknotesCard } from '../components/common'
 
 const Wrapper = styled.div `
-    padding: 2em;
+    padding: 1em;
+    
+    @media (min-width:768px) {
+        padding: 2em;
+    }
+`
+
+const SectionWrapper = styled.div`
 `
 
 const PostsWrapper = styled.div`
@@ -38,40 +45,63 @@ const Category = ({pageContext, data}) => {
 
     const { booknotes, booknotesCount } = data.categoryBooknotes || { booknotes: [], booknotesCount: 0}
 
-    const postsSectionHeader = `${postsCount} post${
-        postsCount === 1 ? "" : "s"
-    } in the category "${category}"`
+    const postsSectionHeader = `${category} Blog Post${postsCount === 1 ? "" : "s"}`
     
-    const projectsSectionHeader = `${projectsCount} project${
-        projectsCount === 1 ? "" : "s"
-    } in the category "${category}"`
+    const projectsSectionHeader = `${category} Project${projectsCount === 1 ? "" : "s"}`
 
-    const booknotesSectionHeader = `${booknotesCount} booknotes in the category "${category}"`
+    const booknotesSectionHeader = `${category} Booknotes`
 
-    const title = `Content in the category " ${category}"`
+    const title = `${category} Content`
 
-    return (
-        <Layout hideAside={ false }>
-            <SEO title={ title } keywords={[`blake adams`, `software`, `software developer`, `technology`, `financial independence`, `entrepreneur`, `career`, `consultancy`, `projects`, 'blog', category]} />
-            <Wrapper>
-                <h2>{ postsSectionHeader }</h2>
+    let postsSection, projectsSection, booknotesSection = ""
+
+    if(postsCount > 0){
+        postsSection = (
+            <SectionWrapper>
+                <h3>{ postsSectionHeader }</h3>
                 <PostsWrapper>
                 { posts.map((node, index) => (
                     <PostCard key={ index } post={ node } color={ "#f0f8ff82;" }/>
                 ))}
                 </PostsWrapper>
-                <h2>{ projectsSectionHeader }</h2>
+            </SectionWrapper>
+        )
+    }
+
+    if(projectsCount > 0){
+        projectsSection = (
+            <SectionWrapper>
+                <h3>{ projectsSectionHeader }</h3>
                 <ProjectsWrapper>
                 { projects.map((node, index) => (
                     <ProjectCard key={ index } project={ node } color={ "#f0f8ff82;" }/>
                 ))}
                 </ProjectsWrapper>
-                <h2>{ booknotesSectionHeader }</h2>
+            </SectionWrapper>
+        )
+    }
+
+    if(booknotesCount > 0){
+        booknotesSection = (
+            <SectionWrapper>
+                <h3>{ booknotesSectionHeader }</h3>
                 <BooknotesWrapper>
                 { booknotes.map((node, index) => (
                     <BooknotesCard key={ index } booknotes={ node } color={ "#f0f8ff82;" }/>
                 ))}
                 </BooknotesWrapper>
+            </SectionWrapper>
+        )
+    }
+
+
+    return (
+        <Layout hideAside={ false }>
+            <SEO title={ title } keywords={[`blake adams`, `software`, `software developer`, `technology`, `financial independence`, `entrepreneur`, `career`, `consultancy`, `projects`, 'blog', category]} />
+            <Wrapper>
+                { postsSection }
+                { projectsSection }
+                { booknotesSection }
             </Wrapper>
         </Layout>
     )
@@ -120,7 +150,7 @@ export const categoryPostsQuery = graphql`
                     id
                     timeToRead
                     excerpt(pruneLength: 180)
-                    ...BooknotesItemFrontmatter
+                    ...BooknotesFrontmatter
                     ...MarkdownFields
                 }
             }

@@ -5,8 +5,16 @@ import styled from 'styled-components'
 import { Layout, SEO, PostCard, ProjectCard } from '../components/common'
 
 const Wrapper = styled.div `
-    padding: 2em;
+    padding: 1em;
+    
+    @media (min-width:768px) {
+        padding: 2em;
+    }
 `
+
+const SectionWrapper = styled.div`
+`
+
 
 const PostsWrapper = styled.div`
     display: flex;
@@ -37,22 +45,40 @@ const Tag = ({pageContext, data}) => {
 
     const title = `Posts and Projects tagged with " ${tag}"`
 
-    return (
-        <Layout hideAside={ false }>
-            <SEO title={ title } keywords={[`blake adams`, `software`, `software developer`, `technology`, `financial independence`, `entrepreneur`, `career`, `consultancy`, `projects`, 'blog', tag]} />
-            <Wrapper>
-                <h2>{ postsSectionHeader }</h2>
+    let postsSection, projectsSection = ""
+
+    if(postsCount > 0){
+        postsSection = (
+            <SectionWrapper>
+                <h3>{ postsSectionHeader }</h3>
                 <PostsWrapper>
                 { posts.map((node, index) => (
                     <PostCard key={ index } post={ node } color={ "#f0f8ff82;" }/>
                 ))}
                 </PostsWrapper>
-                <h2>{ projectsSectionHeader }</h2>
+            </SectionWrapper>
+        )
+    }
+
+    if(projectsCount > 0){
+        projectsSection = (
+            <SectionWrapper>
+                <h3>{ projectsSectionHeader }</h3>
                 <ProjectsWrapper>
                 { projects.map((node, index) => (
                     <ProjectCard key={ index } project={ node } color={ "#f0f8ff82;" }/>
                 ))}
                 </ProjectsWrapper>
+            </SectionWrapper>
+        )
+    }
+
+    return (
+        <Layout hideAside={ false }>
+            <SEO title={ title } keywords={[`blake adams`, `software`, `software developer`, `technology`, `financial independence`, `entrepreneur`, `career`, `consultancy`, `projects`, 'blog', tag]} />
+            <Wrapper>
+                { postsSection }
+                { projectsSection }
             </Wrapper>
         </Layout>
     )

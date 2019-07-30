@@ -21,24 +21,22 @@ const LatestPosts = ({ latestPosts }) => {
     )
 }
 
-let postNode = {
-    node: PropTypes.shape({
-      frontmatter: PropTypes.shape({
-          title: PropTypes.string,
-          date: PropTypes.string,
-          description: PropTypes.string,
-          featuredImage: PropTypes.any,
-          tags: PropTypes.arrayOf(PropTypes.string)
-      }),
-      fields: PropTypes.shape({
-          slug: PropTypes.string
-      })
-    })
-}
-
 LatestPosts.propTypes = {
     latestPosts: PropTypes.shape({
-        edges: PropTypes.arrayOf(postNode)
+        edges: PropTypes.arrayOf(PropTypes.shape({
+            node: PropTypes.shape({
+              frontmatter: PropTypes.shape({
+                  title: PropTypes.string,
+                  date: PropTypes.string,
+                  description: PropTypes.string,
+                  featuredImage: PropTypes.any,
+                  tags: PropTypes.arrayOf(PropTypes.string)
+              }),
+              fields: PropTypes.shape({
+                  slug: PropTypes.string
+              })
+            })
+        }))
     })
 }
 

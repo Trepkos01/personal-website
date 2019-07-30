@@ -4,7 +4,7 @@ tags: ["personal finance", "financial", "frugality", "spending", "budget"]
 date: "2019-07-29"
 featuredImage: "./featured.jpg"
 featured: "false"
-description: "An effective financial life can be boiled down the simple equation described as cash flow. There are two ways of effectively managing this metric, by either reducing your expenses or increasing your income, or both. In this quick post, I explain my own simple strategy for reducing expenses by auditing recurring scheduled expenses and optimizing areas of extreme spending."
+description: "An effective financial life can be boiled down to the simple equation described as cash flow. There are two ways of effectively managing this metric by either reducing your expenses or increasing your income or both. In this quick post, I explain my own simple strategy for reducing expenses by auditing recurring scheduled expenses and optimizing areas of extreme spending."
 type: "post"
 category: "Personal Finance"
 project: ""

@@ -35,17 +35,15 @@ return (
 
 export { Categories }
 
-let categoryNode = {
-    node: PropTypes.shape({
-        frontmatter: PropTypes.shape({
-            category: PropTypes.string,
-        })
-    })
-}
-
 Categories.propTypes = {
     categories: PropTypes.shape({
-        edges: PropTypes.arrayOf(categoryNode)
+        edges: PropTypes.arrayOf(PropTypes.shape({
+            node: PropTypes.shape({
+                frontmatter: PropTypes.shape({
+                    category: PropTypes.string,
+                })
+            })
+        }))
     })
 }
 

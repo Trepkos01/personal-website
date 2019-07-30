@@ -72,17 +72,15 @@ const Blog = ({categories}) => {
 
 export { Blog }
 
-let categoryNode = {
-    node: PropTypes.shape({
-        frontmatter: PropTypes.shape({
-            category: PropTypes.string,
-        })
-    })
-}
-
 Blog.propTypes = {
     categories: PropTypes.shape({
-        edges: PropTypes.arrayOf(categoryNode)
+        edges: PropTypes.arrayOf(PropTypes.shape({
+            node: PropTypes.shape({
+                frontmatter: PropTypes.shape({
+                    category: PropTypes.string,
+                })
+            })
+        }))
     })
 }
 const blogContentQuery = graphql`
