@@ -5,7 +5,7 @@ date: "2019-07-31"
 
 type: "booknote"
 
-description: "How to create a lean and effecient startup company with minimal startup costs and minimal employees by exploring the convergence of your interest and skills and an active market demand."
+description: "How to create a lean and efficient startup company with minimal startup costs and minimal employees by exploring the convergence of your interest and skills and an active market demand."
 
 coverImage: "./cover.jpg"
 
