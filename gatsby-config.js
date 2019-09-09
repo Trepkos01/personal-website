@@ -63,6 +63,7 @@ module.exports = {
     ]
   },
   plugins: [
+    `gatsby-plugin-feed`,
     `gatsby-plugin-react-svg`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
