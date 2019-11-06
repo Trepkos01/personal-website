@@ -4,7 +4,7 @@ tags: ["personal development", "career", "telecommuting", "moving", "location"]
 date: "2019-11-11"
 featuredImage: "./featured.jpg"
 featured: "false"
-description: "Location matters. Should you move to where the jobs? Can you simply work remotely from wherever you are? How does location affect your overall earning potential?"
+description: "Location matters. Should you move to where the jobs are? Can you simply work remotely from wherever you are? How does location affect your overall earning potential?"
 type: "post"
 category: "Career"
 project: ""
