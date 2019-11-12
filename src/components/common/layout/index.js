@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import { Header, Footer, Aside } from '../'
-import './layout.css'
 
 const Wrapper = styled.div `
   display: flex;

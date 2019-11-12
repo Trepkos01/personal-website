@@ -1,9 +1,6 @@
 import Typography from 'typography'
 import gray from 'gray-percentage'
 
-
-//const typography = new Typography(githubTheme)
-
 const typography = new Typography({
     baseFontSize: '16px',
     baseLineHeight: 1.625,

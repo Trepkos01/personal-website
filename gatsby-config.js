@@ -76,12 +76,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      }
-    },
-    {
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				path: `${__dirname}/content/posts`,
@@ -142,33 +136,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: "./src/images/logo.png",
-        dir: 'auto',
-        lang: 'en-US',
-        background: '#fff',
-        theme_color: '#fff',
-        display: 'standalone',
-        orientation: 'any',
-        start_url: '/?homescreen=1',
-        version: '1.0',
-   
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: false,
-          twitter: false,
-          yandex: false,
-          windows: false
-        }
-      }
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Blake Adams`,
@@ -180,6 +147,12 @@ module.exports = {
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      }
+    }
   ],
 }
