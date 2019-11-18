@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Access Permissions for Instruments"
+title: "Access Permissions for Instruments"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-04-15"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Accommodating the multitude of access properties for instrument ac
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 --- 
 
 In the old system, access to instruments was determined by an enrollment's course, an enrollment's term, the accessing user's user role, and even a date window. The relationships between instruments and courses were stored in two separate tables while the behavior for access based on academic term, accessing user's role, student's program, and student's emphasis, and even date spans were hard coded in the instrument's file responsible for controlling the behavior of the instrument.

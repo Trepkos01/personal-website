@@ -1,5 +1,5 @@
 ---
-title: "Cash Flow is King: Increasing your income through passive investments."
+title: "Increasing your income through passive investments."
 tags: ["personal finance", "financial", "income", "passive income", "real estate"]
 date: "2019-09-03"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "The last category is all about investing in passive income investm
 type: "post"
 category: "Personal Finance"
 project: ""
+series: "Cash Flow is King"
 ---
 **Photo By:** [Chuttersnap](https://unsplash.com/@chuttersnap)
 

@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: The Standard Instrument Wizard and Multi-Level Permissions"
+title: "The Standard Instrument Wizard and Multi-Level Permissions"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-04-26"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Given the varied structure and behavior of the standard assessment
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 In the previous blog entries, I described the primary components responsible for collecting the key information gathered by the assessment system, the Assessment Instruments. This included the Capture Hours Instrument type, the Attendance Instrument type, and the Standard Instrument type: these instrument types allowed for complete customization of the structure and behavior of the instrument to fit all previous and most future instruments; the Standard Instrument being the most complicated as the the standard workhorse of data collection for the system.
 

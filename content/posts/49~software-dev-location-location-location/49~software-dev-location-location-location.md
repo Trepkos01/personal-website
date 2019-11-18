@@ -1,5 +1,5 @@
 ---
-title: "Software Developer Career Tips - Location, location, location."
+title: "Location, location, location."
 tags: ["personal development", "career", "telecommuting", "moving", "location"]
 date: "2019-11-11"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Location matters. Should you move to where the jobs are? Can you s
 type: "post"
 category: "Career"
 project: ""
+series: "Software Developer Career Tips"
 ---
 **Photo By:** [Monica Bourgeau](https://unsplash.com/@monicabourgeau)
 

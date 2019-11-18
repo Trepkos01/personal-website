@@ -1,5 +1,5 @@
 ---
-title: "Software Developer Career Tips - What I wish I would have known before I graduated."
+title: "What I wish I would have known before I graduated."
 tags: ["personal development", "career"]
 date: "2019-10-21"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Learn from my mistakes. I reflect on some general tips that I wish
 type: "post"
 category: "Career"
 project: ""
+series: "Software Developer Career Tips"
 ---
 
 **Photo By:** [Charles DeLoye](https://unsplash.com/@charlesdeloye)

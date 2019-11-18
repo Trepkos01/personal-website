@@ -1,5 +1,5 @@
 ---
-title: "Cash Flow is King: Increasing Income through a Side Hustle."
+title: "Increasing Income through a Side Hustle."
 tags: ["personal finance", "financial", "income", "wealth", "side hustle", "freelancing", "freelance"]
 date: "2019-08-12"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "If you've maxed out the earning potential from your primary job an
 type: "post"
 category: "Personal Finance"
 project: ""
+series: "Cash Flow is King"
 ---
 **Photo By:** [Hannah Wei](https://unsplash.com/@herlifeinpixels)
 

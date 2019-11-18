@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Data Migration of Organization and Content Data"
+title: "Data Migration of Organization and Content Data"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-05-06"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "As development continued on the new system, I needed to migrate th
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 In the beginning of the new system's development, two points became painfully obvious.

@@ -1,5 +1,5 @@
 ---
-title: "Software Developer Career Tips - The Big Three."
+title: "The Big Three."
 tags: ["personal development", "career", "silicon valley", "seattle", "new york city", "tech hub", "bay area"]
 date: "2019-11-18"
 featuredImage: "./featured.jpg"
@@ -8,12 +8,13 @@ description: "In this post, I take a closer look at the three major technology h
 type: "post"
 category: "Career"
 project: ""
+series: "Software Developer Career Tips"
 ---
 **Photo By:** [Oakie](https://unsplash.com/@jetcityninja)
 
-**Disclaimer:** 
+***Disclaimer:*** *Tupelo, MS is used as the base case for cost-of-living comparison purposes because (1) it's near my current location therefore I have a certain amount of familiarity with it and (2) most locations are both more expensive and pay less than Tupelo, MS therefore keeping the statistical direction consistent. The $50,000 average salary for a software developer for Tupelo, MS is a rough estimate from my own experience as the number of reported salaries for the location are too little to be a trustworthy source. I use NerdWallet's Cost of Living Calculator for estimating the Cost of Living differences between locations and estimating the median rent/home prices for a 2 bedroom apartment and 3 bedroom, 2 bathroom house, respectively. The estimated average salaries are gathered from Glassdoor using the VERY generic job title of Software Developer, I know many will anecdotally claim higher salaries but I'm trying to keep the sources of my information consistent across all locations.*
 
-*Tupelo, MS is used as the base case for cost-of-living comparison purposes because (1) it's near my current location therefore I have a certain amount of familiarity with it and (2) most locations are both more expensive and pay less than Tupelo, MS therefore keeping the statistical direction consistent. The $50,000 average salary for a software developer for Tupelo, MS is a rough estimate from my own experience as the number of reported salaries for the location are too little to be a trustworthy source. I use NerdWallet's Cost of Living Calculator for estimating the Cost of Living differences between locations and estimating the median rent/home prices for a 2 bedroom apartment and 3 bedroom, 2 bathroom house, respectively. The estimated average salaries are gathered from Glassdoor using the VERY generic job title of Software Developer, I know many will anecdotally claim higher salaries but I'm trying to keep the sources of my information consistent across all locations.*
+---
 
 First, let's look at what I would call the **Big 3** (The *Big X* label seems to be a trend in these posts) or the three major tech hubs in the US that are commonly mentioned by software developers and other assorted IT workers. This includes the **San Francisco Bay Area** (which I will group neighboring communities such as Oakland, San Jose, Mountain View, Palo Alto,  and Cupertino), the **Seattle Area** (Seattle, Redmond), and **New York City**.
 

@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: The Integrity Reports"
+title: "The Integrity Reports"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-06-17"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Other reports commonly found within the assessment system are thos
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 The next collection of reports, I title the **Integrity Reports**, primarily because they concern missing information in the system. The three primary use cases in the old system is the **Expired Insurance Report**, **Background Check Report**, and **Late Reports**. Both the **Expired Insurance Report** and the **Background Check Report** concern student information, more importantly it reports a list of students whose background check information is missing in the system and a list of students who are either missing insurance information or their insurance has expired. In both reports, the user can narrow the list down to students who are enrolled in a selection of courses, placed at a collection of districts, within a span of academic terms.

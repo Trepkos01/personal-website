@@ -1,5 +1,5 @@
 ---
-title: "Cash Flow is King: Increasing your income through informational content."
+title: "Increasing your income through informational content."
 tags: ["personal finance", "financial", "income", "wealth", "blogging", "blog", "advertising", "podcast", "youtube"]
 date: "2019-08-19"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Another viable but less dependent approach to producing more incom
 type: "post"
 category: "Personal Finance"
 project: ""
+series: "Cash Flow is King"
 ---
 **Photo By:** [Domenico Loia](https://unsplash.com/@domenicoloia)
 

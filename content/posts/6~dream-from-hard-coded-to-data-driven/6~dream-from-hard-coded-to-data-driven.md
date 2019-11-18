@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Organization from a hard-coded solution to a data-driven customizable solution."
+title: "Organization from a hard-coded solution to a data-driven customizable solution."
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-03-22"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Separating the structure and content of the system from the code i
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 When I was initially hired to work on the re-design of the system, I was informed that there had been attempts to take the pre-existing system and essentially custom fit it to work with another institution. During this process, it was discovered that the existing system would be incredibly difficult to mold into a similar solution for another institution since most of the institution-specific behavior was embedded within the code itself. Likewise, it would require the other institution to have a software developer available to make any necessary changes to the system with the introduction of new programs, instruments, and other information.

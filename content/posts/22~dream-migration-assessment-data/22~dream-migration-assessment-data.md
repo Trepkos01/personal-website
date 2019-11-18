@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Data Migration of Assessment Data, User Accounts, and More"
+title: "Data Migration of Assessment Data, User Accounts, and More"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-05-17"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "The last steps in the migration process involve migrating the grea
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 In the previous blog entries on the data migration process, I discussed the steps necessary to either create new information in the new assessment system's database system based on behavior and structure that had been previously hard-coded in the old assessment system **OR** migrating existing information by both cleaning the information and restructuring it to fit consistently with the new system's database structure. The previous **9** steps were responsible for creating the organization's structure within the system (e.g., department, programs, courses, terms, etc), migrating over the existing content information (schools, institutes, students, faculty, clinical instructors, etc), and also the enrollments information. 
 

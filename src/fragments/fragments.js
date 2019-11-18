@@ -37,6 +37,7 @@ export const postFrontmatterFragment = graphql`
         date
         tags
         description
+        series
         featuredImage {
           publicURL
           childImageSharp {
@@ -57,6 +58,7 @@ export const postItemFrontMatterFragment = graphql`
         description
         tags
         category
+        series
         featuredImage {
             publicURL
             childImageSharp {

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, StaticQuery, Link } from 'gatsby';
 
-import { PostCard, FeaturedPost } from '../../common'
+import { PostCard, FeaturedPost, SeriesItem } from '../../common'
+
 
 const _ = require("lodash")
 
@@ -40,7 +41,23 @@ const CategoryLink = styled(Link) `
     font-weight: bold;
 `
 
-const Blog = ({categories}) => {
+const Series = styled.div `
+    @media (min-width:768px) {
+        flex-direction: column;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    margin-top: 2em;
+    padding: 1em;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    box-shadow: 6px 9px 20px 0px #0000003d;
+    background-color: white;
+`
+
+const Blog = ({categories, series}) => {
     let categoryLinks = []
     _.each(categories.edges, edge => {
         if(_.get(edge, "node.frontmatter.category")){
@@ -48,6 +65,23 @@ const Blog = ({categories}) => {
           }
     })
     categoryLinks = _.uniq(categoryLinks)
+
+    let seriesLinks = []
+    let seriesInfo = new Map()
+
+    _.each(series.edges, edge => {
+        if(_.get(edge, "node.frontmatter.series")){
+            seriesLinks.push(edge.node.frontmatter.series)
+            seriesInfo.set(edge.node.frontmatter.series, 
+                {title: edge.node.frontmatter.series,
+                date: edge.node.frontmatter.date, 
+                img: edge.node.frontmatter.featuredImage.childImageSharp.fluid,
+                count: (seriesInfo.get(edge.node.frontmatter.series) === undefined ? 1 : seriesInfo.get(edge.node.frontmatter.series).count + 1)}
+            )
+          }
+    })
+    seriesLinks = _.uniq(seriesLinks)
+    seriesLinks = _.reverse(seriesLinks)
     
     return (
         <StaticQuery
@@ -61,6 +95,11 @@ const Blog = ({categories}) => {
                         <CategoryLink key={ index } to={ `/category/${_.kebabCase(node)}/` }>{ _.upperFirst(node) }</CategoryLink>
                     ))}
                 </Categories>
+                <Series>
+                    {seriesLinks.map((node, index) => (
+                        <SeriesItem key={ index } title={ node } date={ seriesInfo.get(node).date } postCount={ seriesInfo.get(node).count } img={ seriesInfo.get(node).img }></SeriesItem>
+                    ))}
+                </Series>
                 <RecentPosts>
                     { data.recentPosts.edges.map((node, index) => (
                         <PostCard key={ index } post={ node } color={ "white" }/>

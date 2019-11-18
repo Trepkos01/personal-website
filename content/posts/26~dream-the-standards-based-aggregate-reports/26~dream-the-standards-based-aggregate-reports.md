@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: The Standards-Based Aggregate Reports"
+title: "The Standards-Based Aggregate Reports"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-05-30"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "As I turn my attention back to the reports functionality of the as
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 In a previous post, I detailed the mechanics of what I titled as the ***Standard Instrument Aggregate Reports***, which allows users to deduce aggregate statistical information from the assessment instrument data entered within the system. To allow users to tailor their data retrieval to match accreditation standards, I created the very similar **Standards Report**. Whereas the Standard Instrument Aggregate Report largely follows the exact same structure of the instrument that it concerns; the Standards Report's structure would be dependent on the Standards that it covers.
 

@@ -1,5 +1,5 @@
 ---
-title: "Cash Flow is King: Increasing Income through your Primary Job."
+title: "Increasing Income through your Primary Job."
 tags: ["personal finance", "financial", "income", "wealth", "career"]
 date: "2019-08-05"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Once you have your spending habits under relative control, you can
 type: "post"
 category: "Personal Finance"
 project: ""
+series: "Cash Flow is King"
 ---
 **Photo By:** [Alex Kotliarskyi](https://unsplash.com/@frantic)
 

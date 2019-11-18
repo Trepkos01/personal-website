@@ -54,7 +54,7 @@ const PostCard = ({ post, color }) => (
             <Img fluid={ post.node.frontmatter.featuredImage.childImageSharp.fluid }/>
         </PostCardThumbnail>
         <PostCardExcerpt>
-            <p><strong> { post.node.frontmatter.title } </strong></p>
+            <p><strong> { (post.node.frontmatter.series ? post.node.frontmatter.series + ": " + post.node.frontmatter.title : post.node.frontmatter.title) } </strong></p>
             <p><small>{ post.node.frontmatter.date }</small></p>
             <p> { post.node.frontmatter.description } </p>
             <p><Link to={ post.node.fields.slug }>Read More...</Link></p>

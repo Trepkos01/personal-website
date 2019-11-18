@@ -28,7 +28,7 @@ const IndexPage = () => (
               <Intro/>
             </BackgroundWrapper>
             <BackgroundWrapper color={ "#f0f8ff" }>
-              <Blog categories = { data.categories }/>
+              <Blog categories = { data.categories } series = { data.series }/>
             </BackgroundWrapper>
             <BackgroundWrapper>
               <Projects/>
@@ -56,6 +56,24 @@ const homeContentQuery = graphql`
             node {
                 frontmatter {
                     category
+                }
+            }
+        }
+      }
+      series: allMarkdownRemark(filter: { fileAbsolutePath: {regex : "\/content/posts/" } }) {
+        edges {
+            node {
+                frontmatter {
+                    date
+                    series
+                    featuredImage {
+                      publicURL
+                      childImageSharp {
+                          fluid(maxWidth: 200, maxHeight: 200) {
+                              ...GatsbyImageSharpFluid
+                          }
+                      }
+                  }
                 }
             }
         }

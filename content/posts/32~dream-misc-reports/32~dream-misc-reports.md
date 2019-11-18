@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: The Miscellaneous Reports"
+title: "The Miscellaneous Reports"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-06-20"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Rounding out the reports functionality of the DREAM series are the
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 This next collection of reports are largely unrelated but were all actively used within the old system and therefore needed to be recreated and expanded upon in the new system. The first report is the **Admission Documents Tracking Reports**, the second report is the **Enrollment Evaluation Reports**, and the third report is the **Placement Information Reports**.

@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: User roles, system design, and access control management."
+title: "User roles, system design, and access control management."
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-04-04"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "One of the key features of the system is the ability to grant and 
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 In the old system, the user was responsible for choosing their user role upon registration. As you may expect, this could be abused such that a user could choose a user role which they didn't actually belong to. This problem was resolved by performing a lookup in various tables based on the chosen user role to verify that the registering user actually chose the correct user role. 
 

@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: The Disposition Infraction Process"
+title: "The Disposition Infraction Process"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-05-23"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "The design requirements call for the ability to facilitate the for
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 As the old system grew and became more popular, it began to take on more functionality than simply collecting assessment-related information. Some of this functionality included adding a secondary enrollment-bound evaluation system that allowed Clinical Instructors, University Supervisors, and Students to effectively rate each other, their placement site, and their respective program based on that tracked enrollment. Another functional feature was a feedback system that allowed Clinical Instructor to provide feedback to their supervised Students for specific enrollments. Both of these features also used a similar access rules as the assessment instruments responsible for collecting assessment data. Also, the ability to view Placements information on an actual geographical map using Google's Maps API. And the ability to send mass email messages through the system to large subsets of users.
 

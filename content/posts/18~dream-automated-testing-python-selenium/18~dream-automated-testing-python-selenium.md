@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Automated Testing with Python and Selenium"
+title: "Automated Testing with Python and Selenium"
 tags: ["dream", "architecture", "legacy code", "computer science", "python", "selenium", "automated testing", "unit tests"]
 date: "2019-05-03"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "As the new assessment system grew in both scope and functionality,
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 --- 
 In the beginning of the new system's development, two points became painfully obvious.
 

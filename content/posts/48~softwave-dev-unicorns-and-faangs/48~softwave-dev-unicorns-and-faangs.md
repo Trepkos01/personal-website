@@ -1,5 +1,5 @@
 ---
-title: "Software Developer Career Tips - Unicorns and FAANGs and whatnot."
+title: "Unicorns and FAANGs and whatnot."
 tags: ["personal development", "career", "programming", "unicorn", "startup"]
 date: "2019-11-03"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "What is the Big N? What are unicorns? What companies should you ta
 type: "post"
 category: "Career"
 project: ""
+series: "Software Developer Career Tips"
 ---
 **Photo By:** [Rahul Bhogal](https://unsplash.com/@rahulbhogal)
 

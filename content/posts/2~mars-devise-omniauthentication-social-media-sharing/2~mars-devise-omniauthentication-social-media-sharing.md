@@ -8,6 +8,7 @@ description: "Multi-login/social media omniauthentication management in a Ruby o
 type: "post"
 category: "Software Development"
 project: "mars"
+series: ""
 ---
 
   

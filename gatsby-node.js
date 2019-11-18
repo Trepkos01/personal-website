@@ -44,6 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
                   tags
                   category
                   project
+                  series
                 }
               }
             }
@@ -63,13 +64,15 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               slug: node.fields.slug,
               tags: node.frontmatter.tags,
-              project: node.frontmatter.project
+              project: node.frontmatter.project,
+              series: node.frontmatter.series
             },
           })
         })
 
         let tags = []
         let categories = []
+        let series = []
         
         _.each(markdownPages, edge => {
           if(_.get(edge, "node.frontmatter.tags")){
@@ -80,10 +83,15 @@ exports.createPages = ({ graphql, actions }) => {
             categories.push(edge.node.frontmatter.category)
           }
 
+          if(_.get(edge, "node.frontmatter.series")){
+            series.push(edge.node.frontmatter.series)
+          }
+
         })
 
         tags = _.uniq(tags)
         categories = _.uniq(categories)
+        series = _.uniq(series)
 
         tags.forEach(tag => {
           createPage({
@@ -101,6 +109,16 @@ exports.createPages = ({ graphql, actions }) => {
             component: path.resolve(`./src/templates/category.js`),
             context: {
               category
+            },
+          })
+        })
+
+        series.forEach(series => {
+          createPage({
+            path: `/series/${_.kebabCase(series)}/`,
+            component: path.resolve(`./src/templates/series.js`),
+            context: {
+              series
             },
           })
         })

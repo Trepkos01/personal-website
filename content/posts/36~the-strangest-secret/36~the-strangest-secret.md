@@ -8,6 +8,7 @@ description: "Earl Nightingale discloses what he describes as the Strangest Secr
 type: "post"
 category: "Personal Development"
 project: ""
+series: ""
 ---
 
 In the summer of 2014 I stumbled upon the following motivational video, [The Strangest Secret](https://www.youtube.com/watch?v=m9PmuAFsQOM), a 1957 motivational speech recorded by Earl Nightingale for the purpose of motivating the sales personnel at the insurance agency he owned at that time. The recording grew in popularity outside of his own personal business and its popularity still grows today with every new generation that comes into contact with his musings.

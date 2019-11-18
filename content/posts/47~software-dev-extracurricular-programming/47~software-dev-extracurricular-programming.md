@@ -1,5 +1,5 @@
 ---
-title: "Software Developer Career Tips - Extracurricular Programming."
+title: "Extracurricular Programming."
 tags: ["personal development", "career", "programming", "open source"]
 date: "2019-10-27"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Extracurricular programming may seem like a requirement for most t
 type: "post"
 category: "Career"
 project: ""
+series: "Software Developer Career Tips"
 ---
 
 **Photo By:** [Chris Ried](https://unsplash.com/@cdr6934)

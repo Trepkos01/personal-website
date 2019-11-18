@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Student Life Cycle Reports"
+title: "Student Life Cycle Reports"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-06-06"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "One important functionality of the assessment system is the abilit
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 In previous posts, I mainly detailed the components of the new system responsible for actually entering data into the system. However, one of the most important components of the system is the ability to generate reports on the information entered within the system. In previous posts, I detailed the functionality of the ***Standard Instrument Aggregate Reports*** and the ***Standards Aggregate Reports*** both robust reports that exclusively concern the data from the collection of **Standard Assessment Instruments**. Other notable reports are those responsible for detailing individual submission information for **Standard, Capture Hours**, and **Attendance** reports. However, in this post, I will describe many of the smaller reports that were either available in the old system or whose existence was necessitated by the presence of the information the new system.

@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Generalizing the enrollment application process."
+title: "Generalizing the enrollment application process."
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-04-01"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Student users submit an application for approval to generate their
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 In the old system, several programs had different processes where students would submit a **Placement Application**, this application would be reviewed by a faculty or staff user who would then approve the application to effectively generate an enrollment loosely based on the details of that application.

@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Deployment and Reflections"
+title: "Deployment and Reflections"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-06-24"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "The conclusive chapter on the DREAM series which followed many of 
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 In August 2018, the doors finally closed on the old Assessment System. I'm not completely clear on when the old Assessment System was originally released however judging by some comments in the oldest files, I can estimate it dating back to 2010-2011. Relatively young, all things considered. It grew over time to accommodate multiple requirements and additions and modifications from multiple graduate assistants until its final summer in 2018.

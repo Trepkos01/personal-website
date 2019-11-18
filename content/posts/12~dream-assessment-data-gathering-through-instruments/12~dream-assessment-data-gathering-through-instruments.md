@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Assessment data gathering through assorted instruments."
+title: "Assessment data gathering through assorted instruments."
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-04-12"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "The most important functionality of an assessment system is the ga
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 --- 
 
 The purpose of the assessment system is to collect information regarding students for the purpose of assessing the effectiveness of the various programs in accordance to their respective standards that are required for accreditation purposes. The responsibility of this data collection is the enterprise of tools called **Assessment Instruments**.  

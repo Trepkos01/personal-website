@@ -40,6 +40,7 @@ const PostDescription = styled.div `
 
     @media (min-width:768px) {
         flex: 1 0 50%;
+    }
 `
 
 const PostItem = ({ post, color }) => (
@@ -48,7 +49,7 @@ const PostItem = ({ post, color }) => (
             <Img fluid={ post.node.frontmatter.featuredImage.childImageSharp.fluid }/>
         </PostThumbnail>
         <PostDescription>
-            <p><strong>{ post.node.frontmatter.title }</strong></p>
+            <p><strong>{ (post.node.frontmatter.series ? post.node.frontmatter.series + ": " + post.node.frontmatter.title : post.node.frontmatter.title) }</strong></p>
             <p><small>{ post.node.frontmatter.date }</small></p>
             <p><Link to={ post.node.fields.slug }>Read More...</Link></p>
         </PostDescription>

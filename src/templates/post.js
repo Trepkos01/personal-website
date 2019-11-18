@@ -4,7 +4,7 @@ import { graphql, Link } from 'gatsby';
 import styled from 'styled-components'
 import Img from "gatsby-image";
 
-import { Layout, SEO, SocialShare } from '../components/common'
+import { Layout, SEO, SocialShare, SeriesItem } from '../components/common'
 
 const _ = require("lodash")
 
@@ -121,6 +121,7 @@ export default ({ data }) => {
     const url = data.site.siteMetadata.siteUrl + "/" + post.fields.slug
     const disqusShortname = 'blakeadams-io';
     const socialShares = data.site.siteMetadata.socialShare
+    const seriesPosts = data.seriesPosts
 
     const disqusConfig = {
       url: url, 
@@ -145,7 +146,15 @@ export default ({ data }) => {
                       <p><Link to={ data.project.fields.slug }>Read More</Link></p>
                     </PostProjectDescription>
                  </PostProject>)
-    } 
+    }
+    
+    let series = ""
+
+    if(post.frontmatter.series !== ""){
+      series = (
+          <SeriesItem title={ post.frontmatter.series } date={ seriesPosts.posts[0].node.frontmatter.date } postCount={ seriesPosts.postsCount } img={ seriesPosts.posts[0].node.frontmatter.featuredImage.childImageSharp.fluid }></SeriesItem>
+      )
+    }
 
     return (
       <Layout hideAside={ false } asideInfo = { asideInfo }>
@@ -154,7 +163,7 @@ export default ({ data }) => {
           <FeatureImage>
             <Img fluid={ post.frontmatter.featuredImage.childImageSharp.fluid }/>
           </FeatureImage>
-          <PostTitle>{ post.frontmatter.title }</PostTitle>
+          <PostTitle>{ (post.frontmatter.series ? post.frontmatter.series + ": " + post.frontmatter.title : post.frontmatter.title) }</PostTitle>
           <PostDetails>
             <p><strong>Date:</strong> { post.frontmatter.date }</p>
             <p><strong>Time to Read:</strong> { post.timeToRead } Minutes</p>
@@ -163,6 +172,7 @@ export default ({ data }) => {
           </PostDetails>
           <PostContent dangerouslySetInnerHTML={{ __html: post.html }} />
           { project }
+          { series }
         </PostWrapper>
         <SocialShare url={ url } title={ post.frontmatter.title } size={ 50 } socials = { socialShares }/>
         <PostComments>
@@ -174,7 +184,7 @@ export default ({ data }) => {
   }
   
   export const query = graphql`
-    query($slug: String!, $tags: [String], $project: String) {
+    query($slug: String!, $tags: [String], $project: String, $series: String) {
       markdownRemark(fields: { slug: { eq: $slug } }) {
         id
         html
@@ -201,6 +211,21 @@ export default ({ data }) => {
       }
       site {
       ...SiteInformation
+      }
+      seriesPosts: allMarkdownRemark(
+        limit: 2000
+        sort: { fields: [frontmatter___date], order: DESC }
+        filter: { frontmatter: { series: { eq: $series } }, fileAbsolutePath: {regex : "\/posts/"} }
+      ) {
+          postsCount: totalCount
+          posts: edges {
+              node {
+                  id
+                  excerpt(pruneLength: 180)
+                  ...PostItemFrontmatter
+                  ...MarkdownFields
+              }
+          }
       }
     }
   `

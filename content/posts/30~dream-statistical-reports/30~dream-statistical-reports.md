@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: The Statistics Reports"
+title: "The Statistics Reports"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-06-13"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Many of the reports that needed to be carried over to the new asse
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 In previous posts, I detailed the collection of reports that I titled as the **Student Life Cycle reports**. This included the **Admission Reports, Enrollment Reports**, and the **Graduation Reports**. In this post, I'll detail the reports that belong to the **Statistics Reports** group. This includes the **Clinical Instructor Statistics Report, Disposition Infraction Statistics Report, Enrollment Statistics Report,** and **Faculty Statistics Report**. These reports are fairly straight forward and they all follow a similar structure despite working with different information.

@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: Data Migration of Enrollment and Admission Data"
+title: "Data Migration of Enrollment and Admission Data"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-05-10"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "The next step included migrating over the admission tracking syste
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 In the last post on the data migration process for migrating the existing information from the old system to the new system; I covered the first **6** of **17** stages of the migration process which covers the creation of the organizational structure (e.g., department, programs, courses, terms, campuses) of the institution inside of the new system and migrating all of the content-related information from the old system to the new system (e.g., schools, institutes, students, faculty, clinical instructors, student tests, and more). The data migration process follows a specific order to ensure that relationships between related components are correctly constructed. An object which depends on a reference to another object is not created before the latter object is created and so forth. Also, given the nature of the information within the old system many actions were taken to format, sanitize, and ensure the accuracy and consistency of the information that was migrated over to avoid redundancy and unintelligible information. The information essentially had to be broken down, cleaned thoroughly, and restructured for the new system's database structure.
 

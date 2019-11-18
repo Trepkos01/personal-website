@@ -1,5 +1,5 @@
 ---
-title: "DREAM Series: The Standard Instrument Aggregate Reports"
+title: "The Standard Instrument Aggregate Reports"
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-04-29"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "Once we have the assessment information present within the system 
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 In previous entries, I discussed the primary functionality of the assessment system; the ability to collect information through components described as assessment instruments of which there are three varieties: Capture Hours, Attendance, and the most common, Standard. Besides the basic report that simply displays the standard instrument's submission. One of the more popular reports in the old system was the **instrument aggregate reports**.

@@ -1,6 +1,6 @@
 ---
 
-title: "DREAM Series: Restructuring and managing enrollment information."
+title: "Restructuring and managing enrollment information."
 tags: ["dream", "architecture", "legacy code", "computer science", "PHP", "MySQL", "jQuery", "LAMP"]
 date: "2019-03-29"
 featuredImage: "./featured.jpg"
@@ -9,6 +9,7 @@ description: "One important functionality of the assessment system is to capture
 type: "post"
 category: "Software Development"
 project: "dream"
+series: "DREAM Series"
 ---
 
 In the old system, faculty and clinical instructors were responsible for submitting assessment data for students enrolled in courses that they were actively supervising in some capacity. These enrollments were separated in three different tables. 

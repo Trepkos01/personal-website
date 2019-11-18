@@ -8,6 +8,7 @@ description: "Using the Geokit gem package for geocoding locations and geolocati
 type: "post"
 category: "Software Development"
 project: "mars"
+series: ""
 ---
 
 

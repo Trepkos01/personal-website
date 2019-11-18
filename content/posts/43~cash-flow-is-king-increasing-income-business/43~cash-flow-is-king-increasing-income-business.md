@@ -1,5 +1,5 @@
 ---
-title: "Cash Flow is King: Increasing your income through your business."
+title: "Increasing your income through your business."
 tags: ["personal finance", "financial", "income", "wealth", "business", "entrepreneur"]
 date: "2019-08-26"
 featuredImage: "./featured.jpg"
@@ -8,6 +8,7 @@ description: "This next category describes the aims of the entrepreneurial spiri
 type: "post"
 category: "Personal Finance"
 project: ""
+series: "Cash Flow is King"
 ---
 **Photo By:** [Annie Spratt](https://unsplash.com/@anniespratt)
 

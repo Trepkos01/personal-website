@@ -8,6 +8,7 @@ description: "After a month long sabbatical, I reflect on my most recent birthda
 type: "post"
 category: "Personal Development"
 project: ""
+series: ""
 ---
 
 **Photo By:** [Johannes W](https://unsplash.com/@johanneswre)

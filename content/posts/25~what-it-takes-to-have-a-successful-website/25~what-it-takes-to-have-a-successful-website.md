@@ -8,6 +8,7 @@ description: "I survey five extremely popular websites to determine many of the 
 type: "post"
 category: "Financial Independence"
 project: ""
+series: ""
 ---
 
 In May 2016, I purchased the domain blakeadams.io, it would be the de facto online platform for me to share any/all creative works for public accessibility. I had just finished working on the MVP for my online meal recommendation and aggregation application, ***Mars*** and I had decided that I needed a companion website to share it and any future projects, **and also to rant**. 
