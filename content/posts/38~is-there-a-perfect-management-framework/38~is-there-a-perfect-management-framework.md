@@ -3,7 +3,7 @@ title: "Is there a perfect framework for goal setting and management?"
 tags: ["personal development", "inspiration", "success", "goals", "goal setting"]
 date: "2019-07-22"
 featuredImage: "./featured.jpg"
-featured: "true"
+featured: "false"
 description: "It's easy to get overwhelmed with the multitude of personal development literature out there when evaluating your own life. I attempt to mesh together multiple systems and techniques to create a rough framework that can be adapted at handling progressive development at each scale and within each area of one's life in a very concise manner."
 type: "post"
 category: "Personal Development"

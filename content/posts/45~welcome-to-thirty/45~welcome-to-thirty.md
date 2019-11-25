@@ -3,7 +3,7 @@ title: "Welcome to Thirty."
 tags: ["personal development", "career"]
 date: "2019-10-07"
 featuredImage: "./featured.jpg"
-featured: "false"
+featured: "true"
 description: "After a month long sabbatical, I reflect on my most recent birthday."
 type: "post"
 category: "Personal Development"
