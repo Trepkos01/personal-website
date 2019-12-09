@@ -95,6 +95,13 @@ module.exports = {
 				path: `${__dirname}/content/booknotes`,
 				name: 'booknotes',
 			},
+    },
+    {
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				path: `${__dirname}/content/recentworks`,
+				name: 'recentworks',
+			},
 		},
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

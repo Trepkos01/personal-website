@@ -30,32 +30,68 @@ exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions
     return new Promise((resolve, reject) => {
       graphql(`
-        {
-          allMarkdownRemark(
-            filter: { fileAbsolutePath: {regex : "\/content/" } }
-          ) {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-                frontmatter {
-                  type
-                  tags
-                  category
-                  project
-                  series
-                }
+      {
+        posts: allMarkdownRemark(
+          filter: { fileAbsolutePath: {regex : "\/content/posts/" } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                type
+                tags
+                category
+                project
+                series
               }
             }
           }
         }
+        projects: allMarkdownRemark(
+          filter: { fileAbsolutePath: {regex : "\/content/projects/" } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                type
+                tags
+                category
+                project
+                series
+              }
+            }
+          }
+        }
+        booknotes: allMarkdownRemark(
+          filter: { fileAbsolutePath: {regex : "\/content/booknotes/" } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                type
+                tags
+                category
+                project
+                series
+              }
+            }
+          }
+        }
+      }
       `).then(result => {
         if(result.error){
             return Promise.reject(result.error)
         }
 
-        const markdownPages = result.data.allMarkdownRemark.edges
+        const markdownPages = result.data.posts.edges.concat(result.data.projects.edges.concat(result.data.booknotes.edges))
 
         markdownPages.forEach(({ node }) => {
           createPage({

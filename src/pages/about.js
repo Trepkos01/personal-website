@@ -1,76 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image'
 
-import { FaRegEnvelope, FaRegFileAlt } from "react-icons/fa";
-
+import { Bio, Resume, Services } from '../components/about'
 import { Layout, SEO, Social } from '../components/common'
 
-const Wrapper = styled.div `
-`
-
-const Bio = styled.div `
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: #f0f8ff82;
-  padding: 1em;
-
+const BackgroundWrapper = styled.div `
   background: linear-gradient(to top, 
-    #f0f8ff00 0%, 
-    #f0f8ff 5%, 
-    #f0f8ff 95%, 
-    #f0f8ff00 100%)
+    ${props => props.color}00 0%, 
+    ${props => props.color} 5%, 
+    ${props => props.color} 95%, 
+    ${props => props.color}00 100%)
+    left 
+    bottom
     rgba(0,0,0,0)    
     no-repeat;
 `
 
-const HeadshotWrapper = styled.div `
-  flex: 0 0 300px;
-
-  box-shadow: 12px 11px 15px 0px #ccc;
-
-  @media (min-width:768px) {
-    flex: 0 0 400px;
-  }
-`
-
-const BioWrapper = styled.div `
-  padding: 2em;
-  flex: 1 0 300px;
-
-  @media (min-width:768px) {
-    flex: 1 0 500px;
-  }
-`
-
 const SocialWrapper = styled.div `
-  width: 100%;
+  max-width: 1080px;
   margin: auto;
   margin-top: 1em;
   text-align: center;
 
   padding: 2em;
-`
-
-const PersonalWrapper = styled.div `
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  padding: 2em;
-`
-
-const PersonalLink = styled.div `
-  flex: 1 0 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 `
 
 const AboutPage = () => (
@@ -79,30 +32,21 @@ const AboutPage = () => (
       render={data =>
         <Layout hideAside={ true }>
           <SEO title="About Blake Adams" keywords={[`blake adams`, `software`, `software developer`, `technology`, `financial independence`, `entrepreneur`, `career`, `consultancy`, `blog`]} />
-          <Wrapper>
-            <Bio>
-              <HeadshotWrapper>
-                <Img fluid={data.headshotImage.childImageSharp.fluid} />
-              </HeadshotWrapper>
-              <BioWrapper>
-                <p dangerouslySetInnerHTML={{__html: data.site.siteMetadata.author.long_bio }}/>
-                <PersonalWrapper>
-                  <PersonalLink>
-                    <FaRegEnvelope size='2em'/>
-                    <p>blake (at) blakeadams.io</p>
-                  </PersonalLink>
-                  <PersonalLink>
-                    <a href="resume.pdf"><FaRegFileAlt size='2em'/></a>
-                    <a href="resume.pdf">Resume</a>
-                  </PersonalLink>
-                </PersonalWrapper>
-              </BioWrapper>
-            </Bio>
+          <BackgroundWrapper>
+            <Bio/>
+          </BackgroundWrapper>
+          <BackgroundWrapper color={ "#f0f8ff" }>
+            <Services/>
+          </BackgroundWrapper>
+          <BackgroundWrapper color={ "#f0f8ff" }>
+            <Resume/>
+          </BackgroundWrapper>
+          <BackgroundWrapper color={ "#f0f8ff" }>
             <SocialWrapper>
               <h3>You can follow me on:</h3>
               <Social socials={ data.site.siteMetadata.social }/>
             </SocialWrapper>
-          </Wrapper>
+          </BackgroundWrapper>
         </Layout>
   }/>
 )
