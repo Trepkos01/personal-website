@@ -37,13 +37,13 @@ There is a very clear separation in layers for the system with JavaScript and AJ
 
 The core functionality of the system is held in its ***modules*** which are directories structured in the following manner:
 
-- module directory 
--- '_javascript' directory for holding JS functionality scoped to that module only.
--- '_templates' directory for holding PHP or HTML template files scoped to this module only.
--- '_classes' directory for holding PHP classes scoped to this module only. 
--- The primary landing page PHP file for this module.
--- Any page generation PHP files that contain the business logic for this functionality of pages for this module.
--- Any PHP-based services scripts used by AJAX calls scoped to this module only.
+- module directory
+    - javascript directory for holding JS functionality scoped to that module only.
+    - templates directory for holding PHP or HTML template files scoped to this module only.
+    - classes directory for holding PHP classes scoped to this module only. 
+    - The primary landing page PHP file for this module.
+    - Any page generation PHP files that contain the business logic for this functionality of pages for this module.
+    - Any PHP-based services scripts used by AJAX calls scoped to this module only.
 
 Most of the pages' functionality is fairly straight-forward and could be easily substituted with another server-side language. Most of the pages are simple forms that follow a Post/Redirect/Get pattern and change templates based on the execution of the page.
 
@@ -52,22 +52,22 @@ Most of the pages' functionality is fairly straight-forward and could be easily 
 - A CSS directory responsible for holding all globally scoped CSS files. (There is a separate responsive CSS file)
 - An images directory which stores the globally scoped image files.
 - A JavaScript directory for system-wide JS files.
--- A Shared directory for intra-module JS files that are not system-wide.
+    - A Shared directory for intra-module JS files that are not system-wide.
 - A PHP directory for system-wide PHP files.
--- A classes directory for globally scoped PHP classes.
--- A functions directory for globally scoped PHP functions.
--- A services directory for globally scoped PHP services for dynamic content.
+    - A classes directory for globally scoped PHP classes.
+    - A functions directory for globally scoped PHP functions.
+    - A services directory for globally scoped PHP services for dynamic content.
 - A 'lib' directory for holding external proprietary libraries.
--- A directory for the JS libraries.
--- A directory for the PHP libraries.
+    - A directory for the JS libraries.
+    - A directory for the PHP libraries.
 - A 'Widgets' directory for storing the individual widget PHP files for the home page.
 - An 'Assets' directory for storing information that didn't fall into any other category. (i.e., PDF files)
 - A 'Modules' directory for the groups of modules, the key functionality of the system, whose structure is described above.
 - Files and templates responsible for the basic external functions and features such as the landing page, registration, logging in, logging out, the home page, and any globally scoped UI components.
 - A 'Page Components' directory that is responsible for storing the files for the components that structure every system's page.
---  A 'Footer Components' directory which stores the files responsible for loading the necessary footer content. (i.e., JS scripts and so forth)
--- A 'Header Components' directory which stores the files responsible for loading the head content. (i.e., styles).
--- Other page components include an external/internal header where the internal header has the responsibility of handling any header-prioritized functionality after a user logs in and starts a new PHP session (it is also responsible for security precautions), and a global header and global footer which imports the functionality present on in the header and footer of all system pages.
+    - A 'Footer Components' directory which stores the files responsible for loading the necessary footer content. (i.e., JS scripts and so forth)
+    - A 'Header Components' directory which stores the files responsible for loading the head content. (i.e., styles).
+    - Other page components include an external/internal header where the internal header has the responsibility of handling any header-prioritized functionality after a user logs in and starts a new PHP session (it is also responsible for security precautions), and a global header and global footer which imports the functionality present on in the header and footer of all system pages.
 
 My original plan during the design and development of the new system was to make it as plug-and-play adaptable as possible, keeping the core functionality and interface within a work space that could be inserted into any institution's existing theme or layout and the organization of the above page components was to ensure this ability.
 
