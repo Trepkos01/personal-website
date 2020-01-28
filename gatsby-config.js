@@ -26,10 +26,10 @@ module.exports = {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/stephen-adams-2a899ba5/"
       },
-      {
+      /*{
         name: "YouTube",
         url: "https://www.youtube.com/channel/UCPYOHE5lSkKs9N5eA6hDlfw"
-      },
+      },*/
       {
         name: "GitHub",
         url: "https://github.com/Trepkos01"
@@ -38,10 +38,10 @@ module.exports = {
         name: "Medium",
         url: "https://medium.com/@sbadams662"
       },
-      {
+      /*{
         name: "Keybase",
         url: "https://keybase.io/sbadams"
-      }
+      }*/
     ],
     socialShare: [
       {

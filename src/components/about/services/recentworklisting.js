@@ -50,7 +50,7 @@ const RecentWorkListing = ({ recentwork, color }) => (
             <Img fluid={ recentwork.node.frontmatter.featuredImage.childImageSharp.fluid }/>
         </RecentWorkThumbnail>
         <RecentWorkDescription>
-            <p><h3>{ recentwork.node.frontmatter.title }</h3></p>
+            <h3>{ recentwork.node.frontmatter.title }</h3>
             <p><small>{ recentwork.node.frontmatter.date }</small></p>
             <p dangerouslySetInnerHTML={{__html: recentwork.node.frontmatter.description }}/>
             <p><a href={ recentwork.node.frontmatter.liveUrl }>Check it Out Here</a></p>

@@ -48,8 +48,8 @@ const Bio = () => (
           <Img fluid={data.headshotImage.childImageSharp.fluid} />
           </HeadshotWrapper>
           <BioText>
-            <p dangerouslySetInnerHTML={{__html: data.site.siteMetadata.author.long_bio }} />
-            <p><a href="resume.pdf">View Resume</a></p>
+            <div dangerouslySetInnerHTML={{__html: data.site.siteMetadata.author.long_bio }} />
+            <p><a href="../resume.pdf">View Resume</a></p>
             <p><strong>Email me at: </strong>blake (at) blakeadams.io</p>
           </BioText>
       </BioWrapper>

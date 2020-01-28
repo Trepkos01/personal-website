@@ -15,8 +15,7 @@ const Resume = () => (
     <h3>Employment</h3>
     <ul>
       <li>
-        <p>
-          <strong>University of Mississippi</strong> - Systems Analyst III
+          <strong>Software Developer</strong> - University of Mississippi
           <br/><i><small>August 2015 - Current</small></i>
           <ul>
             <small>
@@ -29,11 +28,9 @@ const Resume = () => (
             <li>Spoke and provided answers to technical questions regarding the system at the 2016 AACTE and 2016 NCATE conferences.</li>
             </small>
           </ul>
-        </p>
       </li>
       <li>
-        <p>
-          <strong>Central Services Association</strong> - Web and Mobile Applications Developer
+          <strong>Web and Mobile Applications Developer</strong> - Central Service Association
           <br/><i><small>November 2014 - August 2015</small></i>
           <ul>
             <small>
@@ -41,18 +38,15 @@ const Resume = () => (
             <li>Developed an ​Android ​mobile application using the ​Java SDK​ for authenticated utility company customers to monitor usage,  costs, billing information, and simulate energy consumption</li>
             </small>
           </ul>
-        </p>
       </li>
     </ul>
     <h3>Education</h3>
     <ul>
       <li>
-        <p>
           <strong>M.S. in Computer and Information Science</strong>
           <br/><span>2014 - University of Mississippi</span>
           <br/><strong>GPA: </strong> 3.9 
           <br/><strong>Thesis: </strong> Exploration into the Performance of the Implicit Asymmetric D-ary Heap on Simulated HSA-based Architecture
-        </p>
       </li>
       <li>
         <strong>B.S. in Computer and Information Science</strong>
