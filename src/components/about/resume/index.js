@@ -14,11 +14,17 @@ const Resume = () => (
     <hr/>
     <h3>Employment</h3>
     <ul>
-      <li>
-          <strong>Software Developer</strong> - University of Mississippi
-          <br/><i><small>August 2015 - Current</small></i>
+    <li>
+          <h3>Software Developer</h3>The Vanguard Group
+          <br/><i><small>March 2020 - Current</small></i>
           <ul>
-            <small>
+            <li>Coming soon.</li>
+          </ul>
+      </li>
+      <li>
+          <h3>Software Developer</h3>University of Mississippi
+          <br/><i><small>August 2015 - March 2020</small></i>
+          <ul>
             <li>Project architect and sole software developer of the online electronic assessment system titled DREAM.</li>
             <li>Provided the back-end database schema and implementation consisting of ​151 ​tables, ​62 ​views, and ​27 ​stored  procedures/user defined functions.</li>
             <li>Developed a comprehensive automated testing suite for aforementioned system using both unit and integration tests  programmed in ​Python ​with ​Selenium ​bindings.</li>
@@ -26,17 +32,14 @@ const Resume = () => (
             <li>Developed the scripts responsible for the sanitization, migration, and restructuring of historical information from the  previous system to the newly developed system. </li>
             <li>Provided user documentation of the aforementioned system totaling to over ​307 ​pages demonstrating the functionality and  relevant instructions on how to navigate the system. </li>
             <li>Spoke and provided answers to technical questions regarding the system at the 2016 AACTE and 2016 NCATE conferences.</li>
-            </small>
           </ul>
       </li>
       <li>
-          <strong>Web and Mobile Applications Developer</strong> - Central Service Association
+          <h3>Web and Mobile Applications Developer</h3>Central Service Association
           <br/><i><small>November 2014 - August 2015</small></i>
           <ul>
-            <small>
             <li>Developed an online ​AngularJS ​timesheet/payroll management application for utility companies that utilized ​WCF ​web  services and a ​MS-SQL ​database system. </li>
             <li>Developed an ​Android ​mobile application using the ​Java SDK​ for authenticated utility company customers to monitor usage,  costs, billing information, and simulate energy consumption</li>
-            </small>
           </ul>
       </li>
     </ul>
