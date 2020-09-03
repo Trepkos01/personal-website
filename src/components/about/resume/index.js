@@ -15,14 +15,17 @@ const Resume = () => (
     <h3>Employment</h3>
     <ul>
     <li>
-          <h3>Software Developer</h3>The Vanguard Group
+          <strong>Software Developer</strong>
+          <br/>The Vanguard Group
           <br/><i><small>March 2020 - Current</small></i>
           <ul>
-            <li>Coming soon.</li>
+            <li>Acted as IT Security Liason for two software development teams.</li>
+            <li>Developed back-end Java webservices as well as front-end Angular UI functionality for new consumer advise products.</li>
           </ul>
       </li>
       <li>
-          <h3>Software Developer</h3>University of Mississippi
+          <strong>Software Developer</strong>
+          <br/>University of Mississippi
           <br/><i><small>August 2015 - March 2020</small></i>
           <ul>
             <li>Project architect and sole software developer of the online electronic assessment system titled DREAM.</li>
@@ -35,7 +38,8 @@ const Resume = () => (
           </ul>
       </li>
       <li>
-          <h3>Web and Mobile Applications Developer</h3>Central Service Association
+          <strong>Web and Mobile Applications Developer</strong>
+          <br/>Central Service Association
           <br/><i><small>November 2014 - August 2015</small></i>
           <ul>
             <li>Developed an online ​AngularJS ​timesheet/payroll management application for utility companies that utilized ​WCF ​web  services and a ​MS-SQL ​database system. </li>

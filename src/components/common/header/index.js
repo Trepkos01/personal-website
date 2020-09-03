@@ -83,7 +83,7 @@ const SideNav = styled.div `
   position: fixed;
   background-color: #336f99;
 
-  right: -200px;
+  right: -50px;
   top: 85px;
 
   display: none;
