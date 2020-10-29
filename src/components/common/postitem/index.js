@@ -51,7 +51,7 @@ const PostItem = ({ post, color }) => (
         <PostDescription>
             <p><strong>{ (post.node.frontmatter.series ? post.node.frontmatter.series + ": " + post.node.frontmatter.title : post.node.frontmatter.title) }</strong></p>
             <p><small>{ post.node.frontmatter.date }</small></p>
-            <p><Link to={ post.node.fields.slug }>Read More...</Link></p>
+            <p><Link to={ `/${post.node.fields.slug}` }>Read More...</Link></p>
         </PostDescription>
     </Post>
 )

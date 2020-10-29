@@ -143,7 +143,7 @@ export default ({ data }) => {
                     <PostProjectDescription>
                       <p><strong>This post is about the project, { data.project.frontmatter.title }</strong></p>
                       <p>{ data.project.frontmatter.description }</p>
-                      <p><Link to={ data.project.fields.slug }>Read More</Link></p>
+                      <p><Link to={ `/${data.project.fields.slug}` }>Read More</Link></p>
                     </PostProjectDescription>
                  </PostProject>)
     }

@@ -57,7 +57,7 @@ const ProjectCard = ({ project, color }) => (
             <p> { project.node.frontmatter.description } </p>
         </ProjectDescription>
         <ProjectLinks>
-            <p><Link to={ project.node.fields.slug }>Read More</Link></p>
+            <p><Link to={ `/${project.node.fields.slug}` }>Read More</Link></p>
             {((node) => {
                     if(node.node.frontmatter.liveUrl !== "")
                         return <p><a href={ node.node.frontmatter.liveUrl } >View Live</a></p>

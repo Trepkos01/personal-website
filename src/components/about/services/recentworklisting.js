@@ -56,7 +56,7 @@ const RecentWorkListing = ({ recentwork, color }) => (
             <p><a href={ recentwork.node.frontmatter.liveUrl }>Check it Out Here</a></p>
             {((node) => {
                     if(node.node.frontmatter.projectSlug !== "")
-                        return <p><Link to= { node.node.frontmatter.projectSlug }>Read more about it.</Link></p>
+                        return <p><Link to= { `/${node.node.frontmatter.projectSlug}` }>Read more about it.</Link></p>
             })(recentwork)}
         </RecentWorkDescription>
     </RecentWorkWrapper>

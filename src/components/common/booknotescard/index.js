@@ -48,7 +48,7 @@ const BooknotesCard = ({ booknotes, color }) => (
             <p><strong>{ booknotes.node.frontmatter.title }</strong></p>
             <p><small>{ booknotes.node.frontmatter.date }</small></p>
             <p>{ booknotes.node.frontmatter.description }</p>
-            <p><Link to={ booknotes.node.fields.slug }>Read the Highlights in { booknotes.node.timeToRead } Minutes</Link></p>
+            <p><Link to={ `/${booknotes.node.fields.slug}` }>Read the Highlights in { booknotes.node.timeToRead } Minutes</Link></p>
         </BooknotesDetails>
     </BooknoteWrapper>
 )

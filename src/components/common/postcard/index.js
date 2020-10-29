@@ -57,7 +57,7 @@ const PostCard = ({ post, color }) => (
             <p><strong> { (post.node.frontmatter.series ? post.node.frontmatter.series + ": " + post.node.frontmatter.title : post.node.frontmatter.title) } </strong></p>
             <p><small>{ post.node.frontmatter.date }</small></p>
             <p> { post.node.frontmatter.description } </p>
-            <p><Link to={ post.node.fields.slug }>Read More...</Link></p>
+            <p><Link to={ `/${post.node.fields.slug}` }>Read More...</Link></p>
             <p>{ post.node.frontmatter.tags.map((node, index) => (<PostTag key={ index }> { node } </PostTag>)) }</p>
         </PostCardExcerpt>
     </PostCardWrapper>
